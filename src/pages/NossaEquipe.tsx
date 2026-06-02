@@ -15,7 +15,7 @@ export default function NossaEquipe() {
     {
       name: 'Antonio Geraldes',
       role: 'Fundador Smart Company & Mentor de Gestão',
-      avatar: '/assets/Ola-sou-Antonio-Geraldes-copia-scaled.jpg',
+      avatar: '/assets/antonio-geraldes.png',
       initials: 'AG',
       gradient: 'from-amber-500 to-amber-700',
       qualifications: [
@@ -30,6 +30,7 @@ export default function NossaEquipe() {
     {
       name: 'Marina Nastari',
       role: 'Consultora de Gestão Financeira & Controladoria',
+      avatar: '/assets/marina-nastari.png',
       initials: 'MN',
       gradient: 'from-blue-600 to-cyan-500',
       qualifications: [
@@ -43,6 +44,7 @@ export default function NossaEquipe() {
     {
       name: 'Eudes Martins',
       role: 'Consultor de Finanças & Análise de Crédito',
+      avatar: '/assets/eudes-martins.png',
       initials: 'EM',
       gradient: 'from-indigo-600 to-blue-500',
       qualifications: [
@@ -56,6 +58,7 @@ export default function NossaEquipe() {
     {
       name: 'José Maria Paz',
       role: 'Consultor de Gestão Industrial & Supply Chain',
+      avatar: '/assets/jose-maria-paz.png',
       initials: 'JP',
       gradient: 'from-emerald-600 to-teal-500',
       qualifications: [
@@ -69,6 +72,7 @@ export default function NossaEquipe() {
     {
       name: 'Laercio Santos',
       role: 'Consultor de Governança de TI & Infraestrutura',
+      avatar: '/assets/laercio-santos.png',
       initials: 'LS',
       gradient: 'from-purple-600 to-indigo-500',
       qualifications: [
@@ -81,6 +85,7 @@ export default function NossaEquipe() {
     {
       name: 'Eliezer Fernandes',
       role: 'Consultor de Processos Industriais & PCP',
+      avatar: '/assets/eliezer-fernandes.png',
       initials: 'EF',
       gradient: 'from-teal-600 to-emerald-500',
       qualifications: [
@@ -93,6 +98,7 @@ export default function NossaEquipe() {
     {
       name: 'Jefferson Lara',
       role: 'Consultor de Clima Organizacional & Dinâmicas',
+      avatar: '/assets/jefferson-lara.png',
       initials: 'JL',
       gradient: 'from-rose-600 to-pink-500',
       qualifications: [
@@ -105,6 +111,7 @@ export default function NossaEquipe() {
     {
       name: 'Luana Segato',
       role: 'Consultora de Rotinas Comerciais & Inteligência de Vendas',
+      avatar: '/assets/luana-segato.jpg',
       initials: 'LS',
       gradient: 'from-orange-500 to-amber-500',
       qualifications: [
@@ -117,6 +124,7 @@ export default function NossaEquipe() {
     {
       name: 'Fátima Rizzo',
       role: 'Terapeuta Corporativa & Team Building',
+      avatar: '/assets/fatima-rizzo.png',
       initials: 'FR',
       gradient: 'from-pink-600 to-rose-500',
       qualifications: [
@@ -130,6 +138,7 @@ export default function NossaEquipe() {
     {
       name: 'Richard Portela',
       role: 'Consultor de Marketing Digital & Inbound Marketing',
+      avatar: '/assets/richard-portela.png',
       initials: 'RP',
       gradient: 'from-cyan-600 to-blue-500',
       qualifications: [
