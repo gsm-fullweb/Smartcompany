@@ -12,6 +12,7 @@ interface EBook {
   accentColor: string
   bullets: string[]
   downloadUrl?: string
+  image?: string
 }
 
 export default function Materiais() {
@@ -35,7 +36,8 @@ export default function Materiais() {
         'Como calcular taxas de conversão por etapa do funil.',
         'Estratégias para evitar gargalos e perdas no processo comercial.'
       ],
-      downloadUrl: '#'
+      downloadUrl: '#',
+      image: '/assets/Capa-Funil-de-negocios.png'
     },
     {
       id: 'metodo-cumbuca',
@@ -51,7 +53,8 @@ export default function Materiais() {
         'Engajamento ativo dos colaboradores na leitura de livros estratégicos.',
         'Construção de uma cultura de aprendizado contínuo dentro da empresa.'
       ],
-      downloadUrl: '#'
+      downloadUrl: '#',
+      image: '/assets/metodo-cumbuca.png'
     },
     {
       id: 'inteligencia-emocional',
@@ -67,7 +70,8 @@ export default function Materiais() {
         'Técnicas práticas para autocontrole sob estresse e pressão.',
         'Como motivar e engajar colaboradores em momentos de crise.'
       ],
-      downloadUrl: '#'
+      downloadUrl: '#',
+      image: '/assets/inteligencia-emocional.jpg'
     },
     {
       id: 'jeff-bezos',
@@ -83,7 +87,8 @@ export default function Materiais() {
         'Como delegar e acelerar a tomada de decisões na empresa.',
         'Técnicas de liderança focadas em foco absoluto no cliente.'
       ],
-      downloadUrl: '#'
+      downloadUrl: '#',
+      image: '/assets/ebook-amazon.png'
     },
     {
       id: 'gatilhos-mentais',
@@ -98,7 +103,8 @@ export default function Materiais() {
         'Estudo detalhado de 14 gatilhos mentais aplicados ao marketing online.',
         'Como gerar escassez, urgência e prova social para acelerar compras.',
         'Exemplos de roteiros de vendas com alta taxa de conversão.'
-      ]
+      ],
+      image: '/assets/gatilhos-mentais.png'
     }
   ]
 
@@ -149,19 +155,31 @@ export default function Materiais() {
               className="bg-[#091120] border border-white/5 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-gold-primary/20 transition-all duration-300 shadow-xl group"
             >
               {/* Cover Badge Illustration */}
-              <div className={`p-8 bg-gradient-to-br ${book.coverColor} relative h-60 flex flex-col justify-between`}>
-                <div className="absolute top-4 right-4 bg-primary-dark/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[10px] font-bold text-gold-primary uppercase tracking-wider">
+              <div className="relative h-64 overflow-hidden bg-slate-950 flex flex-col justify-between p-6">
+                {book.image ? (
+                  <>
+                    <img
+                      src={book.image}
+                      alt={book.title}
+                      className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/40 to-transparent"></div>
+                  </>
+                ) : (
+                  <div className={`absolute inset-0 bg-gradient-to-br ${book.coverColor}`}></div>
+                )}
+                <div className="absolute top-4 right-4 bg-primary-dark/85 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[10px] font-bold text-gold-primary uppercase tracking-wider z-10 shadow-lg">
                   {book.price}
                 </div>
-                <BookOpen className="w-10 h-10 text-white/40 group-hover:scale-105 transition-transform" />
-                <div className="space-y-1">
-                  <span className="text-[10px] text-white/70 uppercase tracking-widest font-semibold">
+                <BookOpen className="w-8 h-8 text-gold-primary relative z-10" />
+                <div className="space-y-1 relative z-10">
+                  <span className="text-[9px] text-gold-primary/80 uppercase tracking-widest font-semibold">
                     E-book Corporativo
                   </span>
-                  <h3 className="text-xl font-display font-extrabold text-white leading-tight">
+                  <h3 className="text-lg font-display font-extrabold text-white leading-tight">
                     {book.title}
                   </h3>
-                  <p className="text-xs text-white/80 font-medium italic">
+                  <p className="text-xs text-slate-300 font-medium italic">
                     {book.subtitle}
                   </p>
                 </div>

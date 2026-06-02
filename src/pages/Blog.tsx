@@ -9,6 +9,11 @@ export default function Blog() {
   const [currentPage, setCurrentPage] = useState(1)
   const postsPerPage = 9
 
+  const getFeaturedImage = (content: string) => {
+    const match = content.match(/<img[^>]+src="([^"]+)"/);
+    return match ? match[1] : '/assets/logo_fundo_escuro.png';
+  }
+
   const categories = ['Todos', 'Vendas & Comercial', 'Liderança & Equipes', 'Gestão Financeira', 'Estratégia & Planejamento', 'Gestão Empresarial']
 
   // Filter posts based on search query and category
@@ -100,47 +105,59 @@ export default function Blog() {
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {currentPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {currentPosts.map((post) => (
-              <div
-                key={post.id}
-                className="glass rounded-xl overflow-hidden border border-white/5 hover:border-gold-primary/15 transition-all duration-300 group flex flex-col justify-between"
-              >
-                <div className="p-6 space-y-4">
-                  <div className="flex items-center justify-between text-xs text-slate-500">
-                    <span className="font-bold text-gold-primary uppercase tracking-wider">
-                      {post.category}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5" />
-                      {post.readTime}
-                    </span>
+            {currentPosts.map((post) => {
+              const imageUrl = getFeaturedImage(post.content)
+              return (
+                <div
+                  key={post.id}
+                  className="glass rounded-xl overflow-hidden border border-white/5 hover:border-gold-primary/15 transition-all duration-300 group flex flex-col justify-between"
+                >
+                  <div className="relative h-48 w-full overflow-hidden bg-slate-950">
+                    <img
+                      src={imageUrl}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-1 bg-gold-primary/95 text-primary-dark rounded-md text-[10px] font-bold uppercase tracking-wider">
+                        {post.category}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6 space-y-4 flex-grow">
+                    <div className="flex items-center justify-between text-xs text-slate-500">
+                      <span className="flex items-center gap-1 font-semibold">
+                        <Clock className="w-3.5 h-3.5" />
+                        {post.readTime}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-display font-bold text-white group-hover:text-gold-primary transition-colors line-clamp-2 leading-snug">
+                      {post.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-slate-400 leading-relaxed line-clamp-3">
+                      {post.excerpt}
+                    </p>
                   </div>
 
-                  <h3 className="text-lg font-display font-bold text-white group-hover:text-gold-primary transition-colors line-clamp-2 leading-snug">
-                    {post.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed line-clamp-3">
-                    {post.excerpt}
-                  </p>
+                  <div className="px-6 pb-6 pt-4 border-t border-white/5 flex items-center justify-between">
+                    <span className="text-[10px] text-slate-500 font-semibold uppercase flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {formatDate(post.date)}
+                    </span>
+                    
+                    <Link
+                      to={`/blog/${post.slug}`}
+                      className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-white group-hover:text-gold-primary transition-colors"
+                    >
+                      <span>Ler Artigo</span>
+                      <ChevronRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
-
-                <div className="px-6 pb-6 pt-4 border-t border-white/5 flex items-center justify-between">
-                  <span className="text-[10px] text-slate-500 font-semibold uppercase flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {formatDate(post.date)}
-                  </span>
-                  
-                  <Link
-                    to={`/blog/${post.slug}`}
-                    className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-white group-hover:text-gold-primary transition-colors"
-                  >
-                    <span>Ler Artigo</span>
-                    <ChevronRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         ) : (
           <div className="text-center py-16 space-y-3">
