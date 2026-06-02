@@ -154,45 +154,50 @@ export default function Materiais() {
               key={book.id}
               className="bg-[#091120] border border-white/5 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-gold-primary/20 transition-all duration-300 shadow-xl group"
             >
-              {/* Cover Badge Illustration */}
-              <div className="relative h-64 overflow-hidden bg-slate-950 flex flex-col justify-between p-6">
-                {book.image ? (
-                  <>
-                    <img
-                      src={book.image}
-                      alt={book.title}
-                      className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/40 to-transparent"></div>
-                  </>
-                ) : (
-                  <div className={`absolute inset-0 bg-gradient-to-br ${book.coverColor}`}></div>
-                )}
+              {/* Cover Showcase Container */}
+              <div className="relative h-72 overflow-hidden bg-[#050b14] flex items-center justify-center p-6 border-b border-white/5">
                 <div className="absolute top-4 right-4 bg-primary-dark/85 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[10px] font-bold text-gold-primary uppercase tracking-wider z-10 shadow-lg">
                   {book.price}
                 </div>
-                <BookOpen className="w-8 h-8 text-gold-primary relative z-10" />
-                <div className="space-y-1 relative z-10">
-                  <span className="text-[9px] text-gold-primary/80 uppercase tracking-widest font-semibold">
-                    E-book Corporativo
-                  </span>
-                  <h3 className="text-lg font-display font-extrabold text-white leading-tight">
-                    {book.title}
-                  </h3>
-                  <p className="text-xs text-slate-300 font-medium italic">
-                    {book.subtitle}
-                  </p>
-                </div>
+                {book.image ? (
+                  <div className="relative w-40 h-56 shadow-[0_15px_30px_rgba(0,0,0,0.6)] rounded-md overflow-hidden transform group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-300">
+                    <img
+                      src={book.image}
+                      alt={book.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className={`w-40 h-56 rounded-md bg-gradient-to-br ${book.coverColor} flex flex-col justify-between p-4 shadow-lg`}>
+                    <BookOpen className="w-6 h-6 text-gold-primary" />
+                    <div className="space-y-1">
+                      <span className="text-[8px] text-gold-primary/80 uppercase font-semibold">E-book</span>
+                      <h4 className="text-xs font-bold text-white leading-tight line-clamp-3">{book.title}</h4>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Description & Action */}
-              <div className="p-6 space-y-6 flex-grow flex flex-col justify-between">
-                <div className="space-y-4">
-                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="space-y-1">
+                    <span className="text-[9px] text-gold-primary uppercase tracking-widest font-bold">
+                      E-book Corporativo
+                    </span>
+                    <h3 className="text-lg font-display font-extrabold text-white leading-tight group-hover:text-gold-primary transition-colors">
+                      {book.title}
+                    </h3>
+                    <p className="text-xs text-slate-400 font-medium italic">
+                      {book.subtitle}
+                    </p>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed line-clamp-3">
                     {book.description}
                   </p>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-2 pt-2">
                     <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest block">
                       Tópicos Abordados
                     </span>
