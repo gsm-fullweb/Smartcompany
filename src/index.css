@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-primary-dark text-slate-100 font-sans antialiased selection:bg-gold-primary selection:text-primary-dark;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-white;
+  }
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-primary-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent-blue/50 rounded-full hover:bg-gold-primary/50 transition-colors duration-300;
+}
+
+/* Glassmorphism utility */
+.glass {
+  @apply bg-secondary-dark/60 backdrop-blur-md border border-white/5;
+}
+
+.glass-gold {
+  @apply bg-secondary-dark/80 backdrop-blur-md border border-gold-primary/10;
+}
+
+/* Blog Content Typography formatting rules */
+.blog-content h2 {
+  @apply font-display text-2xl font-bold text-white mt-8 mb-4 border-b border-white/5 pb-2;
+}
+
+.blog-content h3 {
+  @apply font-display text-xl font-bold text-gold-primary mt-6 mb-3;
+}
+
+.blog-content h4 {
+  @apply font-display text-lg font-bold text-white mt-4 mb-2;
+}
+
+.blog-content p {
+  @apply text-slate-300 text-sm sm:text-base leading-relaxed mb-4 text-justify;
+}
+
+.blog-content ul {
+  @apply list-disc list-inside mb-4 pl-4 space-y-2;
+}
+
+.blog-content ol {
+  @apply list-decimal list-inside mb-4 pl-4 space-y-2;
+}
+
+.blog-content li {
+  @apply text-slate-300 text-sm sm:text-base;
+}
+
+.blog-content li h4 {
+  @apply inline-block mt-0 mb-1;
+}
+
+.blog-content strong {
+  @apply text-white font-bold;
+}
+
+.blog-content a {
+  @apply text-gold-primary hover:text-gold-light underline transition-colors;
+}
+
+.blog-content img {
+  @apply rounded-xl border border-white/10 my-6 max-w-full h-auto mx-auto shadow-lg;
+}
+
