@@ -57,8 +57,8 @@ export default function Contato() {
                 <div>
                   <h4 className="text-white font-display font-bold text-sm uppercase">WhatsApp Comercial</h4>
                   <p className="text-slate-400 text-sm mt-1">
-                    <a href="tel:+5511999999999" className="hover:text-gold-primary transition-colors">
-                      (11) 99999-9999
+                    <a href="https://api.whatsapp.com/send/?phone=5511993291892&text&type=phone_number&app_absent=0" target="_blank" rel="noreferrer" className="hover:text-gold-primary transition-colors">
+                      (11) 99329-1892
                     </a>
                   </p>
                 </div>

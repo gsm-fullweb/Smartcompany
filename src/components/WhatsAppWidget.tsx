@@ -1,9 +1,9 @@
 import { MessageCircle } from 'lucide-react'
 
 export default function WhatsAppWidget() {
-  const whatsappNumber = '5511999999999' // Placeholder for corporate number
+  const whatsappNumber = '5511993291892'
   const message = encodeURIComponent('Olá, gostaria de saber mais sobre as soluções de Gestão e Consultoria da Smart Company.')
-  const url = `https://wa.me/${whatsappNumber}?text=${message}`
+  const url = `https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${message}&type=phone_number&app_absent=0`
 
   return (
     <a
