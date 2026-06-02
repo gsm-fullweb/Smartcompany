@@ -47,24 +47,30 @@ function App() {
             
             {/* Consulting */}
             <Route path="/como-transformamos-empresas" element={<ComoTransformamos />} />
+            <Route path="/programas" element={<ComoTransformamos />} />
             
             {/* Institutional / About */}
             <Route path="/quem-somos" element={<QuemSomos />} />
             <Route path="/smart-company-consultoria" element={<QuemSomos />} />
+            <Route path="/fundador-e-mentor-antonio-geraldes" element={<QuemSomos />} />
+            <Route path="/nossa-trajetoria" element={<QuemSomos />} />
             <Route path="/nossa-equipe" element={<NossaEquipe />} />
             <Route path="/nossa-equipe-2" element={<NossaEquipe />} />
             
             {/* Courses / Programs */}
             <Route path="/auto-gestao-empresarial-para-donos-de-empresas" element={<AGExpert />} />
+            <Route path="/ag-expert-auto-gestao-para-o-crescimento-da-sua-empresa-mon" element={<AGExpert />} />
             <Route path="/curso-cia" element={<CursoCIA />} />
             <Route path="/imersao-omappa-da-empresa-lucrativa" element={<ImersaoOMAPPA />} />
             <Route path="/imersao-omappa-da-empresa-lucrativa-2" element={<ImersaoOMAPPA />} />
+            <Route path="/formacoes-online" element={<Home />} />
             
             {/* Valuation & M&A */}
             <Route path="/valuation-avaliacao-compra-e-venda-de-empresas" element={<Valuation />} />
             
             {/* Testimonials */}
             <Route path="/depoimentos" element={<Depoimentos />} />
+            <Route path="/consultoria-clientes" element={<Depoimentos />} />
             
             {/* Recommended Books & Movies */}
             <Route path="/recomendacoes" element={<Recomendacoes />} />
@@ -79,13 +85,20 @@ function App() {
             <Route path="/e-book-jeff-bezos" element={<Materiais />} />
             <Route path="/inteligencia-emocional" element={<Materiais />} />
             <Route path="/ebook-gatilhos-mentais-manual-completo" element={<Materiais />} />
+            <Route path="/estrategias-marketing-online-mon" element={<Materiais />} />
+            <Route path="/ebook-estrategias-de-marketing-online" element={<Materiais />} />
+            <Route path="/estrategias-de-marketing-online-eduzz" element={<Materiais />} />
+            <Route path="/pag-vendas-funil-de-conversao-e-vendas" element={<Materiais />} />
             
             {/* Blog Articles */}
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog-o-caminho-para-o-sucesso" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             
             {/* Contact */}
             <Route path="/contato" element={<Contato />} />
+            <Route path="/formulario-programas-smart" element={<Contato />} />
+            <Route path="/gestao" element={<Home />} />
 
             {/* Fallback Catch-All */}
             <Route path="*" element={<Home />} />
