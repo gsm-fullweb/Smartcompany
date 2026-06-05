@@ -1,9 +1,16 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ShieldCheck, Target, TrendingUp, DollarSign, Award, ChevronRight, Check, Flame, BookOpen, Newspaper, Zap } from 'lucide-react'
 import AssessmentQuiz from '../components/AssessmentQuiz'
-import { blogPosts } from '../data/posts'
+import { fetchPosts, type CmsPost } from '../lib/cmsApi'
 
 export default function Home() {
+  const [recentPosts, setRecentPosts] = useState<CmsPost[]>([])
+  useEffect(() => {
+    fetchPosts({ limit: 3 })
+      .then((r) => setRecentPosts(r.posts))
+      .catch(() => {})
+  }, [])
   const journeys = [
     {
       title: 'DIAGNÓSTICO COMPLETO + IMPLANTAÇÕES',
@@ -64,8 +71,7 @@ export default function Home() {
     }
   ]
 
-  // Pega os 3 posts mais recentes para o preview do blog
-  const recentPosts = blogPosts.slice(0, 3)
+  // recentPosts fetched dynamically from CMS (see useEffect above)
 
   const ebooks = [
     {
@@ -614,7 +620,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="mt-4 flex items-center justify-between text-[10px] text-slate-500 font-semibold uppercase">
-                  <span>{post.date}</span>
+                  <span>{new Date(post.publishedAt).toLocaleDateString('pt-BR')}</span>
                   <span className="inline-flex items-center text-gold-primary group-hover:translate-x-1 transition-transform">
                     Ler mais <ChevronRight className="w-3.5 h-3.5 ml-0.5" />
                   </span>
