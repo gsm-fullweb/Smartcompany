@@ -215,7 +215,7 @@ export default function Dashboard() {
   const [postFormData, setPostFormData] = useState({
     title: '',
     slug: '',
-    category: 'GestÃ£o Empresarial',
+    category: 'Gestão Empresarial',
     excerpt: '',
     body: '',
     read_time: '5 min de leitura',
@@ -227,9 +227,9 @@ export default function Dashboard() {
 
   // Visual Page Builder Live States
   const defaultHero = {
-    title: 'QUEM SOMOS & PROPÃ“SITO',
-    content: 'Mais de 20 anos de atuaÃ§Ã£o dedicados a entregar lucro, organizaÃ§Ã£o operacional e tranquilidade de tempo para empresÃ¡rios de todo o Brasil.',
-    badge: 'Institucional & HistÃ³ria'
+    title: 'QUEM SOMOS & PROPÓSITO',
+    content: 'Mais de 20 anos de atuação dedicados a entregar lucro, organização operacional e tranquilidade de tempo para empresários de todo o Brasil.',
+    badge: 'Institucional & História'
   }
 
   const defaultMvv = {
@@ -242,8 +242,8 @@ export default function Dashboard() {
 
   const defaultValues = [
     {
-      title: 'TransparÃªncia e Ã‰tica',
-      desc: 'TransparÃªncia total e Ã©tica inabalÃ¡vel na conduÃ§Ã£o de todos os diagnÃ³sticos e planos de reestruturaÃ§Ã£o.'
+      title: 'Transparência e Ética',
+      desc: 'Transparência total e ética inabalável na condução de todos os diagnósticos e planos de reestruturação.'
     },
     {
       title: 'Profissionalismo & Resultados',
@@ -251,78 +251,78 @@ export default function Dashboard() {
     },
     {
       title: 'Atitude Empreendedora',
-      desc: 'Atitude positiva, responsÃ¡vel, autossuficiente e resiliente diante de desafios do mercado.'
+      desc: 'Atitude positiva, responsável, autossuficiente e resiliente diante de desafios do mercado.'
     },
     {
       title: 'Respeito e Sinceridade',
-      desc: 'RelaÃ§Ãµes de respeito mÃºtuo, sinceridade em diagnÃ³sticos e gentileza no tratamento com os times.'
+      desc: 'Relações de respeito mútuo, sinceridade em diagnósticos e gentileza no tratamento com os times.'
     }
   ]
 
   const defaultFounder = {
     founder_name: 'Antonio Geraldes',
-    founder_title: 'Especialista em DiagnÃ³stico & M&A',
+    founder_title: 'Especialista em Diagnóstico & M&A',
     image_url: '/assets/Ola-sou-Antonio-Geraldes-copia-scaled.jpg',
-    quote: 'ExcelÃªncia em EstratÃ©gia e GestÃ£o Eficiente Ã© o conjunto de Resultados Positivos que melhoram constantemente: Lucro, Qualidade, Vendas Crescentes, Prazos de Entrega e o posicionamento de mercado.',
-    experience_summary: 'Mais de 30 anos como empresÃ¡rio investidor. Fundou 6 negÃ³cios nos ramos de indÃºstria, comÃ©rcio, serviÃ§os e consultoria de reestruturaÃ§Ã£o.',
-    biography: 'Abri meu primeiro CNPJ aos 18 anos em 1989. Obtive experiÃªncias importantes nas multinacionais Fuji Film e Kodak, e na sequÃªncia atuei na agÃªncia publicitÃ¡ria Photo Art Studio atendendo contas industriais de renome nacional.\n\nEm 1994, fundei a Express Center CÃ³pias, a maior grÃ¡fica rÃ¡pida do Alto TietÃª, alcanÃ§ando picos mensais de 860.000 impressÃµes. Posteriormente, atuei como comerciante no varejo de shopping e hipermercados (Balinhas & BalÃµes, Marcia Modas), adquirindo expertise direta nas operaÃ§Ãµes e desafios comerciais.\n\nEm 2001, decidi registrar a Smart Company para focar no design e manufatura de cubas de quartzo e resinas polimerizadas. ApÃ³s alcanÃ§ar sucesso na mÃ­dia nacional com destaque na revista Arquitetura & ConstruÃ§Ã£o, a empresa pivotou a manufatura para focar exclusivamente no setor de Consultoria de GestÃ£o e Business Plan a partir de 2004.\n\nNa dÃ©cada de 2000, fui convidado a integrar uma grande consultoria, realizando dezenas de diagnÃ³sticos e reestruturaÃ§Ãµes em empresas com faturamentos anuais de atÃ© R$ 250 milhÃµes. Paralelamente, agreguei conhecimentos de M&A, formataÃ§Ã£o de holdings e estruturaÃ§Ã£o de franquias em uma prestigiada Boutique JurÃ­dica em SÃ£o Paulo.'
+    quote: 'Excelência em Estratégia e Gestão Eficiente é o conjunto de Resultados Positivos que melhoram constantemente: Lucro, Qualidade, Vendas Crescentes, Prazos de Entrega e o posicionamento de mercado.',
+    experience_summary: 'Mais de 30 anos como empresário investidor. Fundou 6 negócios nos ramos de indústria, comércio, serviços e consultoria de reestruturação.',
+    biography: 'Abri meu primeiro CNPJ aos 18 anos em 1989. Obtive experiências importantes nas multinacionais Fuji Film e Kodak, e na sequência atuei na agência publicitária Photo Art Studio atendendo contas industriais de renome nacional.\n\nEm 1994, fundei a Express Center Cópias, a maior gráfica rápida do Alto Tietê, alcançando picos mensais de 860.000 impressões. Posteriormente, atuei como comerciante no varejo de shopping e hipermercados (Balinhas & Balões, Marcia Modas), adquirindo expertise direta nas operações e desafios comerciais.\n\nEm 2001, decidi registrar a Smart Company para focar no design e manufatura de cubas de quartzo e resinas polimerizadas. Após alcançar sucesso na mídia nacional com destaque na revista Arquitetura & Construção, a empresa pivotou a manufatura para focar exclusivamente no setor de Consultoria de Gestão e Business Plan a partir de 2004.\n\nNa década de 2000, fui convidado a integrar uma grande consultoria, realizando dezenas de diagnósticos e reestruturações em empresas com faturamentos anuais de até R$ 250 milhões. Paralelamente, agreguei conhecimentos de M&A, formatação de holdings e estruturação de franquias em uma prestigiada Boutique Jurídica em São Paulo.'
   }
 
   const defaultTimeline = [
     {
       year: '2001',
-      title: 'Nascemos como FÃ¡brica',
-      desc: 'Abertura do CNPJ Smart Company. Start Up focada em projetar e fabricar cubas especiais de quartzo e resinas polimerizadas com tecnologia inÃ©dita no Brasil, instalando peÃ§as lindas em residÃªncias de alto padrÃ£o (TamborÃ© e Alphaville).'
+      title: 'Nascemos como Fábrica',
+      desc: 'Abertura do CNPJ Smart Company. Start Up focada em projetar e fabricar cubas especiais de quartzo e resinas polimerizadas com tecnologia inédita no Brasil, instalando peças lindas em residências de alto padrão (Tamboré e Alphaville).'
     },
     {
       year: '2003',
-      title: 'Foco e TransiÃ§Ã£o',
-      desc: 'ApÃ³s mudanÃ§as do mercado e sucesso de destaque na mÃ­dia (matÃ©ria de 1/2 pÃ¡gina na revista Arquitetura & ConstruÃ§Ã£o), decidimos colocar a produÃ§Ã£o em stand-by e direcionar a expertise para consultoria e planejamento.'
+      title: 'Foco e Transição',
+      desc: 'Após mudanças do mercado e sucesso de destaque na mídia (matéria de 1/2 página na revista Arquitetura & Construção), decidimos colocar a produção em stand-by e direcionar a expertise para consultoria e planejamento.'
     },
     {
       year: '2004',
-      title: 'Consultoria de EstratÃ©gia',
-      desc: 'InÃ­cio oficial da prestaÃ§Ã£o de serviÃ§os de Consultoria em EstratÃ©gia, GestÃ£o e Planos de NegÃ³cios (Business Plan), atuando diretamente na recuperaÃ§Ã£o e aceitaÃ§Ã£o operacional de parceiros.'
+      title: 'Consultoria de Estratégia',
+      desc: 'Início oficial da prestação de serviços de Consultoria em Estratégia, Gestão e Planos de Negócios (Business Plan), atuando diretamente na recuperação e aceitação operacional de parceiros.'
     },
     {
       year: '2006',
-      title: 'Boutique JurÃ­dica',
-      desc: 'AfiliaÃ§Ã£o a uma Boutique JurÃ­dica em SÃ£o Paulo com foco em FusÃµes & AquisiÃ§Ãµes (M&A), reorganizaÃ§Ãµes societÃ¡rias complexas, blindagem patrimonial e holding.'
+      title: 'Boutique Jurídica',
+      desc: 'Afiliação a uma Boutique Jurídica em São Paulo com foco em Fusões & Aquisições (M&A), reorganizações societárias complexas, blindagem patrimonial e holding.'
     },
     {
       year: '2007',
-      title: 'FormataÃ§Ã£o de Franquias',
-      desc: 'EstruturaÃ§Ã£o de know-how e expansÃ£o de mercado com foco em formataÃ§Ã£o tÃ©cnica de redes de franquias de diversos segmentos.'
+      title: 'Formatação de Franquias',
+      desc: 'Estruturação de know-how e expansão de mercado com foco em formatação técnica de redes de franquias de diversos segmentos.'
     },
     {
       year: '2011',
       title: 'Projeto Amazzone',
-      desc: 'Desenvolvimento do plano de negÃ³cios (Business Plan) para a Amazzone CosmÃ©ticos, projetando atraÃ§Ã£o internacional de investimentos.'
+      desc: 'Desenvolvimento do plano de negócios (Business Plan) para a Amazzone Cosméticos, projetando atração internacional de investimentos.'
     },
     {
       year: '2012',
       title: 'Registro de Marca & CIESP',
-      desc: 'Registro formal da logomarca Smart Company no INPI e afiliaÃ§Ã£o oficial ao CIESP para estreitar laÃ§os com o ecossistema industrial.'
+      desc: 'Registro formal da logomarca Smart Company no INPI e afiliação oficial ao CIESP para estreitar laços com o ecossistema industrial.'
     },
     {
       year: '2018',
       title: 'Smart On-Line',
-      desc: 'InÃ­cio do planejamento da plataforma Smart On-Line, viabilizando consultorias Ã  distÃ¢ncia e treinamentos digitais escalÃ¡veis.'
+      desc: 'Início do planejamento da plataforma Smart On-Line, viabilizando consultorias Ã  distância e treinamentos digitais escaláveis.'
     },
     {
       year: '2019',
       title: 'Maioridade & Check Up',
-      desc: 'A Smart Company completa 18 anos de histÃ³ria e lanÃ§a o "Check Up Empresas" â€” o primeiro diagnÃ³stico empresarial 100% estruturado de forma online.'
+      desc: 'A Smart Company completa 18 anos de história e lança o "Check Up Empresas" â€” o primeiro diagnóstico empresarial 100% estruturado de forma online.'
     },
     {
       year: '2020',
-      title: 'LanÃ§amento de Info-Produtos',
-      desc: 'LanÃ§amento nacional das formaÃ§Ãµes proprietÃ¡rias online: Curso AG Expert (Auto GestÃ£o para SÃ³cios) e Curso C.I.A. (Comercial Inteligente e Ativo).'
+      title: 'Lançamento de Info-Produtos',
+      desc: 'Lançamento nacional das formações proprietárias online: Curso AG Expert (Auto Gestão para Sócios) e Curso C.I.A. (Comercial Inteligente e Ativo).'
     },
     {
       year: '2023',
-      title: 'Auto DiagnÃ³stico',
-      desc: 'ImplantaÃ§Ã£o do TermÃ´metro e Auto DiagnÃ³stico interativo de 5 pilares com a meta de liderar as ferramentas de performance orientativa no Brasil.'
+      title: 'Auto Diagnóstico',
+      desc: 'Implantação do Termômetro e Auto Diagnóstico interativo de 5 pilares com a meta de liderar as ferramentas de performance orientativa no Brasil.'
     }
   ]
 
@@ -358,18 +358,18 @@ export default function Dashboard() {
 
   // Pages List Definition (Friendly names for business users)
   const pagesList = [
-    { id: 'home', name: 'PÃ¡gina Inicial', path: '/' },
-    { id: 'nossa-trajetoria', name: 'Nossa TrajetÃ³ria', path: '/nossa-trajetoria' },
+    { id: 'home', name: 'Página Inicial', path: '/' },
+    { id: 'nossa-trajetoria', name: 'Nossa Trajetória', path: '/nossa-trajetoria' },
     { id: 'quem-somos', name: 'Quem Somos', path: '/quem-somos' },
-    { id: 'ag-expert', name: 'Auto GestÃ£o Empresarial (AG Expert)', path: '/auto-gestao-empresarial-para-donos-de-empresas' },
+    { id: 'ag-expert', name: 'Auto Gestão Empresarial (AG Expert)', path: '/auto-gestao-empresarial-para-donos-de-empresas' },
     { id: 'como-transformamos', name: 'Como Transformamos Empresas', path: '/como-transformamos-empresas' },
     { id: 'curso-cia', name: 'Comercial Inteligente e Ativo (CIA)', path: '/curso-cia' },
-    { id: 'valuation', name: 'AvaliaÃ§Ã£o de Empresas (Valuation)', path: '/valuation-avaliacao-compra-e-venda-de-empresas' },
+    { id: 'valuation', name: 'Avaliação de Empresas (Valuation)', path: '/valuation-avaliacao-compra-e-venda-de-empresas' },
     { id: 'depoimentos', name: 'Depoimentos de Clientes', path: '/depoimentos' },
     { id: 'contato', name: 'Fale Conosco', path: '/contato' },
-    { id: 'recomendacoes', name: 'RecomendaÃ§Ãµes de ConteÃºdo', path: '/recomendacoes' },
+    { id: 'recomendacoes', name: 'Recomendações de Conteúdo', path: '/recomendacoes' },
     { id: 'nossa-equipe', name: 'Nossa Equipe', path: '/nossa-equipe' },
-    { id: 'imersao-omappa', name: 'ImersÃ£o OMAPPA', path: '/imersao-omappa-da-empresa-lucrativa' },
+    { id: 'imersao-omappa', name: 'Imersão OMAPPA', path: '/imersao-omappa-da-empresa-lucrativa' },
     { id: 'materiais', name: 'Materiais Educativos', path: '/materiais' }
   ] as const
 
@@ -377,68 +377,68 @@ export default function Dashboard() {
 
   // Multi-page Builder Default values
   const defaultHomeHero = {
-    badge: 'LideranÃ§a, Lucratividade e Autonomia',
+    badge: 'Liderança, Lucratividade e Autonomia',
     title: 'TRANSFORME JÃ SEU LUCRO, VENDAS, PRODUTIVIDADE E EQUIPE.',
-    content: 'Consultoria e gestÃ£o personalizadas, gerando resultados excepcionais para EmpresÃ¡rios e Gestores que buscam crescimento sÃ³lido e liberdade de tempo.'
+    content: 'Consultoria e gestão personalizadas, gerando resultados excepcionais para Empresários e Gestores que buscam crescimento sólido e liberdade de tempo.'
   }
   const defaultHomeReasons = [
-    { title: 'Aumentamos as Vendas', desc: 'Nosso formato de GestÃ£o Comercial, jÃ¡ testado e comprovado em diversos segmentos, garante aumentar as vendas da sua empresa. Portanto, com GestÃ£o DiÃ¡ria, semanal e mensal, contribuindo para o atingimento das Metas. Assim, vocÃª terÃ¡ resultados positivos.' },
-    { title: 'Geramos Caixa', desc: 'Usamos um conjunto de ferramentas para melhorar seu caixa; consequentemente, atravÃ©s da GestÃ£o do estoque, ReduÃ§Ã£o de custo, Alavancagem de vendas e Controle de despesas. Sobrar dinheiro na sua empresa Ã© sempre um desafio que gostamos de enfrentar.' },
-    { title: 'Empresa Lucrativa com GestÃ£o de forma simples e prÃ¡tica', desc: 'Nosso atendimento personalizado, portanto, com as melhores prÃ¡ticas de gestÃ£o, torna sua rotina mais fÃ¡cil e permite que vocÃª entenda os dados da sua empresa para tomar decisÃµes assertivas e lucrar mais!' }
+    { title: 'Aumentamos as Vendas', desc: 'Nosso formato de Gestão Comercial, já testado e comprovado em diversos segmentos, garante aumentar as vendas da sua empresa. Portanto, com Gestão Diária, semanal e mensal, contribuindo para o atingimento das Metas. Assim, você terá resultados positivos.' },
+    { title: 'Geramos Caixa', desc: 'Usamos um conjunto de ferramentas para melhorar seu caixa; consequentemente, através da Gestão do estoque, Redução de custo, Alavancagem de vendas e Controle de despesas. Sobrar dinheiro na sua empresa é sempre um desafio que gostamos de enfrentar.' },
+    { title: 'Empresa Lucrativa com Gestão de forma simples e prática', desc: 'Nosso atendimento personalizado, portanto, com as melhores práticas de gestão, torna sua rotina mais fácil e permite que você entenda os dados da sua empresa para tomar decisões assertivas e lucrar mais!' }
   ]
 
   const defaultAgHero = {
-    badge: 'Auto GestÃ£o Empresarial (10 a 500 colaboradores)',
-    title: '+ LUCRO - INCÃŠNDIO com Plano de 22 dias',
-    content: 'Sua empresa NÃƒO pode depender totalmente de vocÃª. Obtenha mais resultados, menos problemas operacionais, mais organizaÃ§Ã£o e tempo livre para a famÃ­lia.'
+    badge: 'Auto Gestão Empresarial (10 a 500 colaboradores)',
+    title: '+ LUCRO - INCÊNDIO com Plano de 22 dias',
+    content: 'Sua empresa NÃƒO pode depender totalmente de você. Obtenha mais resultados, menos problemas operacionais, mais organização e tempo livre para a família.'
   }
   const defaultAgFaqs = [
-    { q: 'Para quem Ã© recomendado este programa?', a: 'Ã‰ ideal para donos de empresas que faturam e tÃªm acima de 5 colaboradores. Serve tanto para comÃ©rcio, quanto para serviÃ§os e indÃºstrias que buscam autonomia.' },
-    { q: 'Como funciona o acesso?', a: 'O curso Ã© 100% online via plataforma Hotmart (ambiente de alta seguranÃ§a). Logo apÃ³s a aprovaÃ§Ã£o da compra, o link de acesso com vÃ­deo-aulas e apostilas Ã© enviado no seu e-mail.' },
-    { q: 'Por quanto tempo tenho acesso ao curso?', a: 'O acesso Ã© garantido por 1 ano completo. VocÃª pode assistir Ã s 45 video-aulas e fazer downloads das matrizes e planilhas quantas vezes quiser no seu ritmo.' },
-    { q: 'E se eu tiver dÃºvidas durante a implementaÃ§Ã£o?', a: 'VocÃª poderÃ¡ enviar e-mails diretamente para o nosso suporte tÃ©cnico em suporte@smartcompany.com.br para tirar dÃºvidas sobre ferramentas.' }
+    { q: 'Para quem é recomendado este programa?', a: 'É ideal para donos de empresas que faturam e têm acima de 5 colaboradores. Serve tanto para comércio, quanto para serviços e indústrias que buscam autonomia.' },
+    { q: 'Como funciona o acesso?', a: 'O curso é 100% online via plataforma Hotmart (ambiente de alta segurança). Logo após a aprovação da compra, o link de acesso com vídeo-aulas e apostilas é enviado no seu e-mail.' },
+    { q: 'Por quanto tempo tenho acesso ao curso?', a: 'O acesso é garantido por 1 ano completo. Você pode assistir Ã s 45 video-aulas e fazer downloads das matrizes e planilhas quantas vezes quiser no seu ritmo.' },
+    { q: 'E se eu tiver dúvidas durante a implementação?', a: 'Você poderá enviar e-mails diretamente para o nosso suporte técnico em suporte@smartcompany.com.br para tirar dúvidas sobre ferramentas.' }
   ]
 
   const defaultCtHero = {
     badge: 'Metodologia Taylor-Made',
     title: 'Como Transformamos Empresas?',
     subtitle: 'Diagnosticamos â€¢ Planejamos â€¢ Executamos',
-    content: 'Amamos o que fazemos! A nossa consultoria e gestÃ£o sÃ£o personalizadas para a realidade do seu negÃ³cio, identificando gargalos e construindo soluÃ§Ãµes com payback real.'
+    content: 'Amamos o que fazemos! A nossa consultoria e gestão são personalizadas para a realidade do seu negócio, identificando gargalos e construindo soluções com payback real.'
   }
   const defaultCtStats = [
-    { number: '70+', label: 'DiagnÃ³sticos Realizados' },
+    { number: '70+', label: 'Diagnósticos Realizados' },
     { number: '100%', label: 'Clientes Satisfeitos' },
-    { number: '95%', label: 'ConversÃ£o em Projeto' },
+    { number: '95%', label: 'Conversão em Projeto' },
     { number: '100%', label: 'Entregues no Prazo e Custo' }
   ]
   const defaultCtFaqs = [
-    { q: 'Quanto tempo leva para realizar um DiagnÃ³stico?', a: 'Em mÃ©dia leva de 3 a 4 semanas, podendo variar conforme a complexidade operacional da empresa e a velocidade de disponibilizaÃ§Ã£o de dados pelo cliente.' },
-    { q: 'O diagnÃ³stico atrapalha a rotina da empresa?', a: 'NÃ£o, de forma alguma. Por jÃ¡ termos realizado este procedimento mais de 70 vezes, aprimoramos o cronograma de coletas e entrevistas de modo que seja executado de forma fluida sem paralisar a rotina.' },
-    { q: 'Em quanto tempo deve ser realizada a Fase 2 (ImplantaÃ§Ã£o)?', a: 'Depende diretamente das carÃªncias e prioridades detectadas na Fase de DiagnÃ³stico. Pode levar desde poucos meses para ajustes focados, atÃ© pouco mais de 1 ano para reestruturaÃ§Ãµes totais.' },
-    { q: 'Qual serÃ¡ o valor investido?', a: 'O valor Ã© ponderado conforme o perfil dos consultores seniores alocados e a carga horÃ¡ria de dedicaÃ§Ã£o exigida. Tomamos o cuidado de desenhar propostas viÃ¡veis, ajustadas Ã  realidade financeira da empresa.' },
-    { q: 'O projeto se paga? HÃ¡ payback?', a: 'Sim. Durante a apresentaÃ§Ã£o do laudo do DiagnÃ³stico, apresentamos o cÃ¡lculo do Payback projetado (relaÃ§Ã£o entre honorÃ¡rios e o retorno financeiro gerado em atÃ© 24 meses pelas melhorias implatadas).' }
+    { q: 'Quanto tempo leva para realizar um Diagnóstico?', a: 'Em média leva de 3 a 4 semanas, podendo variar conforme a complexidade operacional da empresa e a velocidade de disponibilização de dados pelo cliente.' },
+    { q: 'O diagnóstico atrapalha a rotina da empresa?', a: 'Não, de forma alguma. Por já termos realizado este procedimento mais de 70 vezes, aprimoramos o cronograma de coletas e entrevistas de modo que seja executado de forma fluida sem paralisar a rotina.' },
+    { q: 'Em quanto tempo deve ser realizada a Fase 2 (Implantação)?', a: 'Depende diretamente das carências e prioridades detectadas na Fase de Diagnóstico. Pode levar desde poucos meses para ajustes focados, até pouco mais de 1 ano para reestruturações totais.' },
+    { q: 'Qual será o valor investido?', a: 'O valor é ponderado conforme o perfil dos consultores seniores alocados e a carga horária de dedicação exigida. Tomamos o cuidado de desenhar propostas viáveis, ajustadas Ã  realidade financeira da empresa.' },
+    { q: 'O projeto se paga? Há payback?', a: 'Sim. Durante a apresentação do laudo do Diagnóstico, apresentamos o cálculo do Payback projetado (relação entre honorários e o retorno financeiro gerado em até 24 meses pelas melhorias implatadas).' }
   ]
 
   const defaultCiaHero = {
     badge: 'Comercial Inteligente e Ativo',
     title: 'Alavanque as vendas estruturando seu Comercial',
-    content: 'Venda de forma inteligente e com margem real. Descubra como estruturar sua forÃ§a de vendas de ponta a ponta e bater metas mesmo em mercados competitivos.'
+    content: 'Venda de forma inteligente e com margem real. Descubra como estruturar sua força de vendas de ponta a ponta e bater metas mesmo em mercados competitivos.'
   }
   const defaultCiaFaqs = [
-    { q: 'Para quem Ã© recomendado o Programa CIA?', a: 'Ã‰ indicado para gestores de vendas, diretores comerciais, empresÃ¡rios e lÃ­deres de equipes que atuam no segmento de indÃºstria, comÃ©rcio ou prestaÃ§Ã£o de serviÃ§os.' },
-    { q: 'O curso Ã© gravado?', a: 'Sim, as 11 video-aulas sÃ£o totalmente gravadas e de carÃ¡ter brutalmente prÃ¡tico. VocÃª pode assistir no computador, celular ou tablet de onde quiser e aplicar na hora.' },
-    { q: 'Qual o formato do material didÃ¡tico?', a: 'AlÃ©m das aulas, vocÃª recebe apostilas de apoio didÃ¡tico em PDF para leitura ou impressÃ£o, e modelos prÃ¡ticos de matrizes de vendas em Excel.' },
-    { q: 'Como funciona o reembolso?', a: 'O curso oferece 15 dias de garantia incondicional. Se por qualquer motivo vocÃª nÃ£o gostar das tÃ¡ticas, basta solicitar o estorno e devolveremos 100% do seu dinheiro.' }
+    { q: 'Para quem é recomendado o Programa CIA?', a: 'É indicado para gestores de vendas, diretores comerciais, empresários e líderes de equipes que atuam no segmento de indústria, comércio ou prestação de serviços.' },
+    { q: 'O curso é gravado?', a: 'Sim, as 11 video-aulas são totalmente gravadas e de caráter brutalmente prático. Você pode assistir no computador, celular ou tablet de onde quiser e aplicar na hora.' },
+    { q: 'Qual o formato do material didático?', a: 'Além das aulas, você recebe apostilas de apoio didático em PDF para leitura ou impressão, e modelos práticos de matrizes de vendas em Excel.' },
+    { q: 'Como funciona o reembolso?', a: 'O curso oferece 15 dias de garantia incondicional. Se por qualquer motivo você não gostar das táticas, basta solicitar o estorno e devolveremos 100% do seu dinheiro.' }
   ]
 
   const defaultOtherHeros: Record<string, any> = {
-    'valuation': { badge: 'FusÃµes, AquisiÃ§Ãµes & Valuation', title: 'VOCÃŠ SABE QUANTO VALE SUA EMPRESA?', content: 'AvaliaÃ§Ã£o, compra e venda de empresas Ã© um assunto tÃ©cnico e sÃ©rio. ConcluÃ­mos o valor de mercado (Valuation) atravÃ©s de metodologias consagradas como Fluxo de Caixa Descontado (FCF) e mÃºltiplos de EBITDA.' },
-    'depoimentos': { badge: 'Depoimentos & Casos', title: 'O que dizem os nossos clientes', content: 'HistÃ³rias reais de empresÃ¡rios e gestores que alcanÃ§aram a Auto GestÃ£o e transformaram seus lucros.' },
-    'contato': { badge: 'Fale Conosco', title: 'Entre em contato com nossa equipe', content: 'Tire suas dÃºvidas ou agende uma reuniÃ£o para iniciarmos a reestruturaÃ§Ã£o da sua empresa.' },
-    'recomendacoes': { badge: 'RecomendaÃ§Ãµes PrÃ¡ticas', title: 'Livros e Filmes Recomendados', content: 'IndicaÃ§Ãµes de leitura e conteÃºdo de alta qualidade selecionados por Antonio Geraldes para o seu crescimento.' },
-    'nossa-equipe': { badge: 'Time de Especialistas', title: 'Nossa Equipe Corporativa', content: 'Profissionais experientes prontos para atuar na reestruturaÃ§Ã£o e no crescimento do seu negÃ³cio.' },
-    'imersao-omappa': { badge: 'ImersÃ£o Presencial', title: 'ImersÃ£o OMAPPA da Empresa Lucrativa', content: 'Treinamento intensivo presencial para desenhar o plano de crescimento financeiro e comercial do seu negÃ³cio.' },
-    'materiais': { badge: 'Materiais Educativos', title: 'Baixe Nossos Ebooks de GestÃ£o', content: 'ConteÃºdos cortesia e e-books prÃ¡ticos criados para alavancar a performance do seu negÃ³cio imediatamente.' }
+    'valuation': { badge: 'Fusões, Aquisições & Valuation', title: 'VOCÊ SABE QUANTO VALE SUA EMPRESA?', content: 'Avaliação, compra e venda de empresas é um assunto técnico e sério. Concluímos o valor de mercado (Valuation) através de metodologias consagradas como Fluxo de Caixa Descontado (FCF) e múltiplos de EBITDA.' },
+    'depoimentos': { badge: 'Depoimentos & Casos', title: 'O que dizem os nossos clientes', content: 'Histórias reais de empresários e gestores que alcançaram a Auto Gestão e transformaram seus lucros.' },
+    'contato': { badge: 'Fale Conosco', title: 'Entre em contato com nossa equipe', content: 'Tire suas dúvidas ou agende uma reunião para iniciarmos a reestruturação da sua empresa.' },
+    'recomendacoes': { badge: 'Recomendações Práticas', title: 'Livros e Filmes Recomendados', content: 'Indicações de leitura e conteúdo de alta qualidade selecionados por Antonio Geraldes para o seu crescimento.' },
+    'nossa-equipe': { badge: 'Time de Especialistas', title: 'Nossa Equipe Corporativa', content: 'Profissionais experientes prontos para atuar na reestruturação e no crescimento do seu negócio.' },
+    'imersao-omappa': { badge: 'Imersão Presencial', title: 'Imersão OMAPPA da Empresa Lucrativa', content: 'Treinamento intensivo presencial para desenhar o plano de crescimento financeiro e comercial do seu negócio.' },
+    'materiais': { badge: 'Materiais Educativos', title: 'Baixe Nossos Ebooks de Gestão', content: 'Conteúdos cortesia e e-books práticos criados para alavancar a performance do seu negócio imediatamente.' }
   }
 
   const defaultTeamMembers = [
@@ -959,15 +959,15 @@ const handleLiveListMetaChange = (section: 'values' | 'timeline' | 'reasons' | '
 const addLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'faqs' | 'stats' | 'cia-faqs' | 'clients') => {
     setIsDirty(true)
     if (section === 'values') {
-      setLiveValuesList(prev => [...prev, { title: 'Novo Valor', desc: 'DescriÃ§Ã£o do valor corporativo...' }])
+      setLiveValuesList(prev => [...prev, { title: 'Novo Valor', desc: 'Descrição do valor corporativo...' }])
     } else if (section === 'timeline') {
-      setLiveTimelineEvents(prev => [...prev, { year: '2026', title: 'Novo Evento', desc: 'DescriÃ§Ã£o do marco histÃ³rico...' }])
+      setLiveTimelineEvents(prev => [...prev, { year: '2026', title: 'Novo Evento', desc: 'Descrição do marco histórico...' }])
     } else if (section === 'reasons') {
-      setLiveHomeReasons(prev => [...prev, { title: 'Nova RazÃ£o', desc: 'DescriÃ§Ã£o da razÃ£o...' }])
+      setLiveHomeReasons(prev => [...prev, { title: 'Nova Razão', desc: 'Descrição da razão...' }])
     } else if (section === 'faqs') {
       setLiveAgFaqs(prev => [...prev, { q: 'Nova Pergunta?', a: 'Nova resposta...' }])
     } else if (section === 'stats') {
-      setLiveCtStats(prev => [...prev, { number: '100%', label: 'Nova EstatÃ­stica' }])
+      setLiveCtStats(prev => [...prev, { number: '100%', label: 'Nova Estatística' }])
     } else if (section === 'cia-faqs') {
       setLiveCiaFaqs(prev => [...prev, { q: 'Nova Pergunta?', a: 'Nova resposta...' }])
     } else if (section === 'clients') {
@@ -1011,7 +1011,7 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
   }
 */
 
-  // Sincronizar dados buscados com os estados de visualizaÃ§Ã£o/ediÃ§Ã£o ao vivo
+  // Sincronizar dados buscados com os estados de visualização/edição ao vivo
   useEffect(() => {
     // Reset defaults first
     let updatedHero = defaultHero
@@ -1210,7 +1210,7 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
   const [chatMessages, setChatMessages] = useState<any[]>([
     {
       role: 'assistant',
-      content: 'OlÃ¡! Sou o seu Assistente IA para o site Smart Company. Posso te ajudar a gerenciar seus artigos de blog, visualizar seus contatos ou atualizar o texto e imagens das pÃ¡ginas do seu site. O que gostaria de fazer hoje?'
+      content: 'Olá! Sou o seu Assistente IA para o site Smart Company. Posso te ajudar a gerenciar seus artigos de blog, visualizar seus contatos ou atualizar o texto e imagens das páginas do seu site. O que gostaria de fazer hoje?'
     }
   ])
   const [inputMessage, setInputMessage] = useState('')
@@ -1307,7 +1307,7 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
       if (error) throw error
       setSections(dbSections || [])
     } catch (err) {
-      console.error('Erro ao buscar seÃ§Ãµes:', err)
+      console.error('Erro ao buscar seções:', err)
     }
   }
 
@@ -1330,7 +1330,7 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
             updated_at: new Date().toISOString()
           }, { onConflict: 'site_slug,section_key' })
         if (error) throw error
-        executionResult = { message: 'SeÃ§Ã£o atualizada com sucesso', data }
+        executionResult = { message: 'Seção atualizada com sucesso', data }
       } else if (req.action === 'update_contact' || req.action === 'update_contacts') {
         const { data, error } = await supabase
           .from('site_contacts')
@@ -1353,7 +1353,7 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
             title: payload.title,
             body: payload.body,
             slug: payload.slug || generateSlug(payload.title),
-            category: payload.category || 'GestÃ£o Empresarial',
+            category: payload.category || 'Gestão Empresarial',
             status: payload.status || 'published',
             published_at: new Date().toISOString(),
             created_at: new Date().toISOString()
@@ -1374,7 +1374,7 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
         } else if (payload.slug) {
           query = query.eq('slug', payload.slug)
         } else {
-          throw new Error('Identificador do post nÃ£o fornecido no payload (id ou slug)')
+          throw new Error('Identificador do post não fornecido no payload (id ou slug)')
         }
 
         const { data, error } = await query
@@ -1393,9 +1393,9 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
           })
           .eq('slug', req.site_slug)
         if (error) throw error
-        executionResult = { message: 'ConfiguraÃ§Ãµes do site atualizadas com sucesso', data }
+        executionResult = { message: 'Configurações do site atualizadas com sucesso', data }
       } else {
-        executionResult = { message: `AÃ§Ã£o '${req.action}' nÃ£o possui execuÃ§Ã£o automatizada mapeada no admin, mas foi marcada como aprovada.` }
+        executionResult = { message: `Ação '${req.action}' não possui execução automatizada mapeada no admin, mas foi marcada como aprovada.` }
       }
 
       // Update the change request status
@@ -1421,19 +1421,19 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
         change_request_id: req.id
       }])
 
-      alert('SolicitaÃ§Ã£o aprovada e executada com sucesso!')
+      alert('Solicitação aprovada e executada com sucesso!')
       fetchData()
       fetchSections()
     } catch (err: any) {
-      console.error('Erro ao aprovar solicitaÃ§Ã£o:', err)
-      alert(`Erro ao aprovar solicitaÃ§Ã£o: ${err.message}`)
+      console.error('Erro ao aprovar solicitação:', err)
+      alert(`Erro ao aprovar solicitação: ${err.message}`)
     } finally {
       setActionLoading(false)
     }
   }
 
   const handleRejectRequest = async (req: any) => {
-    if (!window.confirm('Deseja realmente rejeitar esta solicitaÃ§Ã£o?')) return
+    if (!window.confirm('Deseja realmente rejeitar esta solicitação?')) return
     setActionLoading(true)
     try {
       const { error: reqError } = await supabase
@@ -1456,11 +1456,11 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
         change_request_id: req.id
       }])
 
-      alert('SolicitaÃ§Ã£o rejeitada com sucesso!')
+      alert('Solicitação rejeitada com sucesso!')
       fetchData()
     } catch (err: any) {
-      console.error('Erro ao rejeitar solicitaÃ§Ã£o:', err)
-      alert(`Erro ao rejeitar solicitaÃ§Ã£o: ${err.message}`)
+      console.error('Erro ao rejeitar solicitação:', err)
+      alert(`Erro ao rejeitar solicitação: ${err.message}`)
     } finally {
       setActionLoading(false)
     }
@@ -1532,10 +1532,10 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
         }, { onConflict: 'slug' })
 
       if (error) throw error
-      alert('ConfiguraÃ§Ãµes do site salvas com sucesso!')
+      alert('Configurações do site salvas com sucesso!')
       fetchData()
     } catch (err: any) {
-      alert(`Erro ao salvar configuraÃ§Ãµes do site: ${err.message}`)
+      alert(`Erro ao salvar configurações do site: ${err.message}`)
     } finally {
       setActionLoading(false)
     }
@@ -1576,7 +1576,7 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
     setPostFormData({
       title: '',
       slug: '',
-      category: 'GestÃ£o Empresarial',
+      category: 'Gestão Empresarial',
       excerpt: '',
       body: '',
       read_time: '5 min de leitura',
@@ -1592,7 +1592,7 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
     setPostFormData({
       title: post.title || '',
       slug: post.slug || '',
-      category: post.category || 'GestÃ£o Empresarial',
+      category: post.category || 'Gestão Empresarial',
       excerpt: post.excerpt || '',
       body: post.body || '',
       read_time: post.read_time || '5 min de leitura',
@@ -1761,7 +1761,7 @@ const setSimplePageImage = (url: string) => {
       case 'home':
         return [
           { key: 'hero', label: 'Hero' },
-          { key: 'reasons', label: 'RazÃµes' }
+          { key: 'reasons', label: 'Razões' }
         ]
       case 'quem-somos':
         return [
@@ -1808,7 +1808,7 @@ const setSimplePageImage = (url: string) => {
     // Stale local React states in Dashboard are not used, so we do not send preview updates anymore.
   }
 
-  // Sincronizar alteraÃ§Ãµes locais com o iframe em tempo real
+  // Sincronizar alterações locais com o iframe em tempo real
   useEffect(() => {
     sendPreviewUpdate()
     const t = setTimeout(sendPreviewUpdate, 200)
@@ -1879,7 +1879,7 @@ const handleSaveDraft = () => {
   // Discard local drafts and reload published DB content
   /* COMMENTED UNUSED:
 const handleDiscardDraft = () => {
-    if (!window.confirm("Deseja realmente descartar todas as alteraÃ§Ãµes em rascunho e restaurar a versÃ£o publicada do site?")) return
+    if (!window.confirm("Deseja realmente descartar todas as alterações em rascunho e restaurar a versão publicada do site?")) return
     localStorage.removeItem(`smartcompany_draft_${currentSlug}`)
     setIsDirty(false)
     fetchSections()
@@ -1924,7 +1924,7 @@ const handleSaveAllPagesToDatabase = async () => {
     const { error: qsMvvErr } = await supabase.from('site_sections').upsert({
       site_slug: currentSlug,
       section_key: 'quemsomos_mvv',
-      title: 'MissÃ£o, VisÃ£o e PropÃ³sito',
+      title: 'Missão, Visão e Propósito',
       content: '',
       metadata: {
         mission: liveMvv.mission,
@@ -1940,8 +1940,8 @@ const handleSaveAllPagesToDatabase = async () => {
     const { error: qsValErr } = await supabase.from('site_sections').upsert({
       site_slug: currentSlug,
       section_key: 'quemsomos_values',
-      title: 'Nossos Valores InegociÃ¡veis',
-      content: 'Nossa conduta diÃ¡ria Ã© ditada por princÃ­pios...',
+      title: 'Nossos Valores Inegociáveis',
+      content: 'Nossa conduta diária é ditada por princípios...',
       metadata: { values: liveValuesList },
       updated_at: new Date().toISOString()
     }, { onConflict: 'site_slug,section_key' })
@@ -1950,7 +1950,7 @@ const handleSaveAllPagesToDatabase = async () => {
     const { error: qsFounderErr } = await supabase.from('site_sections').upsert({
       site_slug: currentSlug,
       section_key: 'quemsomos_founder',
-      title: 'TrajetÃ³ria do Fundador',
+      title: 'Trajetória do Fundador',
       content: liveFounder.biography,
       metadata: {
         founder_name: liveFounder.founder_name,
@@ -1967,7 +1967,7 @@ const handleSaveAllPagesToDatabase = async () => {
       site_slug: currentSlug,
       section_key: 'quemsomos_timeline',
       title: 'Nossa Linha do Tempo',
-      content: 'Acompanhe a trajetÃ³ria de marcos histÃ³ricos...',
+      content: 'Acompanhe a trajetória de marcos históricos...',
       metadata: { events: liveTimelineEvents },
       updated_at: new Date().toISOString()
     }, { onConflict: 'site_slug,section_key' })
@@ -2018,7 +2018,7 @@ const handleSaveAllPagesToDatabase = async () => {
     const { error: ctStatsErr } = await supabase.from('site_sections').upsert({
       site_slug: currentSlug,
       section_key: 'comotransformamos_stats',
-      title: 'EstatÃ­sticas de Sucesso',
+      title: 'Estatísticas de Sucesso',
       content: '',
       metadata: { stats: liveCtStats },
       updated_at: new Date().toISOString()
@@ -2170,7 +2170,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
           messages: [
             {
               role: 'system',
-              content: 'VocÃª Ã© um redator publicitÃ¡rio de elite especializado em copy para sites corporativos premium de consultoria, valuation e gestÃ£o de negÃ³cios. Seu objetivo Ã© aprimorar o texto fornecido pelo usuÃ¡rio, tornando-o mais impactante, persuasivo, profissional e atraente para empresÃ¡rios. Mantenha o idioma em portuguÃªs do Brasil. Retorne APENAS o texto aprimorado final, sem aspas, explicaÃ§Ãµes ou introduÃ§Ãµes.'
+              content: 'Você é um redator publicitário de elite especializado em copy para sites corporativos premium de consultoria, valuation e gestão de negócios. Seu objetivo é aprimorar o texto fornecido pelo usuário, tornando-o mais impactante, persuasivo, profissional e atraente para empresários. Mantenha o idioma em português do Brasil. Retorne APENAS o texto aprimorado final, sem aspas, explicações ou introduções.'
             },
             {
               role: 'user',
@@ -2198,7 +2198,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
 
   // --- AI ASSISTANT METHODS (Function Calling/gpt-5-mini with fallback) ---
   const runAITool = async (name: string, args: any) => {
-    console.log(`AI executando aÃ§Ã£o: ${name}`, args)
+    console.log(`AI executando ação: ${name}`, args)
     
     switch (name) {
       case 'get_blog_posts': {
@@ -2212,7 +2212,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
           site_slug: currentSlug,
           title: args.title,
           slug: args.slug || generateSlug(args.title),
-          category: args.category || 'GestÃ£o Empresarial',
+          category: args.category || 'Gestão Empresarial',
           body: args.body,
           read_time: args.read_time || '5 min de leitura',
           excerpt: args.excerpt || '',
@@ -2242,7 +2242,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
         const { error } = await supabase.from('posts').delete().eq('id', args.id).eq('site_slug', currentSlug)
         if (error) throw error
         await fetchData()
-        return { success: true, message: `Post ID ${args.id} excluÃ­do.` }
+        return { success: true, message: `Post ID ${args.id} excluído.` }
       }
       case 'get_site_sections': {
         const { data } = await supabase.from('site_sections').select('*').eq('site_slug', currentSlug)
@@ -2259,14 +2259,14 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
         }, { onConflict: 'site_slug,section_key' })
         if (error) throw error
         await fetchSections()
-        return { success: true, message: `SeÃ§Ã£o "${args.section_key}" atualizada no banco de dados.` }
+        return { success: true, message: `Seção "${args.section_key}" atualizada no banco de dados.` }
       }
       case 'get_leads': {
         const { data } = await supabase.from('leads').select('*').eq('site_slug', currentSlug)
         return data || []
       }
       default:
-        throw new Error(`AÃ§Ã£o nÃ£o suportada: ${name}`)
+        throw new Error(`Ação não suportada: ${name}`)
     }
   }
 
@@ -2286,7 +2286,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
         ...prev,
         {
           role: 'assistant',
-          content: 'âš ï¸ Chave OpenAI ausente no arquivo .env do seu projeto. Por favor, adicione VITE_OPENAI_API_KEY no arquivo .env para ativar a inteligÃªncia do Assistente.'
+          content: 'âš ï¸ Chave OpenAI ausente no arquivo .env do seu projeto. Por favor, adicione VITE_OPENAI_API_KEY no arquivo .env para ativar a inteligência do Assistente.'
         }
       ])
       setAiLoading(false)
@@ -2310,12 +2310,12 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
           parameters: {
             type: 'object',
             properties: {
-              title: { type: 'string', description: 'TÃ­tulo do post' },
-              slug: { type: 'string', description: 'URL amigÃ¡vel opcional (gerada do tÃ­tulo se vazia)' },
-              category: { type: 'string', enum: ['Vendas & Comercial', 'LideranÃ§a & Equipes', 'GestÃ£o Financeira', 'EstratÃ©gia & Planejamento', 'GestÃ£o Empresarial'] },
+              title: { type: 'string', description: 'Título do post' },
+              slug: { type: 'string', description: 'URL amigável opcional (gerada do título se vazia)' },
+              category: { type: 'string', enum: ['Vendas & Comercial', 'Liderança & Equipes', 'Gestão Financeira', 'Estratégia & Planejamento', 'Gestão Empresarial'] },
               read_time: { type: 'string', description: 'Tempo estimado de leitura (ex: "5 min de leitura")' },
-              excerpt: { type: 'string', description: 'Breve resumo de introduÃ§Ã£o' },
-              body: { type: 'string', description: 'ConteÃºdo em texto/HTML do artigo' },
+              excerpt: { type: 'string', description: 'Breve resumo de introdução' },
+              body: { type: 'string', description: 'Conteúdo em texto/HTML do artigo' },
               status: { type: 'string', enum: ['draft', 'published'], description: 'Estado: draft para rascunho, published para publicar' }
             },
             required: ['title', 'body']
@@ -2330,7 +2330,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
           parameters: {
             type: 'object',
             properties: {
-              id: { type: 'number', description: 'ID numÃ©rico do post' },
+              id: { type: 'number', description: 'ID numérico do post' },
               title: { type: 'string' },
               slug: { type: 'string' },
               category: { type: 'string' },
@@ -2361,20 +2361,20 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
         type: 'function',
         function: {
           name: 'get_site_sections',
-          description: 'Lista todas as seÃ§Ãµes dinÃ¢micas de pÃ¡ginas do site (Hero, MissÃ£o, Valores, Linha do Tempo).'
+          description: 'Lista todas as seções dinâmicas de páginas do site (Hero, Missão, Valores, Linha do Tempo).'
         }
       },
       {
         type: 'function',
         function: {
           name: 'update_site_section',
-          description: 'Atualiza o texto, tÃ­tulo ou metadata de uma seÃ§Ã£o especÃ­fica da pÃ¡gina.',
+          description: 'Atualiza o texto, título ou metadata de uma seção específica da página.',
           parameters: {
             type: 'object',
             properties: {
-              section_key: { type: 'string', description: 'Chave da seÃ§Ã£o: quemsomos_hero, quemsomos_mvv, quemsomos_values, quemsomos_founder, quemsomos_timeline' },
-              title: { type: 'string', description: 'TÃ­tulo da seÃ§Ã£o' },
-              content: { type: 'string', description: 'ConteÃºdo textual principal da seÃ§Ã£o (ex: biografia do fundador)' },
+              section_key: { type: 'string', description: 'Chave da seção: quemsomos_hero, quemsomos_mvv, quemsomos_values, quemsomos_founder, quemsomos_timeline' },
+              title: { type: 'string', description: 'Título da seção' },
+              content: { type: 'string', description: 'Conteúdo textual principal da seção (ex: biografia do fundador)' },
               metadata: { 
                 type: 'object', 
                 description: 'Metadados JSON estruturados. Hero: {badge}. MVV: {mission, vision, purpose_o_que, purpose_como, purpose_por_que}. Values: {values: [{title, desc}]}. Founder: {founder_name, founder_title, image_url, quote, experience_summary}. Timeline: {events: [{year, title, desc}]}' 
@@ -2388,7 +2388,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
         type: 'function',
         function: {
           name: 'get_leads',
-          description: 'Lista todas as mensagens de contatos recebidas pelo formulÃ¡rio.'
+          description: 'Lista todas as mensagens de contatos recebidas pelo formulário.'
         }
       }
     ]
@@ -2406,7 +2406,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
           messages: [
             {
               role: 'system',
-              content: 'VocÃª Ã© o Assistente Administrativo Inteligente do site Smart Company. VocÃª tem acesso a ferramentas para listar/criar/editar/excluir artigos do blog, ler mensagens e atualizar o conteÃºdo de seÃ§Ãµes da pÃ¡gina institucional (Quem Somos). Sempre que alterar o banco com sucesso, confirme ao usuÃ¡rio de forma amigÃ¡vel.'
+              content: 'Você é o Assistente Administrativo Inteligente do site Smart Company. Você tem acesso a ferramentas para listar/criar/editar/excluir artigos do blog, ler mensagens e atualizar o conteúdo de seções da página institucional (Quem Somos). Sempre que alterar o banco com sucesso, confirme ao usuário de forma amigável.'
             },
             ...history.map(m => ({ role: m.role, content: m.content, tool_calls: m.tool_calls, name: m.name, tool_call_id: m.tool_call_id }))
           ],
@@ -2482,7 +2482,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
       }
 
       if (attempts >= maxAttempts) {
-        setChatMessages(prev => [...prev, { role: 'assistant', content: 'Desculpe, a operaÃ§Ã£o exigiu muitos passos e foi interrompida para sua seguranÃ§a.' }])
+        setChatMessages(prev => [...prev, { role: 'assistant', content: 'Desculpe, a operação exigiu muitos passos e foi interrompida para sua segurança.' }])
       }
 
     } catch (err: any) {
@@ -2491,7 +2491,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
         ...prev,
         {
           role: 'assistant',
-          content: `âŒ Ocorreu um erro no assistente IA: ${err.message}. Verifique a conexÃ£o ou sua chave OpenAI.`
+          content: `âŒ Ocorreu um erro no assistente IA: ${err.message}. Verifique a conexão ou sua chave OpenAI.`
         }
       ])
     } finally {
@@ -2543,10 +2543,10 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                   ? 'bg-gold-primary text-primary-dark shadow-lg shadow-gold-primary/10'
                   : 'text-slate-400 hover:text-white hover:bg-white/5'
               }`}
-              title="VisÃ£o Geral"
+              title="Visão Geral"
             >
               <LayoutDashboard className="w-4.5 h-4.5 flex-shrink-0" />
-              {!isSidebarCollapsed && <span className="truncate">VisÃ£o Geral</span>}
+              {!isSidebarCollapsed && <span className="truncate">Visão Geral</span>}
             </button>
 
             <button
@@ -2588,10 +2588,10 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                   ? 'bg-gold-primary text-primary-dark shadow-lg shadow-gold-primary/10'
                   : 'text-slate-400 hover:text-white hover:bg-white/5'
               }`}
-              title="ConfiguraÃ§Ãµes"
+              title="Configurações"
             >
               <Settings className="w-4.5 h-4.5 flex-shrink-0" />
-              {!isSidebarCollapsed && <span className="truncate">ConfiguraÃ§Ãµes</span>}
+              {!isSidebarCollapsed && <span className="truncate">Configurações</span>}
             </button>
           </nav>
         </div>
@@ -2632,12 +2632,12 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
         <header className="h-24 border-b border-white/5 px-8 flex items-center justify-between">
           <div className="space-y-1">
             <h1 className="text-xl font-display font-extrabold uppercase text-white tracking-wider">
-              {activeTab === 'overview' && 'VisÃ£o Geral'}
-              {activeTab === 'change_requests' && 'SolicitaÃ§Ãµes WhatsApp'}
+              {activeTab === 'overview' && 'Visão Geral'}
+              {activeTab === 'change_requests' && 'Solicitações WhatsApp'}
               {activeTab === 'leads' && 'Leads / Mensagens'}
               {activeTab === 'pages' && 'Meu Site'}
               {activeTab === 'ai_assistant' && 'Central IA (Conversar com o Site)'}
-              {activeTab === 'settings' && 'ConfiguraÃ§Ãµes'}
+              {activeTab === 'settings' && 'Configurações'}
             </h1>
           </div>
           
@@ -2648,7 +2648,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/5 hover:bg-white/10 text-slate-300 hover:text-white rounded-lg text-xs font-bold uppercase tracking-wider transition-colors"
             >
-              <span>Ver Site PÃºblico</span>
+              <span>Ver Site Público</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -2730,7 +2730,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                       <div className="flex justify-between items-center border-b border-white/5 pb-3">
                         <h3 className="text-sm font-display font-bold text-white uppercase tracking-wider flex items-center gap-2">
                           <FileText className="w-4 h-4 text-gold-primary" />
-                          <span>Ãšltimos Artigos</span>
+                          <span>Últimos Artigos</span>
                           <span>Últimos Artigos</span>
                         </h3>
                         <button onClick={() => { setActiveTab('pages'); setMySiteSubTab('blog'); }} className="text-[10px] text-gold-primary hover:text-gold-light font-bold uppercase tracking-wider">Gerenciar</button>
@@ -2896,12 +2896,12 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                         <table className="w-full text-left border-collapse">
                           <thead>
                             <tr className="bg-secondary-dark/60 border-b border-white/5 text-[10px] text-slate-500 font-bold uppercase tracking-wider">
-                              <th className="px-6 py-4">TÃ­tulo</th>
+                              <th className="px-6 py-4">Título</th>
                               <th className="px-6 py-4">Categoria</th>
                               <th className="px-6 py-4">Leitura</th>
                               <th className="px-6 py-4">Status</th>
-                              <th className="px-6 py-4">Data de PublicaÃ§Ã£o</th>
-                              <th className="px-6 py-4 text-right">AÃ§Ãµes</th>
+                              <th className="px-6 py-4">Data de Publicação</th>
+                              <th className="px-6 py-4 text-right">Ações</th>
                             </tr>
                           </thead>
                           <tbody className="divide-y divide-white/5 text-xs">
@@ -2959,7 +2959,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                         <th className="px-6 py-4">Telefone</th>
                         <th className="px-6 py-4">Mensagem</th>
                         <th className="px-6 py-4">Enviado em</th>
-                        <th className="px-6 py-4 text-right">AÃ§Ãµes</th>
+                        <th className="px-6 py-4 text-right">Ações</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-white/5 text-xs">
@@ -3004,18 +3004,18 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                           <Bot className="w-8 h-8 animate-pulse" />
                         </div>
                         <div className="space-y-2">
-                          <h2 className="text-xl font-display font-extrabold text-white uppercase tracking-wider">Site, o que vocÃª deseja fazer hoje?</h2>
+                          <h2 className="text-xl font-display font-extrabold text-white uppercase tracking-wider">Site, o que você deseja fazer hoje?</h2>
                           <p className="text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
-                            VocÃª pode conversar diretamente com o seu site para alterar textos, adicionar posts no blog, gerenciar contatos ou configurar o domÃ­nio.
+                            Você pode conversar diretamente com o seu site para alterar textos, adicionar posts no blog, gerenciar contatos ou configurar o domínio.
                           </p>
                         </div>
                         
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 text-left">
                           {[
-                            { text: "Adicione depoimentos de clientes na PÃ¡gina Inicial", prompt: "Adicione uma seÃ§Ã£o de depoimentos na PÃ¡gina Inicial com depoimentos reais de clientes elogiando a consultoria de Antonio Geraldes." },
-                            { text: "Atualize o telefone de contato do rodapÃ©", prompt: "Troque o telefone de contato nas configuraÃ§Ãµes e rodapÃ© do site para o nÃºmero (11) 99999-8888." },
-                            { text: "Crie um post sobre Planejamento EstratÃ©gico", prompt: "Escreva um novo artigo para o blog com o tÃ­tulo 'Planejamento EstratÃ©gico para 2026: O Guia Definitivo para MÃ©dias Empresas'." },
-                            { text: "Deixe a apresentaÃ§Ã£o principal mais corporativa", prompt: "Refine o texto da apresentaÃ§Ã£o principal da PÃ¡gina Inicial para tornÃ¡-lo mais sÃ©rio, corporativo e focado em lucro operacional." }
+                            { text: "Adicione depoimentos de clientes na Página Inicial", prompt: "Adicione uma seção de depoimentos na Página Inicial com depoimentos reais de clientes elogiando a consultoria de Antonio Geraldes." },
+                            { text: "Atualize o telefone de contato do rodapé", prompt: "Troque o telefone de contato nas configurações e rodapé do site para o número (11) 99999-8888." },
+                            { text: "Crie um post sobre Planejamento Estratégico", prompt: "Escreva um novo artigo para o blog com o título 'Planejamento Estratégico para 2026: O Guia Definitivo para Médias Empresas'." },
+                            { text: "Deixe a apresentação principal mais corporativa", prompt: "Refine o texto da apresentação principal da Página Inicial para torná-lo mais sério, corporativo e focado em lucro operacional." }
                           ].map((s, idx) => (
                             <button
                               key={idx}
@@ -3067,7 +3067,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                           <Bot className="w-4.5 h-4.5" />
                         </div>
                         <div className="bg-[#091120] text-slate-400 border border-white/5 p-4 rounded-xl text-xs flex items-center gap-2 shadow-md">
-                          <span>IA estÃ¡ processando e executando alteraÃ§Ãµes...</span>
+                          <span>IA está processando e executando alterações...</span>
                           <Loader2 className="w-4 h-4 text-gold-primary animate-spin" />
                         </div>
                       </div>
@@ -3083,7 +3083,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                       required
                       value={inputMessage}
                       onChange={(e) => setInputMessage(e.target.value)}
-                      placeholder="Descreva a alteraÃ§Ã£o que deseja fazer no site (ex: 'Altere o tÃ­tulo da pÃ¡gina inicial para...' ou 'Escreva um artigo de blog sobre valuation'...)"
+                      placeholder="Descreva a alteração que deseja fazer no site (ex: 'Altere o título da página inicial para...' ou 'Escreva um artigo de blog sobre valuation'...)"
                       className="flex-grow bg-[#070F1E] border border-white/10 rounded-lg py-3 px-4 text-white text-xs sm:text-sm focus:outline-none focus:border-gold-primary transition-colors"
                       disabled={aiLoading}
                     />
@@ -3106,10 +3106,10 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                       <div className="space-y-1">
                         <h3 className="text-sm font-display font-bold text-white uppercase tracking-wider flex items-center gap-2">
                           <MessageSquare className="w-4.5 h-4.5 text-emerald-500" />
-                          <span>Fila de SolicitaÃ§Ãµes via WhatsApp</span>
+                          <span>Fila de Solicitações via WhatsApp</span>
                         </h3>
                         <p className="text-[10px] text-slate-500 uppercase tracking-wider">
-                          AlteraÃ§Ãµes propostas por usuÃ¡rios autorizados via Ã¡udio/texto convertidos por IA
+                          Alterações propostas por usuários autorizados via áudio/texto convertidos por IA
                         </p>
                       </div>
                       <span className="px-3 py-1 bg-emerald-600/10 border border-emerald-600/20 text-emerald-500 text-[10px] font-bold uppercase rounded-full tracking-wider">
@@ -3134,7 +3134,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                               <div className="space-y-3 flex-grow">
                                 <div className="flex items-center gap-2 flex-wrap">
                                   <span className="text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider bg-gold-primary/10 text-gold-primary">
-                                    AÃ§Ã£o: {req.action}
+                                    Ação: {req.action}
                                   </span>
                                   <span className="text-[10px] font-medium text-slate-400">
                                     De: {req.from_phone}
@@ -3153,7 +3153,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                                   </span>
                                   {req.confidence && (
                                     <span className="text-[10px] text-slate-400 flex items-center gap-1">
-                                      PrecisÃ£o: <strong className={req.confidence >= 0.85 ? 'text-emerald-400' : 'text-yellow-500'}>{Math.round(req.confidence * 100)}%</strong>
+                                      Precisão: <strong className={req.confidence >= 0.85 ? 'text-emerald-400' : 'text-yellow-500'}>{Math.round(req.confidence * 100)}%</strong>
                                     </span>
                                   )}
                                 </div>
@@ -3165,7 +3165,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                                 )}
 
                                 <div className="space-y-1">
-                                  <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">AlteraÃ§Ã£o Proposta (Payload):</span>
+                                  <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Alteração Proposta (Payload):</span>
                                   <pre className="bg-[#070F1E] p-3 rounded-lg border border-white/5 text-[11px] font-mono text-slate-300 overflow-x-auto max-h-40">
                                     {JSON.stringify(req.payload, null, 2)}
                                   </pre>
@@ -3173,7 +3173,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
 
                                 {req.suggested_command && (
                                   <div className="space-y-1">
-                                    <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Comando de execuÃ§Ã£o sugerido:</span>
+                                    <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Comando de execução sugerido:</span>
                                     <code className="block bg-[#070F1E] p-2 rounded border border-white/5 text-[10px] font-mono text-slate-400">
                                       {req.suggested_command}
                                     </code>
@@ -3182,7 +3182,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
 
                                 {req.execution_result && (
                                   <div className="space-y-1">
-                                    <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Resultado da ExecuÃ§Ã£o:</span>
+                                    <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Resultado da Execução:</span>
                                     <pre className="bg-[#070F1E]/50 p-2 rounded text-[10px] font-mono text-emerald-400 max-h-24 overflow-y-auto">
                                       {JSON.stringify(req.execution_result, null, 2)}
                                     </pre>
@@ -3217,14 +3217,14 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                     ) : (
                       <div className="py-12 text-center text-slate-500 space-y-2 border border-dashed border-white/5 rounded-xl">
                         <MessageSquare className="w-8 h-8 mx-auto stroke-1" />
-                        <p className="text-xs">Nenhuma solicitaÃ§Ã£o encontrada para este site.</p>
+                        <p className="text-xs">Nenhuma solicitação encontrada para este site.</p>
                       </div>
                     )}
                   </div>
                 </div>
               )}
 
-              {/* TAB 7: SETTINGS / CONFIGURAÃ‡Ã•ES */}
+              {/* TAB 7: SETTINGS / CONFIGURAÇÕES */}
               {activeTab === 'settings' && (
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in duration-200">
                   {/* Site Profile Form */}
@@ -3232,10 +3232,10 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                     <div className="border-b border-white/5 pb-3">
                       <h3 className="text-sm font-display font-bold text-white uppercase tracking-wider flex items-center gap-2">
                         <Settings className="w-4.5 h-4.5 text-gold-primary" />
-                        <span>ConfiguraÃ§Ãµes do Site</span>
+                        <span>Configurações do Site</span>
                       </h3>
                       <p className="text-[10px] text-slate-500 uppercase tracking-wider mt-1">
-                        InformaÃ§Ãµes bÃ¡sicas e parÃ¢metros de deploy do tenant
+                        Informações básicas e parâmetros de deploy do tenant
                       </p>
                     </div>
 
@@ -3254,7 +3254,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold uppercase text-slate-400 mb-1">DomÃ­nio Personalizado</label>
+                          <label className="block text-xs font-bold uppercase text-slate-400 mb-1">Domínio Personalizado</label>
                           <input
                             type="text"
                             value={siteConfig?.domain || ''}
@@ -3265,18 +3265,18 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold uppercase text-slate-400 mb-1">Nome do ProprietÃ¡rio</label>
+                          <label className="block text-xs font-bold uppercase text-slate-400 mb-1">Nome do Proprietário</label>
                           <input
                             type="text"
                             value={siteConfig?.owner_name || ''}
                             onChange={(e) => setSiteConfig({ ...siteConfig, owner_name: e.target.value })}
                             className="w-full bg-[#070F1E] border border-white/10 rounded-lg py-2 px-3 text-white text-xs focus:outline-none focus:border-gold-primary transition-colors"
-                            placeholder="JosÃ© da Silva"
+                            placeholder="José da Silva"
                           />
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold uppercase text-slate-400 mb-1">WhatsApp do ProprietÃ¡rio</label>
+                          <label className="block text-xs font-bold uppercase text-slate-400 mb-1">WhatsApp do Proprietário</label>
                           <input
                             type="text"
                             value={siteConfig?.owner_phone || ''}
@@ -3300,7 +3300,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                             Site Ativo no SaaS
                           </label>
                           <span className="block text-[10px] text-slate-500 uppercase tracking-wider">
-                            Se inativo, o site exibirÃ¡ uma tela de manutenÃ§Ã£o para visitantes pÃºblicos.
+                            Se inativo, o site exibirá uma tela de manutenção para visitantes públicos.
                           </span>
                         </div>
                       </div>
@@ -3311,7 +3311,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                           disabled={actionLoading}
                           className="inline-flex items-center justify-center px-4 py-2 bg-gold-primary hover:bg-gold-light text-primary-dark font-bold uppercase tracking-wider rounded-lg text-xs shadow-lg shadow-gold-primary/10 transition-colors disabled:opacity-50"
                         >
-                          {actionLoading ? 'Salvando...' : 'Salvar AlteraÃ§Ãµes'}
+                          {actionLoading ? 'Salvando...' : 'Salvar Alterações'}
                         </button>
                       </div>
                     </form>
@@ -3325,7 +3325,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                         <span>Telefones Autorizados</span>
                       </h3>
                       <p className="text-[10px] text-slate-500 uppercase tracking-wider mt-1">
-                        NÃºmeros autorizados a propor alteraÃ§Ãµes por voz via WhatsApp
+                        Números autorizados a propor alterações por voz via WhatsApp
                       </p>
                     </div>
 
@@ -3397,10 +3397,10 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
 
             <div className="space-y-3.5 text-left max-w-xs mx-auto">
               {[
-                { step: 0, text: "Verificando integridade das seÃ§Ãµes..." },
+                { step: 0, text: "Verificando integridade das seções..." },
                 { step: 1, text: "Compilando rascunhos locais..." },
                 { step: 2, text: "Sincronizando com o Supabase..." },
-                { step: 3, text: "ConcluÃ­do! Site atualizado." }
+                { step: 3, text: "Concluído! Site atualizado." }
               ].map((s) => {
                 const isDone = publishingStep > s.step;
                 const isCurrent = publishingStep === s.step;
@@ -3449,7 +3449,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-400 mb-1" htmlFor="p-title">
-                    TÃ­tulo do Artigo
+                    Título do Artigo
                   </label>
                   <input
                     id="p-title"
@@ -3464,7 +3464,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
 
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-400 mb-1" htmlFor="p-slug">
-                    Slug (URL amigÃ¡vel)
+                    Slug (URL amigável)
                   </label>
                   <input
                     id="p-slug"
@@ -3488,10 +3488,10 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                     className="w-full bg-[#070F1E] border border-white/10 rounded-lg py-2 px-3 text-white text-xs focus:outline-none focus:border-gold-primary transition-colors"
                   >
                     <option value="Vendas & Comercial">Vendas & Comercial</option>
-                    <option value="LideranÃ§a & Equipes">LideranÃ§a & Equipes</option>
-                    <option value="GestÃ£o Financeira">GestÃ£o Financeira</option>
-                    <option value="EstratÃ©gia & Planejamento">EstratÃ©gia & Planejamento</option>
-                    <option value="GestÃ£o Empresarial">GestÃ£o Empresarial</option>
+                    <option value="Liderança & Equipes">Liderança & Equipes</option>
+                    <option value="Gestão Financeira">Gestão Financeira</option>
+                    <option value="Estratégia & Planejamento">Estratégia & Planejamento</option>
+                    <option value="Gestão Empresarial">Gestão Empresarial</option>
                   </select>
                 </div>
 
@@ -3528,13 +3528,13 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                     value={postFormData.excerpt}
                     onChange={(e) => setPostFormData({ ...postFormData, excerpt: e.target.value })}
                     className="w-full bg-[#070F1E] border border-white/10 rounded-lg py-2 px-3 text-white text-xs focus:outline-none focus:border-gold-primary transition-colors resize-none"
-                    placeholder="Uma descriÃ§Ã£o resumida..."
+                    placeholder="Uma descrição resumida..."
                   />
                 </div>
 
                 <div className="md:col-span-2">
                   <label className="block text-xs font-bold uppercase text-slate-400 mb-1" htmlFor="p-body">
-                    ConteÃºdo do Artigo (HTML)
+                    Conteúdo do Artigo (HTML)
                   </label>
                   <textarea
                     id="p-body"
