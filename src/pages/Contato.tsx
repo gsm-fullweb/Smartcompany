@@ -1,27 +1,65 @@
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Youtube, Instagram, Facebook, Send, Check } from 'lucide-react'
+import { Mail, Phone, MapPin, Youtube, Instagram, Facebook, Send, Check, Loader2 } from 'lucide-react'
+import { supabase } from '../lib/supabase'
+import { useDynamicContent } from '../hooks/useDynamicContent'
+import SEO from '../components/SEO'
 
 export default function Contato() {
+  const defaultHero = {
+    badge: 'Fale Conosco',
+    title: 'Entre em Contato Conosco',
+    content: 'Estamos prontos para atender você e desenhar a melhor solução estratégica, comercial ou financeira para a sua empresa.'
+  }
+  const { hero } = useDynamicContent('contato', { hero: defaultHero })
+
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError(null)
+
+    try {
+      const { error: insertError } = await supabase
+        .from('leads')
+        .insert([{
+          site_slug: 'smartcompany',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
+        }])
+
+      if (insertError) throw insertError
+
+      setSubmitted(true)
+    } catch (err: any) {
+      console.error('Erro ao enviar mensagem:', err)
+      setError('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente ou entre em contato pelo WhatsApp.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
+      <SEO 
+        title="Contato | Agende um Diagnóstico Gratuito" 
+        description="Fale com a nossa equipe de consultores para tirar dúvidas, agendar um diagnóstico empresarial gratuito ou iniciar seu projeto de consultoria." 
+      />
       {/* Header Banner */}
       <section className="relative bg-[#091120] py-16 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <Mail className="w-8 h-8 text-gold-primary mx-auto" />
           <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight uppercase">
-            Entre em Contato Conosco
+            {hero.title}
           </h1>
           <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed">
-            Estamos prontos para atender você e desenhar a melhor solução estratégica, comercial ou financeira para a sua empresa.
+            {hero.content}
           </p>
         </div>
       </section>
@@ -177,12 +215,28 @@ export default function Contato() {
                   ></textarea>
                 </div>
 
+                {error && (
+                  <div className="p-3 bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg text-xs font-semibold leading-relaxed">
+                    {error}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center py-3.5 text-sm font-bold uppercase tracking-wider text-primary-dark bg-gold-primary hover:bg-gold-light rounded-lg shadow-lg shadow-gold-primary/10 transition-colors"
+                  disabled={loading}
+                  className="w-full inline-flex items-center justify-center py-3.5 text-sm font-bold uppercase tracking-wider text-primary-dark bg-gold-primary hover:bg-gold-light rounded-lg shadow-lg shadow-gold-primary/10 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span>Enviar Mensagem</span>
-                  <Send className="w-4 h-4 ml-2" />
+                  {loading ? (
+                    <>
+                      <span>Enviando...</span>
+                      <Loader2 className="w-4 h-4 ml-2 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      <span>Enviar Mensagem</span>
+                      <Send className="w-4 h-4 ml-2" />
+                    </>
+                  )}
                 </button>
               </form>
             ) : (

@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { BookOpen, Download, X, Mail, Phone, User, CheckCircle, ShieldCheck } from 'lucide-react'
+import { useDynamicContent } from '../hooks/useDynamicContent'
+import SEO from '../components/SEO'
 
 interface EBook {
   id: string
@@ -16,12 +18,13 @@ interface EBook {
 }
 
 export default function Materiais() {
-  const [selectedBook, setSelectedBook] = useState<EBook | null>(null)
-  const [formData, setFormData] = useState({ name: '', email: '', whatsapp: '', company: '' })
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const defaultHero = {
+    badge: 'Materiais de Apoio',
+    title: 'Materiais Educativos',
+    content: 'Baixe e-books exclusivos elaborados por Antonio Geraldes e sua equipe para aprimorar a gestão comercial, financeira e a liderança do seu negócio.'
+  }
 
-  const ebooks: EBook[] = [
+  const defaultEbooks: EBook[] = [
     {
       id: 'funil-negocios',
       title: 'Funil de Negócios & Conversão',
@@ -94,7 +97,7 @@ export default function Materiais() {
       id: 'gatilhos-mentais',
       title: 'Gatilhos Mentais: Manual Completo',
       subtitle: 'Desbravando a mente do consumidor para vendas',
-      description: 'Descubra as técnicas psicológicas comprovadas para aumentar sua conversão, quebrar objeções e fechar mais negócios de forma ética.',
+      description: 'Descubra as táticas psicológicas comprovadas para aumentar sua conversão, quebrar objeções e fechar mais negócios de forma ética.',
       price: 'R$ 9,90',
       isFree: false,
       coverColor: 'from-emerald-700 to-teal-600',
@@ -107,6 +110,16 @@ export default function Materiais() {
       image: '/assets/gatilhos-mentais.png'
     }
   ]
+
+  const { hero, ebooks } = useDynamicContent('materiais', {
+    hero: defaultHero,
+    ebooks: defaultEbooks
+  })
+
+  const [selectedBook, setSelectedBook] = useState<EBook | null>(null)
+  const [formData, setFormData] = useState({ name: '', email: '', whatsapp: '', company: '' })
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleOpenModal = (book: EBook) => {
     setSelectedBook(book)
@@ -130,18 +143,22 @@ export default function Materiais() {
 
   return (
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
+      <SEO 
+        title="Materiais Educativos e E-books de Gestão Gratuitos" 
+        description="Baixe e-books de gestão corporativa e empresarial gratuitos focados em funil de negócios, marketing, liderança e vendas." 
+      />
       {/* Page Header */}
       <section className="relative bg-[#070F1E] py-20 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block">
-            Materiais de Apoio
+            {hero.badge}
           </span>
           <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight uppercase">
-            Materiais <span className="text-gold-primary">Educativos</span>
+            {hero.title}
           </h1>
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Baixe e-books exclusivos elaborados por Antonio Geraldes e sua equipe para aprimorar a gestão comercial, financeira e a liderança do seu negócio.
+            {hero.content}
           </p>
         </div>
       </section>
@@ -149,7 +166,7 @@ export default function Materiais() {
       {/* Grid of Materials */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {ebooks.map((book) => (
+          {ebooks.map((book: any) => (
             <div
               key={book.id}
               className="bg-[#091120] border border-white/5 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-gold-primary/20 transition-all duration-300 shadow-xl group"
@@ -202,7 +219,7 @@ export default function Materiais() {
                       Tópicos Abordados
                     </span>
                     <ul className="space-y-1 text-xs text-slate-400">
-                      {book.bullets.slice(0, 2).map((b, idx) => (
+                      {book.bullets.slice(0, 2).map((b: string, idx: number) => (
                         <li key={idx} className="flex items-center gap-1.5">
                           <span className="text-gold-primary">•</span>
                           <span className="truncate">{b}</span>

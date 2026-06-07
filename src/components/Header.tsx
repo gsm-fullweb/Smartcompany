@@ -33,7 +33,7 @@ export default function Header() {
 
   // Institutional items
   const institutionalItems = [
-    { name: 'Quem Somos', href: '/quem-somos' },
+    { name: 'Nossa Trajetória', href: '/nossa-trajetoria' },
     { name: 'Nossa Equipe', href: '/nossa-equipe' },
     { name: 'Depoimentos', href: '/depoimentos' },
   ]

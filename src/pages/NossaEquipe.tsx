@@ -1,5 +1,7 @@
 import { Users, Mail, Award, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useDynamicContent } from '../hooks/useDynamicContent'
+import SEO from '../components/SEO'
 
 interface TeamMember {
   name: string
@@ -10,148 +12,173 @@ interface TeamMember {
   qualifications: string[]
 }
 
+const defaultMembers: TeamMember[] = [
+  {
+    name: 'Antonio Geraldes',
+    role: 'Fundador Smart Company & Mentor de Gestão',
+    avatar: '/assets/antonio-geraldes.png',
+    initials: 'AG',
+    gradient: 'from-amber-500 to-amber-700',
+    qualifications: [
+      'Experiência em mais de 100 empresas de diversos portes.',
+      'Expertise profunda em Diagnóstico Empresarial.',
+      'Projetos Estruturados nas áreas Financeira, Comercial e Industrial.',
+      'Especialista em Business Plan, Turn Key e Estratégia de Negócios.',
+      'Atuação em Fusões e Aquisições (M&A).',
+      'Mentor de Liderança, Team Building e Planejamento Estratégico.'
+    ]
+  },
+  {
+    name: 'Marina Nastari',
+    role: 'Consultora de Gestão Financeira & Controladoria',
+    avatar: '/assets/marina-nastari.png',
+    initials: 'MN',
+    gradient: 'from-blue-600 to-cyan-500',
+    qualifications: [
+      'MBA em Gestão Financeira, Controladoria e Auditoria pela FGV.',
+      'Experiência consolidada em Instituições Financeiras.',
+      'Atuação em diversos segmentos nos setores público e privado.',
+      'Amplo conhecimento em normas de padronização e ISO.',
+      'Especialista em implantação de KPI\'s, processos e sistemas.'
+    ]
+  },
+  {
+    name: 'Eudes Martins',
+    role: 'Consultor de Finanças & Análise de Crédito',
+    avatar: '/assets/eudes-martins.png',
+    initials: 'EM',
+    gradient: 'from-indigo-600 to-blue-500',
+    qualifications: [
+      'Mestre Profissional em Administração de Empresas.',
+      'Pós-graduado em Administração Contábil e Financeira.',
+      '27 anos de experiência no mercado financeiro (Itaú, Boston, Safra).',
+      '15 anos lecionando como professor universitário.',
+      'Vasta experiência em Avaliação de Contratos e Análise de Créditos.'
+    ]
+  },
+  {
+    name: 'José Maria Paz',
+    role: 'Consultor de Gestão Industrial & Supply Chain',
+    avatar: '/assets/jose-maria-paz.png',
+    initials: 'JP',
+    gradient: 'from-emerald-600 to-teal-500',
+    qualifications: [
+      'Engenheiro Mecânico e Gestor de Produção Industrial.',
+      'Mais de 20 anos de experiência em multinacional japonesa.',
+      'Consultor atuante de Gestão Industrial há mais de 8 anos.',
+      'Amplo conhecimento em Gestão de Cadeia de Fornecimento (Supply Chain).',
+      'Especialista em metodologias Kaizen, Lean Manufacturing, 5S e ISO.'
+    ]
+  },
+  {
+    name: 'Laercio Santos',
+    role: 'Consultor de Governança de TI & Infraestrutura',
+    avatar: '/assets/laercio-santos.png',
+    initials: 'LS',
+    gradient: 'from-purple-600 to-indigo-500',
+    qualifications: [
+      'Engenheiro pela FESP e especialista em Governança de TI pela FGV.',
+      'Fundador da Metrobyte, com ampla vivência em arquitetura de redes.',
+      'Atuação desde 1996 em grandes empresas (Vale, Avanade, Banco Fator, Banco Votorantim).',
+      'Professor certificado Microsoft.'
+    ]
+  },
+  {
+    name: 'Eliezer Fernandes',
+    role: 'Consultor de Processos Industriais & PCP',
+    avatar: '/assets/eliezer-fernandes.png',
+    initials: 'EF',
+    gradient: 'from-teal-600 to-emerald-500',
+    qualifications: [
+      'Graduado em Ciências Contábeis pela Anhembi Morumbi.',
+      'Especialização em Administração Financeira pela FGV.',
+      '12 anos de experiência em Suprimentos e Planejamento e Controle de Produção (PCP).',
+      'Atuação em gigantes industriais como Coca-Cola, Valtra e Albéa.'
+    ]
+  },
+  {
+    name: 'Jefferson Lara',
+    role: 'Consultor de Clima Organizacional & Dinâmicas',
+    avatar: '/assets/jefferson-lara.png',
+    initials: 'JL',
+    gradient: 'from-rose-600 to-pink-500',
+    qualifications: [
+      'MBA em Gente e Gestão de Pessoas.',
+      'Especialista em Gestão de Mudança e Cultura Organizacional.',
+      'Fundador da Jeff Jogos Empresariais.',
+      '30 anos utilizando metodologia de dinâmicas vivenciais, artes cênicas e jogos de negócios.'
+    ]
+  },
+  {
+    name: 'Luana Segato',
+    role: 'Consultora de Rotinas Comerciais & Inteligência de Vendas',
+    avatar: '/assets/luana-segato.jpg',
+    initials: 'LS',
+    gradient: 'from-orange-500 to-amber-500',
+    qualifications: [
+      'MBA em Gestão Empresarial e Bacharel em Administração de Empresas.',
+      'Experiência em Supervisão e Gestão de rotinas de equipes de vendas.',
+      'Desenvolvimento e implantação de projetos de desempenho e KPI\'s Comerciais.',
+      'Facilitadora em treinamentos, workshops e mapeamento de mercado.'
+    ]
+  },
+  {
+    name: 'Fátima Rizzo',
+    role: 'Terapeuta Corporativa & Team Building',
+    avatar: '/assets/fatima-rizzo.png',
+    initials: 'FR',
+    gradient: 'from-pink-600 to-rose-500',
+    qualifications: [
+      'Psicóloga Clínica especialista em Saúde Mental.',
+      'Pós-graduada em Neuropsicopedagogia e MBA em Gestão de Pessoas pela FGV.',
+      '20 anos atuando como docente em entidades industriais como FIESP e CIESP.',
+      'Capacitou pessoalmente mais de 23.000 profissionais.',
+      'Especialista em treinamentos de Team Building e Programação Neurolinguística (PNL).'
+    ]
+  },
+  {
+    name: 'Richard Portela',
+    role: 'Consultor de Marketing Digital & Inbound Marketing',
+    avatar: '/assets/richard-portela.png',
+    initials: 'RP',
+    gradient: 'from-cyan-600 to-blue-500',
+    qualifications: [
+      'Fundador da Fullweb Marketing Digital, com mais de 200 projetos concluídos.',
+      'Certificado em Google AdWords, especialista em SEO (otimização de buscas) e SEM.',
+      'Expertise em plataformas de e-commerce, sistemas de leilão e e-mail marketing.',
+      'Especialista em metodologia de Inbound Marketing e tração digital.'
+    ]
+  }
+]
+
 export default function NossaEquipe() {
-  const team: TeamMember[] = [
-    {
-      name: 'Antonio Geraldes',
-      role: 'Fundador Smart Company & Mentor de Gestão',
-      avatar: '/assets/antonio-geraldes.png',
-      initials: 'AG',
-      gradient: 'from-amber-500 to-amber-700',
-      qualifications: [
-        'Experiência em mais de 100 empresas de diversos portes.',
-        'Expertise profunda em Diagnóstico Empresarial.',
-        'Projetos Estruturados nas áreas Financeira, Comercial e Industrial.',
-        'Especialista em Business Plan, Turn Key e Estratégia de Negócios.',
-        'Atuação em Fusões e Aquisições (M&A).',
-        'Mentor de Liderança, Team Building e Planejamento Estratégico.'
-      ]
-    },
-    {
-      name: 'Marina Nastari',
-      role: 'Consultora de Gestão Financeira & Controladoria',
-      avatar: '/assets/marina-nastari.png',
-      initials: 'MN',
-      gradient: 'from-blue-600 to-cyan-500',
-      qualifications: [
-        'MBA em Gestão Financeira, Controladoria e Auditoria pela FGV.',
-        'Experiência consolidada em Instituições Financeiras.',
-        'Atuação em diversos segmentos nos setores público e privado.',
-        'Amplo conhecimento em normas de padronização e ISO.',
-        'Especialista em implantação de KPI\'s, processos e sistemas.'
-      ]
-    },
-    {
-      name: 'Eudes Martins',
-      role: 'Consultor de Finanças & Análise de Crédito',
-      avatar: '/assets/eudes-martins.png',
-      initials: 'EM',
-      gradient: 'from-indigo-600 to-blue-500',
-      qualifications: [
-        'Mestre Profissional em Administração de Empresas.',
-        'Pós-graduado em Administração Contábil e Financeira.',
-        '27 anos de experiência no mercado financeiro (Itaú, Boston, Safra).',
-        '15 anos lecionando como professor universitário.',
-        'Vasta experiência em Avaliação de Contratos e Análise de Créditos.'
-      ]
-    },
-    {
-      name: 'José Maria Paz',
-      role: 'Consultor de Gestão Industrial & Supply Chain',
-      avatar: '/assets/jose-maria-paz.png',
-      initials: 'JP',
-      gradient: 'from-emerald-600 to-teal-500',
-      qualifications: [
-        'Engenheiro Mecânico e Gestor de Produção Industrial.',
-        'Mais de 20 anos de experiência em multinacional japonesa.',
-        'Consultor atuante de Gestão Industrial há mais de 8 anos.',
-        'Amplo conhecimento em Gestão de Cadeia de Fornecimento (Supply Chain).',
-        'Especialista em metodologias Kaizen, Lean Manufacturing, 5S e ISO.'
-      ]
-    },
-    {
-      name: 'Laercio Santos',
-      role: 'Consultor de Governança de TI & Infraestrutura',
-      avatar: '/assets/laercio-santos.png',
-      initials: 'LS',
-      gradient: 'from-purple-600 to-indigo-500',
-      qualifications: [
-        'Engenheiro pela FESP e especialista em Governança de TI pela FGV.',
-        'Fundador da Metrobyte, com ampla vivência em arquitetura de redes.',
-        'Atuação desde 1996 em grandes empresas (Vale, Avanade, Banco Fator, Banco Votorantim).',
-        'Professor certificado Microsoft.'
-      ]
-    },
-    {
-      name: 'Eliezer Fernandes',
-      role: 'Consultor de Processos Industriais & PCP',
-      avatar: '/assets/eliezer-fernandes.png',
-      initials: 'EF',
-      gradient: 'from-teal-600 to-emerald-500',
-      qualifications: [
-        'Graduado em Ciências Contábeis pela Anhembi Morumbi.',
-        'Especialização em Administração Financeira pela FGV.',
-        '12 anos de experiência em Suprimentos e Planejamento e Controle de Produção (PCP).',
-        'Atuação em gigantes industriais como Coca-Cola, Valtra e Albéa.'
-      ]
-    },
-    {
-      name: 'Jefferson Lara',
-      role: 'Consultor de Clima Organizacional & Dinâmicas',
-      avatar: '/assets/jefferson-lara.png',
-      initials: 'JL',
-      gradient: 'from-rose-600 to-pink-500',
-      qualifications: [
-        'MBA em Gente e Gestão de Pessoas.',
-        'Especialista em Gestão de Mudança e Cultura Organizacional.',
-        'Fundador da Jeff Jogos Empresariais.',
-        '30 anos utilizando metodologia de dinâmicas vivenciais, artes cênicas e jogos de negócios.'
-      ]
-    },
-    {
-      name: 'Luana Segato',
-      role: 'Consultora de Rotinas Comerciais & Inteligência de Vendas',
-      avatar: '/assets/luana-segato.jpg',
-      initials: 'LS',
-      gradient: 'from-orange-500 to-amber-500',
-      qualifications: [
-        'MBA em Gestão Empresarial e Bacharel em Administração de Empresas.',
-        'Experiência em Supervisão e Gestão de rotinas de equipes de vendas.',
-        'Desenvolvimento e implantação de projetos de desempenho e KPI\'s Comerciais.',
-        'Facilitadora em treinamentos, workshops e mapeamento de mercado.'
-      ]
-    },
-    {
-      name: 'Fátima Rizzo',
-      role: 'Terapeuta Corporativa & Team Building',
-      avatar: '/assets/fatima-rizzo.png',
-      initials: 'FR',
-      gradient: 'from-pink-600 to-rose-500',
-      qualifications: [
-        'Psicóloga Clínica especialista em Saúde Mental.',
-        'Pós-graduada em Neuropsicopedagogia e MBA em Gestão de Pessoas pela FGV.',
-        '20 anos atuando como docente em entidades industriais como FIESP e CIESP.',
-        'Capacitou pessoalmente mais de 23.000 profissionais.',
-        'Especialista em treinamentos de Team Building e Programação Neurolinguística (PNL).'
-      ]
-    },
-    {
-      name: 'Richard Portela',
-      role: 'Consultor de Marketing Digital & Inbound Marketing',
-      avatar: '/assets/richard-portela.png',
-      initials: 'RP',
-      gradient: 'from-cyan-600 to-blue-500',
-      qualifications: [
-        'Fundador da Fullweb Marketing Digital, com mais de 200 projetos concluídos.',
-        'Certificado em Google AdWords, especialista em SEO (otimização de buscas) e SEM.',
-        'Expertise em plataformas de e-commerce, sistemas de leilão e e-mail marketing.',
-        'Especialista em metodologia de Inbound Marketing e tração digital.'
-      ]
-    }
-  ]
+  const defaultHero = {
+    badge: 'Consultores Multidisciplinares',
+    title: 'Nosso Time Smart',
+    content: 'Nossa equipe agrega vivências corporativas diversas para entregar resultados de alto nível. Para prover consultoria de excelência, acreditamos que é preciso ser polivalente. Nosso time é formado por administradores, economistas, engenheiros, contadores, psicólogos e tecnólogos.'
+  }
+
+  const defaultIntro = {
+    title: 'Nosso Time Smart',
+    content: 'Nossa equipe agrega vivências corporativas diversas para entregar resultados de alto nível. Para prover consultoria de excelência, acreditamos que é preciso ser polivalente. Nosso time é formado por administradores, economistas, engenheiros, contadores, psicólogos e tecnólogos.',
+    quote: 'Ser Consultor é ter Conhecimento Pizza: ainda que não seja profundo em todas as áreas, precisa ser extremamente abrangente! Conhecendo o macro, identificamos os elos mais fracos da corrente e investimos foco e energia onde realmente estão os gargalos.',
+    quoteAuthor: 'Zé Maria',
+    quoteRole: 'Consultor Industrial'
+  }
+  
+  // pageKey é 'nossa-equipe' no hook para heros, mas o hook buscará também por 'nossa_equipe_members'
+  const { hero, members, intro } = useDynamicContent('nossa-equipe', { 
+    hero: defaultHero, 
+    members: defaultMembers,
+    intro: defaultIntro
+  })
 
   return (
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
+      <SEO 
+        title="Nossa Equipe | Consultores e Especialistas" 
+        description="Conheça a equipe multidisciplinar de consultores, especialistas e mentores de gestão empresarial da Smartcompany." 
+      />
       {/* Hero section */}
       <section className="relative bg-[#070F1E] py-24 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
@@ -159,31 +186,27 @@ export default function NossaEquipe() {
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-primary/10 border border-gold-primary/20">
             <Users className="w-4 h-4 text-gold-primary" />
             <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest">
-              Consultores Multidisciplinares
+              {hero.badge}
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black text-white tracking-tight uppercase">
-            Nosso <span className="text-gold-primary">Time Smart</span>
+            {intro.title}
           </h1>
           <p className="text-base sm:text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Nossa equipe agrega vivências corporativas diversas para entregar resultados de alto nível. 
-            Para prover consultoria de excelência, acreditamos que é preciso ser polivalente. 
-            Nosso time é formado por administradores, economistas, engenheiros, contadores, psicólogos e tecnólogos.
+            {intro.content}
           </p>
           
           <div className="max-w-2xl mx-auto bg-slate-900/50 border border-white/5 rounded-xl p-6 italic text-slate-400 text-xs sm:text-sm">
-            &ldquo;Ser Consultor é ter Conhecimento Pizza: ainda que não seja profundo em todas as áreas, 
-            precisa ser extremamente abrangente! Conhecendo o macro, identificamos os elos mais fracos da corrente 
-            e investimos foco e energia onde realmente estão os gargalos.&rdquo;
-            <span className="block mt-2 font-semibold text-gold-primary not-italic text-xs">— Zé Maria, Consultor Industrial</span>
+            &ldquo;{intro.quote}&rdquo;
+            <span className="block mt-2 font-semibold text-gold-primary not-italic text-xs">— {intro.quoteAuthor}, {intro.quoteRole}</span>
           </div>
         </div>
       </section>
-
+ 
       {/* Team grid */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {team.map((member) => (
+          {members.map((member: TeamMember) => (
             <div
               key={member.name}
               className="bg-[#091120] rounded-2xl border border-white/5 hover:border-gold-primary/20 transition-all duration-300 p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start group shadow-lg"

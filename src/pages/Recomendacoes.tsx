@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import { BookOpen, Film, Search, Quote } from 'lucide-react'
+import { useDynamicContent } from '../hooks/useDynamicContent'
+import SEO from '../components/SEO'
 
-export default function Recomendacoes() {
-  const [activeTab, setActiveTab] = useState<'livros' | 'filmes'>('livros')
-  const [searchTerm, setSearchTerm] = useState('')
-
-  const books = [
+const defaultBooks = [
   {
     "title": "Você Pode Curar Sua Vida",
     "author": "Louise L. Hay",
@@ -122,7 +120,7 @@ export default function Recomendacoes() {
   }
 ]
 
-  const movies = [
+const defaultMovies = [
   {
     "title": "Jerry Maguire (1996)",
     "review": "Um agente de uma empresa internacional de gerenciamento de esportes pede demissão devido ao seu compromisso com suas crenças e honestidade. Ele reestrutura seu setor com um modelo de negócios focado na lealdade aos clientes, o que lhe permite transformar uma pequena operação em um verdadeiro concorrente de peso.",
@@ -170,7 +168,7 @@ export default function Recomendacoes() {
   },
   {
     "title": "Uma Mente Brilhante (2001)",
-    "review": "A trajetória do matemático John Nash e sua luta contra a esquizofrenia. Explora a resiliência mental e a busca por padrões e soluções em teoria dos jogos.",
+    "review": "A trajetória de matemático John Nash e sua luta contra a esquizofrenia. Explora a resiliência mental e a busca por padrões e soluções em teoria dos jogos.",
     "image": "https://upload.wikimedia.org/wikipedia/en/b/b8/A_Beautiful_Mind_Poster.jpg"
   },
   {
@@ -215,7 +213,23 @@ export default function Recomendacoes() {
   }
 ]
 
-  const filteredItems = (activeTab === 'livros' ? books : movies).filter(item =>
+export default function Recomendacoes() {
+  const defaultHero = {
+    badge: 'Acervo de Sucesso',
+    title: 'Livros & Filmes Recomendados',
+    content: 'Recomendações selecionadas pessoalmente por Antonio Geraldes para inspirar, motivar e instruir empresários e gestores em sua busca por excelência.'
+  }
+  
+  const { hero, books, movies } = useDynamicContent('recomendacoes', { 
+    hero: defaultHero, 
+    books: defaultBooks, 
+    movies: defaultMovies 
+  })
+
+  const [activeTab, setActiveTab] = useState<'livros' | 'filmes'>('livros')
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const filteredItems = (activeTab === 'livros' ? books : movies).filter((item: any) =>
     item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     (activeTab === 'livros' && (item as any).author.toLowerCase().includes(searchTerm.toLowerCase())) ||
     item.review.toLowerCase().includes(searchTerm.toLowerCase())
@@ -223,18 +237,22 @@ export default function Recomendacoes() {
 
   return (
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
+      <SEO 
+        title="Livros e Filmes Recomendados para Empresários" 
+        description="Confira uma curadoria exclusiva de obras de liderança, estratégia, vendas e negócios recomendadas por Antonio Geraldes." 
+      />
       {/* Banner Header */}
       <section className="relative bg-[#070F1E] py-20 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block">
-            Acervo de Sucesso
+            {hero.badge}
           </span>
           <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight uppercase">
-            Livros & Filmes <span className="text-gold-primary">Recomendados</span>
+            {hero.title}
           </h1>
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Recomendações selecionadas pessoalmente por Antonio Geraldes para inspirar, motivar e instruir empresários e gestores em sua busca por excelência.
+            {hero.content}
           </p>
         </div>
       </section>
@@ -284,7 +302,7 @@ export default function Recomendacoes() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredItems.map((item, idx) => (
+            {filteredItems.map((item: any, idx: number) => (
               <div
                 key={item.title}
                 className="bg-[#091120] border border-white/5 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-gold-primary/20 transition-all duration-300 shadow-xl group"

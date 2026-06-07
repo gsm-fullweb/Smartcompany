@@ -1,6 +1,19 @@
+import { useEffect, useState } from 'react'
 import { MessageCircle } from 'lucide-react'
 
 export default function WhatsAppWidget() {
+  const [isIframe, setIsIframe] = useState(false)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsIframe(window.self !== window.top)
+    }
+  }, [])
+
+  if (isIframe) {
+    return null
+  }
+
   const whatsappNumber = '5511993291892'
   const message = encodeURIComponent('Olá, gostaria de saber mais sobre as soluções de Gestão e Consultoria da Smart Company.')
   const url = `https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${message}&type=phone_number&app_absent=0`
@@ -24,3 +37,4 @@ export default function WhatsAppWidget() {
     </a>
   )
 }
+

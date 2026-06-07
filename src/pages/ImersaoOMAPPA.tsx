@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Calendar, CheckCircle, ShieldCheck, HelpCircle, ChevronDown, Award, Users, BookOpen } from 'lucide-react'
+import { useDynamicContent } from '../hooks/useDynamicContent'
+import SEO from '../components/SEO'
 
 interface Testimony {
   author: string
@@ -19,11 +21,17 @@ interface FaqItem {
 export default function ImersaoOMAPPA() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
 
-  const pillars = [
+  const defaultHero = {
+    badge: 'Imersão Exclusiva para Empresários',
+    title: 'Imersão OMAPPA',
+    content: 'Venha viver a experiência prática que vai Nortear o seu Negócio! Se você precisa aumentar o lucro, definir processos, reduzir desperdícios, ganhar produtividade, alcançar metas com planos de ação e motivar sua equipe através de indicadores eficientes.'
+  }
+
+  const defaultPillars = [
     {
       letter: 'O',
       title: 'Oportunidades',
-      description: 'Identificação de melhorias internas (margem de lucro, desperdícios, vendas) e externas (novos canais, nichos inexplorados). A crise está na mentalidade; a oportunidade está na ação.'
+      description: 'Identificação de melhorias internas (margem de lucro, desperdícios, vendas) and externas (novos canais, nichos inexplorados). A crise está na mentalidade; a oportunidade está na ação.'
     },
     {
       letter: 'M',
@@ -52,7 +60,7 @@ export default function ImersaoOMAPPA() {
     }
   ]
 
-  const testimonies: Testimony[] = [
+  const defaultTestimonies: Testimony[] = [
     {
       author: 'Alexandre Pereira',
       role: 'Diretor',
@@ -81,7 +89,7 @@ export default function ImersaoOMAPPA() {
     }
   ]
 
-  const faqs: FaqItem[] = [
+  const defaultFaqs: FaqItem[] = [
     {
       question: 'Não tenho tempo para fazer essa imersão!',
       answer: 'A falta de tempo é o sintoma mais claro de que sua empresa está desorganizada e operando no caos. Se você passa o dia apagando incêndios no operacional, é justamente porque não tem processos e pessoas treinadas. Investir um dia na imersão OMAPPA vai te dar as ferramentas para estruturar o tático e o operacional, fazendo o seu time entregar mais e te liberando para focar na estratégia e no crescimento do negócio.'
@@ -100,28 +108,40 @@ export default function ImersaoOMAPPA() {
     }
   ]
 
+  const {
+    hero,
+    pillars,
+    testimonies,
+    faqs
+  } = useDynamicContent('imersao-omappa', {
+    hero: defaultHero,
+    pillars: defaultPillars,
+    testimonies: defaultTestimonies,
+    faqs: defaultFaqs
+  })
+
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index)
   }
 
   return (
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
+      <SEO 
+        title="Imersão OMAPPA da Empresa Lucrativa | Treinamento Presencial" 
+        description="Participe do nosso treinamento presencial de alto impacto focado em reestruturação, processos, metas, pessoas e lucro para sua empresa." 
+      />
       {/* Hero section */}
       <section className="relative bg-[#070F1E] py-20 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block">
-            Imersão Exclusiva para Empresários
+            {hero.badge}
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black text-white tracking-tight uppercase leading-tight">
-            Imersão <span className="text-gold-primary">OMAPPA</span>
+            {hero.title}
           </h1>
-          <p className="text-xl sm:text-2xl font-bold text-white max-w-3xl mx-auto">
-            Venha viver a experiência prática que vai Nortear o seu Negócio!
-          </p>
           <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Se você precisa aumentar o lucro, definir processos, reduzir desperdícios, ganhar produtividade, 
-            alcançar metas com planos de ação e motivar sua equipe através de indicadores eficientes.
+            {hero.content}
           </p>
           <div className="pt-4">
             <a
@@ -172,7 +192,7 @@ export default function ImersaoOMAPPA() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {pillars.map((pillar) => (
+          {pillars.map((pillar: any) => (
             <div
               key={pillar.title}
               className="bg-[#091120] border border-white/5 rounded-xl p-6 hover:border-gold-primary/20 transition-all duration-300 relative group"
@@ -253,7 +273,7 @@ export default function ImersaoOMAPPA() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonies.map((test) => (
+          {testimonies.map((test: any) => (
             <div
               key={test.author}
               className="bg-[#091120] border border-white/5 rounded-xl p-5 flex flex-col justify-between hover:border-gold-primary/20 transition-all duration-300 shadow-md"
@@ -345,7 +365,7 @@ export default function ImersaoOMAPPA() {
         </div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => {
+          {faqs.map((faq: any, index: number) => {
             const isOpen = activeFaq === index
             return (
               <div

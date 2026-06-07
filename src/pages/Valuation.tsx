@@ -1,7 +1,82 @@
 import { useState } from 'react'
 import { Check, ArrowRight, DollarSign, Landmark } from 'lucide-react'
+import { useDynamicContent } from '../hooks/useDynamicContent'
+import SEO from '../components/SEO'
+
+interface Phase {
+  name: string
+  desc: string
+}
+
+interface Opportunity {
+  title: string
+  tag: string
+  location: string
+  desc: string
+  features: string[]
+}
+
+const defaultPhases: Phase[] = [
+  { name: 'Valuation', desc: 'Conclusão técnica do valor justo do negócio sem contaminação emocional.' },
+  { name: 'Teaser Comercial', desc: 'Elaboração de documento resumido sem identificação (preservando o sigilo).' },
+  { name: 'NDA (Confidencialidade)', desc: 'Assinatura de termo legal antes de abrir qualquer dado estratégico.' },
+  { name: 'Apresentação do Negócio', desc: 'Reunião qualificada para apresentação do plano financeiro e operacional.' },
+  { name: 'Carta de Intenções', desc: 'Formalização do interesse de compra e alinhamento de termos básicos (LOI).' },
+  { name: 'Estudos de Viabilidade', desc: 'Mapeamento de sinergias operacionais e projeções pós-aquisição.' },
+  { name: 'Acompanhamento de Due Diligence', desc: 'Apoio técnico na entrega de certidões, contabilidade e auditoria interna.' },
+  { name: 'Formalização Jurídica', desc: 'Suporte na elaboração dos contratos definitivos de compra e venda (SPA).' }
+]
+
+const defaultOpportunities: Opportunity[] = [
+  {
+    title: 'Indústria Alimentícia & Cosmética',
+    tag: 'Indústria',
+    location: 'São Paulo - SP',
+    desc: 'Empresa consolidada há mais de 20 anos no mercado. Possui sede própria com instalações amplas que suportam triplicar o faturamento atual. Atende grandes players e redes nacionais, além de exportação.',
+    features: ['Sede Própria', 'Triplicar Receita', 'Exportadora']
+  },
+  {
+    title: 'Franquia de Fast Food em Shopping',
+    tag: 'Franquia',
+    location: 'Alto Tietê - SP',
+    desc: 'Unidade franqueada estabelecida há mais de 7 anos em shopping de grande circulação. Operação consolidada com faturamento estável e capacidade para expansão sem grandes aportes adicionais.',
+    features: ['Shopping Center', '7 Anos de Operação', 'Retorno Rápido']
+  },
+  {
+    title: 'Start Up Química/Cosméticos ANVISA',
+    tag: 'Start Up',
+    location: 'Grande São Paulo - SP',
+    desc: 'Instalação moderna de 500m² certificada pela ANVISA e CETESB para fabricação. Maquinários quitados e licenças de fabricação e exportação ativas. Motivo: Dono aposentando-se sem sucessão.',
+    features: ['ANVISA Ativa', 'Maquinário Quitado', '500m² de Área']
+  },
+  {
+    title: 'Academia Premium Climatizada',
+    tag: 'Serviços',
+    location: 'Bairro Nobre - Rio de Janeiro - RJ',
+    desc: 'Estrutura premium climatizada em ponto nobre e de alto poder aquisitivo. Capacidade de atendimento activa de até 1.500 alunos matriculados, com marca reconhecida regionalmente.',
+    features: ['Ponto Nobre', 'Capacidade 1500 Alunos', 'Equipamentos Modernos']
+  },
+  {
+    title: 'Restaurante Destaque Vale do Paraíba',
+    tag: 'Alimentação',
+    location: 'São José dos Campos - SP',
+    desc: 'Consolidado há mais de 5 anos com mix variado de culinária e premiações renomadas (Destaque Veja Vale e Montanha). Certificado ISO Quality ativo. Motivo: Proprietário focando em outro segmento.',
+    features: ['ISO Quality', 'Destaque Veja', '5 Anos de Sucesso']
+  }
+]
 
 export default function Valuation() {
+  const defaultHero = {
+    badge: 'Fusões, Aquisições & Valuation',
+    title: 'VOCÊ SABE QUANTO VALE SUA EMPRESA?',
+    content: 'Avaliação, compra e venda de empresas é um assunto técnico e sério. Concluímos o valor de mercado (Valuation) através de metodologias consagradas como Fluxo de Caixa Descontado (FCF) e múltiplos de EBITDA.'
+  }
+  const { hero, opportunities, phases } = useDynamicContent('valuation', {
+    hero: defaultHero,
+    opportunities: defaultOpportunities,
+    phases: defaultPhases
+  })
+
   const [activeTab, setActiveTab] = useState<'vender' | 'comprar'>('vender')
   const [sellForm, setSellForm] = useState({ name: '', email: '', phone: '', companyName: '', revenue: '', message: '' })
   const [buyForm, setBuyForm] = useState({ name: '', email: '', phone: '', sectors: '', budget: '', message: '' })
@@ -17,70 +92,26 @@ export default function Valuation() {
     setSubmitted(true)
   }
 
-  const mAndAPhases = [
-    { name: 'Valuation', desc: 'Conclusão técnica do valor justo do negócio sem contaminação emocional.' },
-    { name: 'Teaser Comercial', desc: 'Elaboração de documento resumido sem identificação (preservando o sigilo).' },
-    { name: 'NDA (Confidencialidade)', desc: 'Assinatura de termo legal antes de abrir qualquer dado estratégico.' },
-    { name: 'Apresentação do Negócio', desc: 'Reunião qualificada para apresentação do plano financeiro e operacional.' },
-    { name: 'Carta de Intenções', desc: 'Formalização do interesse de compra e alinhamento de termos básicos (LOI).' },
-    { name: 'Estudos de Viabilidade', desc: 'Mapeamento de sinergias operacionais e projeções pós-aquisição.' },
-    { name: 'Acompanhamento de Due Diligence', desc: 'Apoio técnico na entrega de certidões, contabilidade e auditoria interna.' },
-    { name: 'Formalização Jurídica', desc: 'Suporte na elaboração dos contratos definitivos de compra e venda (SPA).' }
-  ]
-
-  const opportunities = [
-    {
-      title: 'Indústria Alimentícia & Cosmética',
-      tag: 'Indústria',
-      location: 'São Paulo - SP',
-      desc: 'Empresa consolidada há mais de 20 anos no mercado. Possui sede própria com instalações amplas que suportam triplicar o faturamento atual. Atende grandes players e redes nacionais, além de exportação.',
-      features: ['Sede Própria', 'Triplicar Receita', 'Exportadora']
-    },
-    {
-      title: 'Franquia de Fast Food em Shopping',
-      tag: 'Franquia',
-      location: 'Alto Tietê - SP',
-      desc: 'Unidade franqueada estabelecida há mais de 7 anos em shopping de grande circulação. Operação consolidada com faturamento estável e capacidade para expansão sem grandes aportes adicionais.',
-      features: ['Shopping Center', '7 Anos de Operação', 'Retorno Rápido']
-    },
-    {
-      title: 'Start Up Química/Cosméticos ANVISA',
-      tag: 'Start Up',
-      location: 'Grande São Paulo - SP',
-      desc: 'Instalação moderna de 500m² certificada pela ANVISA e CETESB para fabricação. Maquinários quitados e licenças de fabricação e exportação ativas. Motivo: Dono aposentando-se sem sucessão.',
-      features: ['ANVISA Ativa', 'Maquinário Quitado', '500m² de Área']
-    },
-    {
-      title: 'Academia Premium Climatizada',
-      tag: 'Serviços',
-      location: 'Bairro Nobre - Rio de Janeiro - RJ',
-      desc: 'Estrutura premium climatizada em ponto nobre e de alto poder aquisitivo. Capacidade de atendimento ativa de até 1.500 alunos matriculados, com marca reconhecida regionalmente.',
-      features: ['Ponto Nobre', 'Capacidade 1500 Alunos', 'Equipamentos Modernos']
-    },
-    {
-      title: 'Restaurante Destaque Vale do Paraíba',
-      tag: 'Alimentação',
-      location: 'São José dos Campos - SP',
-      desc: 'Consolidado há mais de 5 anos com mix variado de culinária e premiações renomadas (Destaque Veja Vale e Montanha). Certificado ISO Quality ativo. Motivo: Proprietário focando em outro segmento.',
-      features: ['ISO Quality', 'Destaque Veja', '5 Anos de Sucesso']
-    }
-  ]
 
   return (
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
+      <SEO 
+        title="Valuation, Compra e Venda de Empresas | M&A" 
+        description="Avaliação de empresas e preparação para processos de fusão e aquisição (M&A) com total sigilo e profissionalismo." 
+      />
       {/* Hero Banner */}
       <section className="relative bg-[#070F1E] py-20 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block">
-              Fusões, Aquisições & Valuation
+              {hero.badge}
             </span>
             <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight uppercase">
-              VOCÊ SABE QUANTO VALE SUA <span className="text-gold-primary">EMPRESA</span>?
+              {hero.title}
             </h1>
             <p className="text-base sm:text-lg text-slate-300">
-              Avaliação, compra e venda de empresas é um assunto técnico e sério. Concluímos o valor de mercado (Valuation) através de metodologias consagradas como Fluxo de Caixa Descontado (FCF) e múltiplos de EBITDA.
+              {hero.content}
             </p>
           </div>
         </div>
@@ -139,7 +170,7 @@ export default function Valuation() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {mAndAPhases.map((phase, idx) => (
+            {phases.map((phase: Phase, idx: number) => (
               <div key={phase.name} className="p-6 bg-[#070F1E] rounded-xl border border-white/5 space-y-3 hover:border-gold-primary/10 transition-colors">
                 <div className="text-xs text-gold-primary font-bold">Fase 0{idx+1}</div>
                 <h3 className="text-base font-display font-bold text-white uppercase">{phase.name}</h3>
@@ -161,7 +192,7 @@ export default function Valuation() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {opportunities.map((opp) => (
+          {opportunities.map((opp: Opportunity) => (
             <div key={opp.title} className="glass rounded-xl p-6 border border-white/5 hover:border-gold-primary/10 transition-all flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-center mb-4">
@@ -175,7 +206,7 @@ export default function Valuation() {
               </div>
               <div>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {opp.features.map((f) => (
+                  {opp.features.map((f: string) => (
                     <span key={f} className="text-[9px] font-bold text-slate-400 bg-white/5 py-1 px-2.5 rounded">
                       {f}
                     </span>

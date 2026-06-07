@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import WhatsAppWidget from './components/WhatsAppWidget'
@@ -17,6 +17,9 @@ import Recomendacoes from './pages/Recomendacoes'
 import NossaEquipe from './pages/NossaEquipe'
 import ImersaoOMAPPA from './pages/ImersaoOMAPPA'
 import Materiais from './pages/Materiais'
+import NossaTrajetoria from './pages/NossaTrajetoria'
+import Login from './pages/admin/Login'
+import Dashboard from './pages/admin/Dashboard'
 
 // ScrollToTop helper: scrolls page back to top on route change
 function ScrollToTop() {
@@ -29,19 +32,39 @@ function ScrollToTop() {
   return null
 }
 
+function Layout({ children }: { children: React.ReactNode }) {
+  const location = useLocation()
+  const isAdminRoute = location.pathname.startsWith('/admin')
+
+  if (isAdminRoute) {
+    return <div className="min-h-screen bg-primary-dark">{children}</div>
+  }
+
+  return (
+    <div className="flex flex-col min-h-screen bg-primary-dark">
+      {/* Scroll Helper */}
+      <ScrollToTop />
+
+      {/* Global Navigation */}
+      <Header />
+
+      {/* Dynamic Route Pages */}
+      <main className="flex-grow">{children}</main>
+
+      {/* Global Footer */}
+      <Footer />
+
+      {/* Interactive Floating Chat Widget */}
+      <WhatsAppWidget />
+    </div>
+  )
+}
+
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-primary-dark">
-        {/* Scroll Helper */}
-        <ScrollToTop />
-
-        {/* Global Navigation */}
-        <Header />
-
-        {/* Dynamic Route Pages */}
-        <main className="flex-grow">
-          <Routes>
+      <Layout>
+        <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/smart-company" element={<Home />} />
             
@@ -53,7 +76,7 @@ function App() {
             <Route path="/quem-somos" element={<QuemSomos />} />
             <Route path="/smart-company-consultoria" element={<QuemSomos />} />
             <Route path="/fundador-e-mentor-antonio-geraldes" element={<QuemSomos />} />
-            <Route path="/nossa-trajetoria" element={<QuemSomos />} />
+            <Route path="/nossa-trajetoria" element={<NossaTrajetoria />} />
             <Route path="/nossa-equipe" element={<NossaEquipe />} />
             <Route path="/nossa-equipe-2" element={<NossaEquipe />} />
             
@@ -100,17 +123,16 @@ function App() {
             <Route path="/formulario-programas-smart" element={<Contato />} />
             <Route path="/gestao" element={<Home />} />
 
+            {/* Admin Dashboard */}
+            <Route path="/admin" element={<Dashboard />} />
+            <Route path="/admin/:siteSlug" element={<Dashboard />} />
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin/:siteSlug/login" element={<Login />} />
+
             {/* Fallback Catch-All */}
             <Route path="*" element={<Home />} />
           </Routes>
-        </main>
-
-        {/* Global Footer */}
-        <Footer />
-
-        {/* Interactive Floating Chat Widget */}
-        <WhatsAppWidget />
-      </div>
+      </Layout>
     </Router>
   )
 }

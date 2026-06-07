@@ -1,20 +1,29 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Check, ChevronDown, MessageSquare, ArrowRight, HelpCircle } from 'lucide-react'
+import { useDynamicContent } from '../hooks/useDynamicContent'
+import SEO from '../components/SEO'
 
 export default function ComoTransformamos() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', segment: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
 
-  const stats = [
+  const defaultHero = {
+    badge: 'Metodologia Taylor-Made',
+    title: 'Como Transformamos Empresas?',
+    subtitle: 'Diagnosticamos • Planejamos • Executamos',
+    content: 'Amamos o que fazemos! A nossa consultoria e gestão são personalizadas para a realidade do seu negócio, identificando gargalos e construindo soluções com payback real.'
+  }
+
+  const defaultStats = [
     { number: '70+', label: 'Diagnósticos Realizados' },
     { number: '100%', label: 'Clientes Satisfeitos' },
     { number: '95%', label: 'Conversão em Projeto' },
     { number: '100%', label: 'Entregues no Prazo e Custo' }
   ]
 
-  const faqs = [
+  const defaultFaqs = [
     {
       q: 'Quanto tempo leva para realizar um Diagnóstico?',
       a: 'Em média leva de 3 a 4 semanas, podendo variar conforme a complexidade operacional da empresa e a velocidade de disponibilização de dados pelo cliente.'
@@ -37,6 +46,16 @@ export default function ComoTransformamos() {
     }
   ]
 
+  const {
+    hero,
+    stats: statsList,
+    faqs: faqsList
+  } = useDynamicContent('comotransformamos', {
+    hero: defaultHero,
+    stats: defaultStats,
+    faqs: defaultFaqs
+  })
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitted(true)
@@ -48,6 +67,10 @@ export default function ComoTransformamos() {
 
   return (
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
+      <SEO 
+        title="Como Transformamos Empresas | Método de Gestão e Lucro" 
+        description="Descubra o nosso método prático de transformação empresarial para acelerar seu lucro, equipe e performance operacional." 
+      />
       {/* Hero Section */}
       <section className="relative bg-[#091120] py-20 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
@@ -55,16 +78,16 @@ export default function ComoTransformamos() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1 px-3.5 rounded-full border border-gold-primary/25 inline-block">
-                Metodologia Taylor-Made
+                {hero.badge}
               </span>
               <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight uppercase">
-                Como Transformamos Empresas?
+                {hero.title}
               </h1>
               <p className="text-3xl font-display font-bold text-gold-primary">
-                Diagnosticamos • Planejamos • Executamos
+                {hero.subtitle}
               </p>
               <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-xl">
-                Amamos o que fazemos! A nossa consultoria e gestão são personalizadas para a realidade do seu negócio, identificando gargalos e construindo soluções com payback real.
+                {hero.content}
               </p>
             </div>
             
@@ -182,7 +205,7 @@ export default function ComoTransformamos() {
       <section className="py-16 bg-gold-primary text-primary-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            {stats.map((s) => (
+            {statsList.map((s: any) => (
               <div key={s.label} className="space-y-1">
                 <span className="text-4xl sm:text-5xl font-display font-black tracking-tight block">
                   {s.number}
@@ -245,7 +268,7 @@ export default function ComoTransformamos() {
           </div>
 
           <div className="space-y-4">
-            {faqs.map((faq, idx) => {
+            {faqsList.map((faq: any, idx: number) => {
               const isOpen = activeFaq === idx
               return (
                 <div key={faq.q} className="bg-white/5 rounded-xl border border-white/5 overflow-hidden transition-all duration-300">

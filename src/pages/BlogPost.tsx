@@ -1,56 +1,92 @@
 import { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { Calendar, Clock, ArrowLeft, BookOpen, ChevronRight, Award, Loader2, AlertCircle } from 'lucide-react'
-import { fetchPostBySlug, fetchPosts, type CmsPostFull, type CmsPost } from '../lib/cmsApi'
+import { useParams, Link } from 'react-router-dom'
+import { Calendar, Clock, ArrowLeft, BookOpen, ChevronRight, Award } from 'lucide-react'
+import { blogPosts } from '../data/posts'
+import type { BlogPost } from '../data/posts'
+import { supabase } from '../lib/supabase'
+import SEO from '../components/SEO'
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
-  const [post, setPost] = useState<CmsPostFull | null>(null)
-  const [related, setRelated] = useState<CmsPost[]>([])
-  const [loading, setLoading] = useState(true)
-  const [notFound, setNotFound] = useState(false)
+  
+  const localPost = blogPosts.find((p) => p.slug === slug) || null
+  const [post, setPost] = useState<BlogPost | null>(localPost)
+  const [related, setRelated] = useState<BlogPost[]>([])
 
   useEffect(() => {
-    if (!slug) return
-    setLoading(true)
-    setNotFound(false)
+    async function fetchPostAndRelated() {
+      try {
+        const { data: dbPost, error: dbError } = await supabase
+          .from('posts')
+          .select('*')
+          .eq('site_slug', 'smartcompany')
+          .eq('slug', slug)
+          .single()
 
-    fetchPostBySlug(slug)
-      .then(async (p) => {
-        if (!p) {
-          setNotFound(true)
-          return
+        if (dbError) throw dbError
+
+        let currentPostObj: BlogPost | null = null
+
+        if (dbPost) {
+          currentPostObj = {
+            id: String(dbPost.id),
+            slug: dbPost.slug,
+            title: dbPost.title,
+            excerpt: dbPost.excerpt || (dbPost.body ? dbPost.body.replace(/<[^>]*>/g, '').slice(0, 150) + '...' : ''),
+            content: dbPost.body,
+            date: dbPost.published_at ? dbPost.published_at.slice(0, 10) : new Date().toISOString().slice(0, 10),
+            readTime: dbPost.read_time || '5 min de leitura',
+            category: dbPost.category || 'Gestão Empresarial'
+          }
+          setPost(currentPostObj)
         }
-        setPost(p)
-        // Load related posts (same category)
-        try {
-          const result = await fetchPosts({ category: p.category, limit: 4 })
-          setRelated(result.posts.filter((r) => r.slug !== slug).slice(0, 3))
-        } catch {
-          // related posts are optional
+
+        const targetCategory = currentPostObj?.category || localPost?.category || 'Gestão Empresarial'
+        const { data: dbRelated, error: relatedError } = await supabase
+          .from('posts')
+          .select('*')
+          .eq('site_slug', 'smartcompany')
+          .eq('status', 'published')
+          .neq('slug', slug)
+          .eq('category', targetCategory)
+          .limit(3)
+
+        if (relatedError) throw relatedError
+
+        if (dbRelated && dbRelated.length > 0) {
+          const mappedRelated = dbRelated.map((d: any) => ({
+            id: String(d.id),
+            slug: d.slug,
+            title: d.title,
+            excerpt: d.excerpt || (d.body ? d.body.replace(/<[^>]*>/g, '').slice(0, 150) + '...' : ''),
+            content: d.body,
+            date: d.published_at ? d.published_at.slice(0, 10) : new Date().toISOString().slice(0, 10),
+            readTime: d.read_time || '5 min de leitura',
+            category: d.category || 'Gestão Empresarial'
+          }))
+          setRelated(mappedRelated)
+        } else {
+          const localRelated = blogPosts
+            .filter((p) => p.slug !== slug && p.category === targetCategory)
+            .slice(0, 3)
+          setRelated(localRelated.length > 0 ? localRelated : blogPosts.filter((p) => p.slug !== slug).slice(0, 3))
         }
-      })
-      .catch(() => setNotFound(true))
-      .finally(() => setLoading(false))
+      } catch (err) {
+        console.error('Erro ao buscar post do Supabase:', err)
+        const targetCategory = localPost?.category || 'Gestão Empresarial'
+        const localRelated = blogPosts
+          .filter((p) => p.slug !== slug && p.category === targetCategory)
+          .slice(0, 3)
+        setRelated(localRelated.length > 0 ? localRelated : blogPosts.filter((p) => p.slug !== slug).slice(0, 3))
+      }
+    }
+    fetchPostAndRelated()
   }, [slug])
 
-  const formatDate = (dateStr: string) => {
-    return new Date(dateStr).toLocaleDateString('pt-BR')
-  }
-
-  if (loading) {
-    return (
-      <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans flex items-center justify-center">
-        <Loader2 className="w-10 h-10 text-gold-primary animate-spin" />
-      </div>
-    )
-  }
-
-  if (notFound || !post) {
+  if (!post) {
     return (
       <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans flex items-center justify-center">
         <div className="text-center space-y-4 max-w-sm px-4">
-          <AlertCircle className="w-12 h-12 text-slate-500 mx-auto" />
           <h2 className="text-3xl font-display font-black text-white uppercase">Artigo Não Encontrado</h2>
           <p className="text-sm text-slate-400">O link que você acessou pode estar expirado ou ter sido movido permanentemente.</p>
           <Link
@@ -65,8 +101,17 @@ export default function BlogPost() {
     )
   }
 
+  const formatDate = (dateStr: string) => {
+    const [year, month, day] = dateStr.split('-')
+    return `${day}/${month}/${year}`
+  }
+
   return (
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
+      <SEO 
+        title={post.title} 
+        description={post.excerpt} 
+      />
       {/* Article Header */}
       <section className="relative bg-[#091120] py-16 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
@@ -85,7 +130,7 @@ export default function BlogPost() {
             </span>
             <span className="flex items-center gap-1 font-semibold">
               <Calendar className="w-3.5 h-3.5" />
-              {formatDate(post.publishedAt)}
+              {formatDate(post.date)}
             </span>
             <span className="flex items-center gap-1 font-semibold">
               <Clock className="w-3.5 h-3.5" />
@@ -96,76 +141,67 @@ export default function BlogPost() {
           <h1 className="text-3xl sm:text-5xl font-display font-black text-white leading-tight">
             {post.title}
           </h1>
-
-          {post.imageUrl && (
-            <img
-              src={post.imageUrl}
-              alt={post.title}
-              className="w-full rounded-xl object-cover max-h-96"
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
-            />
-          )}
         </div>
       </section>
 
       {/* Article Content */}
       <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <article
+        {/* Render body content HTML cleanly with custom styling */}
+        <article 
           className="blog-content text-slate-300 text-base leading-relaxed space-y-6"
-          dangerouslySetInnerHTML={{ __html: post.body }}
+          dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </section>
 
       {/* Related Posts */}
-      {related.length > 0 && (
-        <section className="py-20 bg-[#091120] border-t border-white/5">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between border-b border-white/5 pb-6 mb-12">
-              <h2 className="text-xl sm:text-2xl font-display font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-gold-primary" />
-                <span>Artigos Recomendados</span>
-              </h2>
-              <Link
-                to="/blog"
-                className="text-xs font-bold uppercase tracking-widest text-gold-primary hover:text-gold-light flex items-center"
-              >
-                <span>Ver Todos</span>
-                <ChevronRight className="w-4 h-4 ml-1" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {related.map((p) => (
-                <div
-                  key={p.id}
-                  className="glass rounded-xl overflow-hidden border border-white/5 hover:border-gold-primary/10 transition-all flex flex-col justify-between"
-                >
-                  <div className="p-6 space-y-3">
-                    <div className="flex items-center justify-between text-[10px] text-slate-500">
-                      <span className="font-bold text-gold-primary uppercase tracking-wider">{p.category}</span>
-                      <span>{p.readTime}</span>
-                    </div>
-                    <h3 className="font-display font-bold text-white leading-snug line-clamp-2 hover:text-gold-primary transition-colors">
-                      <Link to={`/blog/${p.slug}`}>{p.title}</Link>
-                    </h3>
-                    <p className="text-xs text-slate-400 line-clamp-2">{p.excerpt}</p>
-                  </div>
-                  <div className="px-6 pb-6 pt-4 border-t border-white/5">
-                    <Link
-                      to={`/blog/${p.slug}`}
-                      className="text-xs font-bold uppercase tracking-widest text-white hover:text-gold-primary flex items-center justify-between"
-                    >
-                      <span>Ler Artigo</span>
-                      <ChevronRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
+      <section className="py-20 bg-[#091120] border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between border-b border-white/5 pb-6 mb-12">
+            <h2 className="text-xl sm:text-2xl font-display font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-gold-primary" />
+              <span>Artigos Recomendados</span>
+            </h2>
+            <Link
+              to="/blog"
+              className="text-xs font-bold uppercase tracking-widest text-gold-primary hover:text-gold-light flex items-center"
+            >
+              <span>Ver Todos</span>
+              <ChevronRight className="w-4 h-4 ml-1" />
+            </Link>
           </div>
-        </section>
-      )}
 
-      {/* Trust Sign */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {related.map((p) => (
+              <div
+                key={p.id}
+                className="glass rounded-xl overflow-hidden border border-white/5 hover:border-gold-primary/10 transition-all flex flex-col justify-between"
+              >
+                <div className="p-6 space-y-3">
+                  <div className="flex items-center justify-between text-[10px] text-slate-500">
+                    <span className="font-bold text-gold-primary uppercase tracking-wider">{p.category}</span>
+                    <span>{p.readTime}</span>
+                  </div>
+                  <h3 className="font-display font-bold text-white leading-snug line-clamp-2 hover:text-gold-primary transition-colors">
+                    <Link to={`/blog/${p.slug}`}>{p.title}</Link>
+                  </h3>
+                  <p className="text-xs text-slate-400 line-clamp-2">{p.excerpt}</p>
+                </div>
+                <div className="px-6 pb-6 pt-4 border-t border-white/5">
+                  <Link
+                    to={`/blog/${p.slug}`}
+                    className="text-xs font-bold uppercase tracking-widest text-white hover:text-gold-primary flex items-center justify-between"
+                  >
+                    <span>Ler Artigo</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Sign at very bottom */}
       <section className="py-12 border-t border-white/5 text-center text-xs text-slate-500">
         <div className="max-w-md mx-auto flex items-center justify-center gap-2">
           <Award className="w-4 h-4 text-gold-primary flex-shrink-0" />

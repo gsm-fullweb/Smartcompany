@@ -1,10 +1,37 @@
 import { useState } from 'react'
 import { Check, ArrowRight, ShieldCheck, Award, HelpCircle, ChevronDown, BookOpen } from 'lucide-react'
+import { useDynamicContent } from '../hooks/useDynamicContent'
+import SEO from '../components/SEO'
 
 export default function CursoCIA() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
 
-  const targets = [
+  const defaultHero = {
+    badge: 'Comercial Inteligente e Ativo',
+    title: 'Alavanque as vendas estruturando seu Comercial',
+    content: 'Venda de forma inteligente e com margem real. Descubra como estruturar sua força de vendas de ponta a ponta e bater metas mesmo em mercados competitivos.'
+  }
+
+  const defaultFaqs = [
+    {
+      q: 'Para quem é recomendado o Programa CIA?',
+      a: 'É indicado para gestores de vendas, diretores comerciais, empresários e líderes de equipes que atuam no segmento de indústria, comércio ou prestação de serviços.'
+    },
+    {
+      q: 'O curso é gravado?',
+      a: 'Sim, as 11 video-aulas são totalmente gravadas e de caráter brutalmente prático. Você pode assistir no computador, celular ou tablet de onde quiser e aplicar na hora.'
+    },
+    {
+      q: 'Qual o formato do material didático?',
+      a: 'Além das aulas, você recebe apostilas de apoio didático em PDF para leitura ou impressão, e modelos práticos de matrizes de vendas em Excel.'
+    },
+    {
+      q: 'Como funciona o reembolso?',
+      a: 'O curso oferece 15 dias de garantia incondicional. Se por qualquer motivo você não gostar das táticas, basta solicitar o estorno e devolveremos 100% do seu dinheiro.'
+    }
+  ]
+
+  const defaultTargets = [
     'Como dobrar ou triplicar o volume de vendas do seu time.',
     'Como mapear e conquistar novos clientes qualificados.',
     'Vender com margem técnica e manter o lucro em cada pedido.',
@@ -13,7 +40,7 @@ export default function CursoCIA() {
     'Como desdobrar metas de forma justa e superá-las com recorrência.'
   ]
 
-  const modules = [
+  const defaultModules = [
     {
       title: 'Módulo 1: Comercial Inteligente',
       desc: 'Trata de decisões estratégicas e estruturais essenciais. Foca em Inteligência Comercial e Planejamento.',
@@ -38,7 +65,7 @@ export default function CursoCIA() {
     }
   ]
 
-  const bonuses = [
+  const defaultBonuses = [
     {
       title: 'BÔNUS 1: 50 Dicas Essenciais aos Vendedores',
       value: 'R$ 88,00',
@@ -56,40 +83,39 @@ export default function CursoCIA() {
     }
   ]
 
-  const faqs = [
-    {
-      q: 'Para quem é recomendado o Programa CIA?',
-      a: 'É indicado para gestores de vendas, diretores comerciais, empresários e líderes de equipes que atuam no segmento de indústria, comércio ou prestação de serviços.'
-    },
-    {
-      q: 'O curso é gravado?',
-      a: 'Sim, as 11 video-aulas são totalmente gravadas e de caráter brutalmente prático. Você pode assistir no computador, celular ou tablet de onde quiser e aplicar na hora.'
-    },
-    {
-      q: 'Qual o formato do material didático?',
-      a: 'Além das aulas, você recebe apostilas de apoio didático em PDF para leitura ou impressão, e modelos práticos de matrizes de vendas em Excel.'
-    },
-    {
-      q: 'Como funciona o reembolso?',
-      a: 'O curso oferece 15 dias de garantia incondicional. Se por qualquer motivo você não gostar das táticas, basta solicitar o estorno e devolveremos 100% do seu dinheiro.'
-    }
-  ]
+  const {
+    hero,
+    faqs: faqsList,
+    targets,
+    modules,
+    bonuses
+  } = useDynamicContent('cursocia', {
+    hero: defaultHero,
+    faqs: defaultFaqs,
+    targets: defaultTargets,
+    modules: defaultModules,
+    bonuses: defaultBonuses
+  })
 
   return (
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
+      <SEO 
+        title="Comercial Inteligente e Ativo (CIA) | Treinamento de Vendas" 
+        description="Acelere suas vendas estruturando um setor comercial de alto desempenho e previsibilidade com o método CIA." 
+      />
       {/* Hero Banner */}
       <section className="relative bg-[#0b1528] py-20 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block">
-              Comercial Inteligente e Ativo
+              {hero.badge}
             </span>
             <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight uppercase">
-              Alavanque as vendas estruturando seu <span className="text-gold-primary">Comercial</span>
+              {hero.title}
             </h1>
             <p className="text-base sm:text-lg text-slate-300">
-              Venda de forma inteligente e com margem real. Descubra como estruturar sua força de vendas de ponta a ponta e bater metas mesmo em mercados competitivos.
+              {hero.content}
             </p>
           </div>
         </div>
@@ -106,7 +132,7 @@ export default function CursoCIA() {
               Você sabe que, neste exato momento, há concorrentes faturando alto. Se você não estruturar o seu setor comercial de forma ativa, sua empresa ficará estagnada. O Curso CIA traz táticas simples, didáticas e aplicáveis.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              {targets.map((t) => (
+              {targets.map((t: string) => (
                 <div key={t} className="flex items-start">
                   <Check className="w-5 h-5 text-gold-primary mr-2.5 mt-0.5 flex-shrink-0" />
                   <span className="text-xs sm:text-sm text-slate-300 leading-relaxed">{t}</span>
@@ -144,14 +170,14 @@ export default function CursoCIA() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {modules.map((m) => (
+            {modules.map((m: any) => (
               <div key={m.title} className="glass rounded-xl p-8 border border-white/5 space-y-6">
                 <div>
                   <h3 className="text-xl font-display font-bold text-white uppercase tracking-wide border-b border-white/10 pb-3">{m.title}</h3>
                   <p className="text-xs sm:text-sm text-slate-400 mt-3 leading-relaxed">{m.desc}</p>
                 </div>
                 <div className="space-y-3">
-                  {m.steps.map((step) => (
+                  {m.steps.map((step: string) => (
                     <div key={step} className="flex items-start text-xs sm:text-sm">
                       <div className="w-1.5 h-1.5 rounded-full bg-gold-primary mt-2 mr-3 flex-shrink-0"></div>
                       <span className="text-slate-300 leading-relaxed">{step}</span>
@@ -175,7 +201,7 @@ export default function CursoCIA() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {bonuses.map((b) => (
+          {bonuses.map((b: any) => (
             <div key={b.title} className="glass p-8 rounded-xl border border-gold-primary/10 flex flex-col justify-between relative overflow-hidden">
               <div className="absolute top-0 right-0 px-3 py-1 bg-gold-primary text-primary-dark font-bold text-[10px] uppercase rounded-bl-lg">
                 Grátis
@@ -266,7 +292,7 @@ export default function CursoCIA() {
           </div>
 
           <div className="space-y-4">
-            {faqs.map((faq, idx) => {
+            {faqsList.map((faq: any, idx: number) => {
               const isOpen = activeFaq === idx
               return (
                 <div key={faq.q} className="bg-white/5 rounded-xl border border-white/5 overflow-hidden transition-all duration-300">

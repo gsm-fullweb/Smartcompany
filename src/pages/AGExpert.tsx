@@ -1,10 +1,37 @@
 import { useState } from 'react'
 import { ArrowRight, ShieldCheck, Award, ChevronDown, HelpCircle } from 'lucide-react'
+import { useDynamicContent } from '../hooks/useDynamicContent'
+import SEO from '../components/SEO'
 
 export default function AGExpert() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
 
-  const painPoints = [
+  const defaultHero = {
+    badge: 'Auto Gestão Empresarial (10 a 500 colaboradores)',
+    title: '+ LUCRO - INCÊNDIO com Plano de 22 dias',
+    content: 'Sua empresa NÃO pode depender totalmente de você. Obtenha mais resultados, menos problemas operacionais, mais organização e tempo livre para a família.'
+  }
+
+  const defaultFaqs = [
+    {
+      q: 'Para quem é recomendado este programa?',
+      a: 'É ideal para donos de empresas que faturam e têm acima de 5 colaboradores. Serve tanto para comércio, quanto para serviços e indústrias que buscam autonomia.'
+    },
+    {
+      q: 'Como funciona o acesso?',
+      a: 'O curso é 100% online via plataforma Hotmart (ambiente de alta segurança). Logo após a aprovação da compra, o link de acesso com vídeo-aulas e apostilas é enviado no seu e-mail.'
+    },
+    {
+      q: 'Por quanto tempo tenho acesso ao curso?',
+      a: 'O acesso é garantido por 1 ano completo. Você pode assistir às 45 video-aulas e fazer downloads das matrizes e planilhas quantas vezes quiser no seu ritmo.'
+    },
+    {
+      q: 'E se eu tiver dúvidas durante a implementação?',
+      a: 'Você poderá enviar e-mails diretamente para o nosso suporte técnico em suporte@smartcompany.com.br para tirar dúvidas sobre ferramentas.'
+    }
+  ]
+
+  const defaultPainPoints = [
     'Não gera o lucro ideal esperado para o volume de esforço.',
     'Prende o Dono em rotinas operacionais (apagando incêndios diários).',
     'Falta de processos definidos e equipe com baixo comprometimento.',
@@ -12,7 +39,7 @@ export default function AGExpert() {
     'Ausência de indicadores claros de performance por departamento.'
   ]
 
-  const modules = [
+  const defaultModules = [
     {
       num: '1',
       title: 'Mindset e Alinhamento de Sócios',
@@ -45,7 +72,7 @@ export default function AGExpert() {
     }
   ]
 
-  const bonuses = [
+  const defaultBonuses = [
     {
       title: 'BÔNUS 1: Missão, Visão e Valores na Prática',
       value: 'R$ 380,00',
@@ -63,40 +90,39 @@ export default function AGExpert() {
     }
   ]
 
-  const faqs = [
-    {
-      q: 'Para quem é recomendado este programa?',
-      a: 'É ideal para donos de empresas que faturam e têm acima de 5 colaboradores. Serve tanto para comércio, quanto para serviços e indústrias que buscam autonomia.'
-    },
-    {
-      q: 'Como funciona o acesso?',
-      a: 'O curso é 100% online via plataforma Hotmart (ambiente de alta segurança). Logo após a aprovação da compra, o link de acesso com vídeo-aulas e apostilas é enviado no seu e-mail.'
-    },
-    {
-      q: 'Por quanto tempo tenho acesso ao curso?',
-      a: 'O acesso é garantido por 1 ano completo. Você pode assistir às 45 video-aulas e fazer downloads das matrizes e planilhas quantas vezes quiser no seu ritmo.'
-    },
-    {
-      q: 'E se eu tiver dúvidas durante a implementação?',
-      a: 'Você poderá enviar e-mails diretamente para o nosso suporte técnico em suporte@smartcompany.com.br para tirar dúvidas sobre ferramentas.'
-    }
-  ]
+  const {
+    hero,
+    faqs: faqsList,
+    painPoints,
+    modules,
+    bonuses
+  } = useDynamicContent('agexpert', {
+    hero: defaultHero,
+    faqs: defaultFaqs,
+    painPoints: defaultPainPoints,
+    modules: defaultModules,
+    bonuses: defaultBonuses
+  })
 
   return (
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
+      <SEO 
+        title="Auto Gestão Empresarial (AG Expert) | Treinamento para Sócios" 
+        description="Aprenda o método de Auto Gestão Empresarial para montar um time autogerenciável e liberar o dono do operacional em 22 dias." 
+      />
       {/* Hero Banner */}
       <section className="relative bg-[#001221] py-20 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block">
-              Auto Gestão Empresarial (10 a 500 colaboradores)
+              {hero.badge}
             </span>
             <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight uppercase">
-              + LUCRO <span className="text-gold-primary">- INCÊNDIO</span> com Plano de 22 dias
+              {hero.title}
             </h1>
             <p className="text-base sm:text-lg text-slate-300">
-              Sua empresa NÃO pode depender totalmente de você. Obtenha mais resultados, menos problemas operacionais, mais organização e tempo livre para a família.
+              {hero.content}
             </p>
           </div>
         </div>
@@ -110,7 +136,7 @@ export default function AGExpert() {
               Prezado(a) Empresário(a), sua empresa passa por isso?
             </h2>
             <div className="space-y-4">
-              {painPoints.map((point) => (
+              {painPoints.map((point: string) => (
                 <div key={point} className="flex items-start">
                   <div className="w-5 h-5 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0 border border-red-500/25">
                     <span className="font-bold text-xs">!</span>
@@ -156,7 +182,7 @@ export default function AGExpert() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {modules.map((m) => (
+            {modules.map((m: any) => (
               <div key={m.num} className="glass p-6 rounded-xl border border-white/5 space-y-3">
                 <div className="w-8 h-8 rounded-lg bg-gold-primary text-primary-dark font-display font-black flex items-center justify-center">
                   {m.num}
@@ -180,7 +206,7 @@ export default function AGExpert() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {bonuses.map((b) => (
+          {bonuses.map((b: any) => (
             <div key={b.title} className="glass p-8 rounded-xl border border-gold-primary/10 flex flex-col justify-between relative overflow-hidden">
               <div className="absolute top-0 right-0 px-3 py-1 bg-gold-primary text-primary-dark font-bold text-[10px] uppercase rounded-bl-lg">
                 Grátis
@@ -271,7 +297,7 @@ export default function AGExpert() {
           </div>
 
           <div className="space-y-4">
-            {faqs.map((faq, idx) => {
+            {faqsList.map((faq: any, idx: number) => {
               const isOpen = activeFaq === idx
               return (
                 <div key={faq.q} className="bg-white/5 rounded-xl border border-white/5 overflow-hidden transition-all duration-300">
