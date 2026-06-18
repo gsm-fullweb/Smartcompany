@@ -2684,7 +2684,7 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
           
           <div className="flex items-center gap-4">
             <a
-              href={siteConfig?.domain ? `https://${siteConfig.domain}` : `/smart-company`}
+              href={siteConfig?.domain ? `https://${siteConfig.domain.replace(/^\s*https?:?\/\/+/i, '').replace(/\/+$/, '')}` : `/smart-company`}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/5 hover:bg-white/10 text-slate-300 hover:text-white rounded-lg text-xs font-bold uppercase tracking-wider transition-colors"
