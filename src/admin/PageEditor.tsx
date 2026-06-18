@@ -24,14 +24,41 @@ const PAGES = [
   { id: 'depoimentos',        label: 'Depoimentos',         prefixes: ['depoimentos'] },
 ] as const
 
+// Rótulos amigáveis para os sufixos de section_key (ex: "quemsomos_hero" → "Banner Principal")
+const SECTION_TYPE_LABELS: Record<string, string> = {
+  hero: 'Banner Principal',
+  faqs: 'Perguntas Frequentes',
+  mvv: 'Missão, Visão e Valores',
+  values: 'Valores',
+  founder: 'Fundador',
+  timeline: 'Linha do Tempo',
+  stats: 'Números & Resultados',
+  reasons: 'Diferenciais',
+  members: 'Equipe',
+  clients: 'Clientes',
+  opportunities: 'Oportunidades',
+  phases: 'Fases',
+  items: 'Itens',
+  journeys: 'Jornadas',
+}
+
+function friendlySectionName(sectionKey: string): string {
+  const suffix = sectionKey.split('_').slice(1).join('_') || sectionKey
+  if (SECTION_TYPE_LABELS[suffix]) return SECTION_TYPE_LABELS[suffix]
+  return suffix
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase())
+}
+
 interface PageEditorProps {
   selectedPageId: string
   onPageChange: (id: string) => void
+  currentSlug?: string
 }
 
 // ─── PageEditor ───────────────────────────────────────────────────────────────
 
-export default function PageEditor({ selectedPageId, onPageChange }: PageEditorProps) {
+export default function PageEditor({ selectedPageId, onPageChange, currentSlug = 'smartcompany' }: PageEditorProps) {
   const [sections, setSections] = useState<SiteSection[]>([])
   const [openKey, setOpenKey] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
@@ -58,7 +85,7 @@ export default function PageEditor({ selectedPageId, onPageChange }: PageEditorP
     const { data, error } = await supabase
       .from('site_sections')
       .select('*')
-      .eq('site_slug', 'smartcompany')
+      .eq('site_slug', currentSlug)
       .or(orFilter)
       .order('order_index', { ascending: true })
 
@@ -67,7 +94,7 @@ export default function PageEditor({ selectedPageId, onPageChange }: PageEditorP
     if (!error && data) {
       setSections(data as SiteSection[])
     }
-  }, [selectedPage])
+  }, [selectedPage, currentSlug])
 
   useEffect(() => {
     loadSections()
@@ -182,15 +209,15 @@ export default function PageEditor({ selectedPageId, onPageChange }: PageEditorP
                                hover:bg-white/3 transition-colors text-left gap-4"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      {/* Badge com a section_key */}
-                      <span className="text-[9px] font-mono font-bold text-gold-primary/70
+                      {/* Chip com o tipo amigável da seção */}
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-gold-primary/80
                                        bg-gold-primary/8 border border-gold-primary/12
                                        px-2 py-0.5 rounded flex-shrink-0">
-                        {section.section_key}
+                        {friendlySectionName(section.section_key)}
                       </span>
                       {/* Título da seção */}
                       <span className="text-sm font-semibold text-white truncate">
-                        {section.title ?? section.section_key}
+                        {section.title ?? friendlySectionName(section.section_key)}
                       </span>
                     </div>
 

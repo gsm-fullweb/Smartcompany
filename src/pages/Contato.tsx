@@ -3,6 +3,9 @@ import { Mail, Phone, MapPin, Youtube, Instagram, Facebook, Send, Check, Loader2
 import { supabase } from '../lib/supabase'
 import { useDynamicContent } from '../hooks/useDynamicContent'
 import SEO from '../components/SEO'
+import EditableText from '../admin/inline/EditableText'
+import { StaticContent } from '../admin/inline/StaticContent'
+import EditableStatic from '../admin/inline/EditableStatic'
 
 export default function Contato() {
   const defaultHero = {
@@ -45,6 +48,7 @@ export default function Contato() {
   }
 
   return (
+    <StaticContent pageKey="contato">
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
       <SEO 
         title="Contato | Agende um Diagnóstico Gratuito" 
@@ -55,12 +59,20 @@ export default function Contato() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <Mail className="w-8 h-8 text-gold-primary mx-auto" />
-          <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight uppercase">
-            {hero.title}
-          </h1>
-          <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed">
-            {hero.content}
-          </p>
+          <EditableText
+            as="h1"
+            sectionKey="contato_hero"
+            field="title"
+            value={hero.title}
+            className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight uppercase"
+          />
+          <EditableText
+            as="p"
+            sectionKey="contato_hero"
+            field="content"
+            value={hero.content}
+            className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed"
+          />
         </div>
       </section>
 
@@ -70,11 +82,9 @@ export default function Contato() {
           {/* Info Details Column */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest">Canais Disponíveis</span>
-              <h2 className="text-3xl font-display font-extrabold text-white uppercase">Informações Institucionais</h2>
-              <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
-                Quer agendar uma visita presencial em São Paulo, tirar dúvidas sobre nossas formações online (AG Expert e CIA) ou iniciar um Valuation para M&A? Escolha o melhor canal abaixo:
-              </p>
+              <EditableStatic k="info_eyebrow" value="Canais Disponíveis" as="span" className="text-[10px] font-bold text-gold-primary uppercase tracking-widest" />
+              <EditableStatic k="info_title" value="Informações Institucionais" as="h2" className="text-3xl font-display font-extrabold text-white uppercase" />
+              <EditableStatic k="info_intro" value="Quer agendar uma visita presencial em São Paulo, tirar dúvidas sobre nossas formações online (AG Expert e CIA) ou iniciar um Valuation para M&A? Escolha o melhor canal abaixo:" as="p" className="text-sm sm:text-base text-slate-400 leading-relaxed" />
             </div>
 
             <div className="space-y-6">
@@ -83,8 +93,8 @@ export default function Contato() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-white font-display font-bold text-sm uppercase">Atendimento Nacional</h4>
-                  <p className="text-slate-400 text-sm mt-1">São Paulo / SP - Atendimento online e presencial para todo o Brasil.</p>
+                  <EditableStatic k="channel_address_label" value="Atendimento Nacional" as="h4" className="text-white font-display font-bold text-sm uppercase" />
+                  <EditableStatic k="channel_address_value" value="São Paulo / SP - Atendimento online e presencial para todo o Brasil." as="p" className="text-slate-400 text-sm mt-1" />
                 </div>
               </div>
 
@@ -93,10 +103,10 @@ export default function Contato() {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-white font-display font-bold text-sm uppercase">WhatsApp Comercial</h4>
+                  <EditableStatic k="channel_whatsapp_label" value="WhatsApp Comercial" as="h4" className="text-white font-display font-bold text-sm uppercase" />
                   <p className="text-slate-400 text-sm mt-1">
                     <a href="https://api.whatsapp.com/send/?phone=5511993291892&text&type=phone_number&app_absent=0" target="_blank" rel="noreferrer" className="hover:text-gold-primary transition-colors">
-                      (11) 99329-1892
+                      <EditableStatic k="channel_whatsapp_value" value="(11) 99329-1892" as="span" />
                     </a>
                   </p>
                 </div>
@@ -107,10 +117,10 @@ export default function Contato() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-white font-display font-bold text-sm uppercase">E-mail Corporativo</h4>
+                  <EditableStatic k="channel_email_label" value="E-mail Corporativo" as="h4" className="text-white font-display font-bold text-sm uppercase" />
                   <p className="text-slate-400 text-sm mt-1">
                     <a href="mailto:contato@smartcompany.com.br" className="hover:text-gold-primary transition-colors">
-                      contato@smartcompany.com.br
+                      <EditableStatic k="channel_email_value" value="contato@smartcompany.com.br" as="span" />
                     </a>
                   </p>
                 </div>
@@ -119,7 +129,7 @@ export default function Contato() {
 
             {/* Social channels */}
             <div className="pt-4 border-t border-white/5 space-y-4">
-              <h4 className="text-white font-display font-bold text-xs uppercase tracking-wider">Acompanhe nas Redes Sociais</h4>
+              <EditableStatic k="social_title" value="Acompanhe nas Redes Sociais" as="h4" className="text-white font-display font-bold text-xs uppercase tracking-wider" />
               <div className="flex gap-3">
                 <a
                   href="https://www.youtube.com/channel/UCEi7bnqRbibkehIL8ikcc1A"
@@ -153,11 +163,11 @@ export default function Contato() {
           <div>
             {!submitted ? (
               <form onSubmit={handleSubmit} className="glass p-8 rounded-xl border border-white/10 space-y-4 shadow-2xl">
-                <h3 className="text-xl font-display font-bold text-white uppercase border-b border-white/5 pb-3">Enviar Mensagem</h3>
+                <EditableStatic k="form_title" value="Enviar Mensagem" as="h3" className="text-xl font-display font-bold text-white uppercase border-b border-white/5 pb-3" />
                 
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-400 mb-1" htmlFor="c-name">
-                    Seu Nome
+                    <EditableStatic k="form_label_name" value="Seu Nome" as="span" />
                   </label>
                   <input
                     id="c-name"
@@ -172,7 +182,7 @@ export default function Contato() {
 
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-400 mb-1" htmlFor="c-email">
-                    Seu Email
+                    <EditableStatic k="form_label_email" value="Seu Email" as="span" />
                   </label>
                   <input
                     id="c-email"
@@ -187,7 +197,7 @@ export default function Contato() {
 
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-400 mb-1" htmlFor="c-phone">
-                    WhatsApp / Telefone
+                    <EditableStatic k="form_label_phone" value="WhatsApp / Telefone" as="span" />
                   </label>
                   <input
                     id="c-phone"
@@ -202,7 +212,7 @@ export default function Contato() {
 
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-400 mb-1" htmlFor="c-msg">
-                    Sua Mensagem
+                    <EditableStatic k="form_label_message" value="Sua Mensagem" as="span" />
                   </label>
                   <textarea
                     id="c-msg"
@@ -228,12 +238,12 @@ export default function Contato() {
                 >
                   {loading ? (
                     <>
-                      <span>Enviando...</span>
+                      <EditableStatic k="form_submit_loading" value="Enviando..." as="span" />
                       <Loader2 className="w-4 h-4 ml-2 animate-spin" />
                     </>
                   ) : (
                     <>
-                      <span>Enviar Mensagem</span>
+                      <EditableStatic k="form_submit_label" value="Enviar Mensagem" as="span" />
                       <Send className="w-4 h-4 ml-2" />
                     </>
                   )}
@@ -244,7 +254,7 @@ export default function Contato() {
                 <div className="w-12 h-12 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center mx-auto">
                   <Check className="w-6 h-6 stroke-[3]" />
                 </div>
-                <h3 className="text-xl font-display font-bold text-white">Mensagem Enviada!</h3>
+                <EditableStatic k="success_title" value="Mensagem Enviada!" as="h3" className="text-xl font-display font-bold text-white" />
                 <p className="text-sm text-slate-300 leading-relaxed">
                   Agradecemos o contato, <strong>{formData.name}</strong>. Nossa assessoria retornará via e-mail ou WhatsApp nas próximas horas.
                 </p>
@@ -252,7 +262,7 @@ export default function Contato() {
                   onClick={() => setSubmitted(false)}
                   className="text-xs text-gold-primary font-bold uppercase hover:underline"
                 >
-                  Enviar Nova Mensagem
+                  <EditableStatic k="success_reset_label" value="Enviar Nova Mensagem" as="span" />
                 </button>
               </div>
             )}
@@ -260,5 +270,6 @@ export default function Contato() {
         </div>
       </section>
     </div>
+    </StaticContent>
   )
 }

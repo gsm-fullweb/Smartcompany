@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { Calendar, CheckCircle, ShieldCheck, HelpCircle, ChevronDown, Award, Users, BookOpen } from 'lucide-react'
 import { useDynamicContent } from '../hooks/useDynamicContent'
 import SEO from '../components/SEO'
+import EditableText from '../admin/inline/EditableText'
+import { StaticContent } from '../admin/inline/StaticContent'
+import EditableStatic from '../admin/inline/EditableStatic'
 
 interface Testimony {
   author: string
@@ -125,8 +128,9 @@ export default function ImersaoOMAPPA() {
   }
 
   return (
+    <StaticContent pageKey="imersao-omappa">
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
-      <SEO 
+      <SEO
         title="Imersão OMAPPA da Empresa Lucrativa | Treinamento Presencial" 
         description="Participe do nosso treinamento presencial de alto impacto focado em reestruturação, processos, metas, pessoas e lucro para sua empresa." 
       />
@@ -134,15 +138,27 @@ export default function ImersaoOMAPPA() {
       <section className="relative bg-[#070F1E] py-20 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block">
-            {hero.badge}
-          </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black text-white tracking-tight uppercase leading-tight">
-            {hero.title}
-          </h1>
-          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            {hero.content}
-          </p>
+          <EditableText
+            as="span"
+            sectionKey="imersao-omappa_hero"
+            path={['metadata', 'badge']}
+            value={hero.badge}
+            className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block"
+          />
+          <EditableText
+            as="h1"
+            sectionKey="imersao-omappa_hero"
+            field="title"
+            value={hero.title}
+            className="text-4xl sm:text-5xl lg:text-6xl font-display font-black text-white tracking-tight uppercase leading-tight"
+          />
+          <EditableText
+            as="p"
+            sectionKey="imersao-omappa_hero"
+            field="content"
+            value={hero.content}
+            className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed"
+          />
           <div className="pt-4">
             <a
               href="https://www.sympla.com.br/evento/imersao-o-mappa-um-mapa-que-vai-nortear-voce-e-o-seu-negocio/1965990?d=PROMO50"
@@ -151,7 +167,7 @@ export default function ImersaoOMAPPA() {
               className="inline-flex items-center justify-center px-8 py-4 font-bold text-base uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg shadow-lg shadow-emerald-600/20 hover:scale-102 active:scale-100 transition-all gap-2"
             >
               <Calendar className="w-5 h-5" />
-              <span>Garantir Vaga com 50% de Desconto</span>
+              <EditableStatic k="hero_cta" value="Garantir Vaga com 50% de Desconto" as="span" />
             </a>
           </div>
         </div>
@@ -164,9 +180,12 @@ export default function ImersaoOMAPPA() {
             <h2 className="text-2xl sm:text-3xl font-display font-bold text-white uppercase">
               Vem Comigo <span className="text-gold-primary">Agora!</span>
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400">
-              Assista à apresentação do mentor Antonio Geraldes sobre o método OMAPPA.
-            </p>
+            <EditableStatic
+              k="video_subtitle"
+              value="Assista à apresentação do mentor Antonio Geraldes sobre o método OMAPPA."
+              as="p"
+              className="text-xs sm:text-sm text-slate-400"
+            />
           </div>
           <div className="aspect-video w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative bg-black">
             <iframe
@@ -186,13 +205,16 @@ export default function ImersaoOMAPPA() {
           <h2 className="text-3xl sm:text-4xl font-display font-black text-white uppercase">
             A Jornada <span className="text-gold-primary">OMAPPA</span>
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
-            O método estruturado em 6 etapas cruciais que compõem o mapa estratégico de crescimento para sua empresa:
-          </p>
+          <EditableStatic
+            k="pillars_subtitle"
+            value="O método estruturado em 6 etapas cruciais que compõem o mapa estratégico de crescimento para sua empresa:"
+            as="p"
+            className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {pillars.map((pillar: any) => (
+          {pillars.map((pillar: any, idx: number) => (
             <div
               key={pillar.title}
               className="bg-[#091120] border border-white/5 rounded-xl p-6 hover:border-gold-primary/20 transition-all duration-300 relative group"
@@ -201,12 +223,20 @@ export default function ImersaoOMAPPA() {
                 {pillar.letter}
               </div>
               <div className="pt-6 space-y-3">
-                <h3 className="text-lg font-display font-bold text-white group-hover:text-gold-primary transition-colors">
-                  {pillar.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                  {pillar.description}
-                </p>
+                <EditableText
+                  as="h3"
+                  sectionKey="imersao-omappa_pillars"
+                  path={['metadata', 'pillars', idx, 'title']}
+                  value={pillar.title}
+                  className="text-lg font-display font-bold text-white group-hover:text-gold-primary transition-colors"
+                />
+                <EditableText
+                  as="p"
+                  sectionKey="imersao-omappa_pillars"
+                  path={['metadata', 'pillars', idx, 'description']}
+                  value={pillar.description}
+                  className="text-xs sm:text-sm text-slate-400 leading-relaxed"
+                />
               </div>
             </div>
           ))}
@@ -230,31 +260,43 @@ export default function ImersaoOMAPPA() {
             </div>
             {/* Bio Text */}
             <div className="w-full lg:w-2/3 space-y-6">
-              <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1 px-3 rounded-full inline-block">
-                Fundador e Mentor
-              </span>
-              <h2 className="text-3xl font-display font-black text-white uppercase tracking-tight leading-none">
-                Antonio Geraldes
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-400 font-semibold leading-relaxed">
-                Empresário, Mentor de Gestão Estratégica e especialista em Diagnósticos Corporativos.
-              </p>
+              <EditableStatic
+                k="mentor_badge"
+                value="Fundador e Mentor"
+                as="span"
+                className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1 px-3 rounded-full inline-block"
+              />
+              <EditableStatic
+                k="mentor_name"
+                value="Antonio Geraldes"
+                as="h2"
+                className="text-3xl font-display font-black text-white uppercase tracking-tight leading-none"
+              />
+              <EditableStatic
+                k="mentor_role"
+                value="Empresário, Mentor de Gestão Estratégica e especialista em Diagnósticos Corporativos."
+                as="p"
+                className="text-xs sm:text-sm text-slate-400 font-semibold leading-relaxed"
+              />
               <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
-                <p>
-                  &ldquo;Desenvolvi esta Imersão para Empresários para ser 100% dinâmica, intuitiva e proporcionar 
-                  um evento único que de fato contribui para a sua estratégia. Entrego cases reais, matrizes de 
-                  mercado e as ferramentas que utilizo no dia a dia da minha consultoria.&rdquo;
-                </p>
-                <p>
-                  Há 30 anos gerencio empresas. Tendo fundado 6 negócios próprios e orientado pessoalmente a 
-                  reestruturação comercial, financeira e fabril de dezenas de clientes, conheço detalhadamente 
-                  as dores da liderança familiar e executiva.
-                </p>
+                <EditableStatic
+                  k="mentor_bio_1"
+                  value="“Desenvolvi esta Imersão para Empresários para ser 100% dinâmica, intuitiva e proporcionar um evento único que de fato contribui para a sua estratégia. Entrego cases reais, matrizes de mercado e as ferramentas que utilizo no dia a dia da minha consultoria.”"
+                  as="p"
+                />
+                <EditableStatic
+                  k="mentor_bio_2"
+                  value="Há 30 anos gerencio empresas. Tendo fundado 6 negócios próprios e orientado pessoalmente a reestruturação comercial, financeira e fabril de dezenas de clientes, conheço detalhadamente as dores da liderança familiar e executiva."
+                  as="p"
+                />
               </div>
               <div className="border-t border-white/5 pt-4">
-                <span className="text-xs italic text-gold-primary">
-                  &ldquo;Obtenha resultados diferentes agindo de forma consistente agora.&rdquo;
-                </span>
+                <EditableStatic
+                  k="mentor_quote"
+                  value="“Obtenha resultados diferentes agindo de forma consistente agora.”"
+                  as="span"
+                  className="text-xs italic text-gold-primary"
+                />
               </div>
             </div>
           </div>
@@ -267,13 +309,16 @@ export default function ImersaoOMAPPA() {
           <h2 className="text-3xl sm:text-4xl font-display font-black text-white uppercase">
             Depoimentos de <span className="text-gold-primary">Empresários</span>
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
-            Veja o que outros diretores e fundadores que participaram da imersão OMAPPA dizem sobre os resultados obtidos:
-          </p>
+          <EditableStatic
+            k="testimonials_subtitle"
+            value="Veja o que outros diretores e fundadores que participaram da imersão OMAPPA dizem sobre os resultados obtidos:"
+            as="p"
+            className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonies.map((test: any) => (
+          {testimonies.map((test: any, idx: number) => (
             <div
               key={test.author}
               className="bg-[#091120] border border-white/5 rounded-xl p-5 flex flex-col justify-between hover:border-gold-primary/20 transition-all duration-300 shadow-md"
@@ -296,9 +341,13 @@ export default function ImersaoOMAPPA() {
               </div>
               {/* Footer Author */}
               <div className="border-t border-white/5 pt-4 mt-4 text-center">
-                <h4 className="text-sm font-display font-bold text-white leading-tight">
-                  {test.author}
-                </h4>
+                <EditableText
+                  as="h4"
+                  sectionKey="imersao-omappa_testimonies"
+                  path={['metadata', 'testimonies', idx, 'author']}
+                  value={test.author}
+                  className="text-sm font-display font-bold text-white leading-tight"
+                />
                 <p className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider mt-1">
                   {test.role} — {test.company}
                 </p>
@@ -317,8 +366,8 @@ export default function ImersaoOMAPPA() {
                 <Users className="w-6 h-6" />
               </div>
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-white uppercase tracking-wider">Presencial</h4>
-                <p className="text-xs text-slate-400">Excelente networking presencial de alto nível com empresários.</p>
+                <EditableStatic k="detail_1_title" value="Presencial" as="h4" className="text-sm font-bold text-white uppercase tracking-wider" />
+                <EditableStatic k="detail_1_desc" value="Excelente networking presencial de alto nível com empresários." as="p" className="text-xs text-slate-400" />
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -326,8 +375,8 @@ export default function ImersaoOMAPPA() {
                 <CheckCircle className="w-6 h-6" />
               </div>
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-white uppercase tracking-wider">Ferramentas</h4>
-                <p className="text-xs text-slate-400">Matrizes e planos de ação estruturados para aplicação imediata.</p>
+                <EditableStatic k="detail_2_title" value="Ferramentas" as="h4" className="text-sm font-bold text-white uppercase tracking-wider" />
+                <EditableStatic k="detail_2_desc" value="Matrizes e planos de ação estruturados para aplicação imediata." as="p" className="text-xs text-slate-400" />
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -335,8 +384,8 @@ export default function ImersaoOMAPPA() {
                 <BookOpen className="w-6 h-6" />
               </div>
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-white uppercase tracking-wider">Material Didático</h4>
-                <p className="text-xs text-slate-400">Apostila completa digital em PDF e material de acompanhamento.</p>
+                <EditableStatic k="detail_3_title" value="Material Didático" as="h4" className="text-sm font-bold text-white uppercase tracking-wider" />
+                <EditableStatic k="detail_3_desc" value="Apostila completa digital em PDF e material de acompanhamento." as="p" className="text-xs text-slate-400" />
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -344,8 +393,8 @@ export default function ImersaoOMAPPA() {
                 <Award className="w-6 h-6" />
               </div>
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-white uppercase tracking-wider">Atividade Prática</h4>
-                <p className="text-xs text-slate-400">Atividades de mão na massa garantindo a vivência real do método.</p>
+                <EditableStatic k="detail_4_title" value="Atividade Prática" as="h4" className="text-sm font-bold text-white uppercase tracking-wider" />
+                <EditableStatic k="detail_4_desc" value="Atividades de mão na massa garantindo a vivência real do método." as="p" className="text-xs text-slate-400" />
               </div>
             </div>
           </div>
@@ -359,9 +408,12 @@ export default function ImersaoOMAPPA() {
             <HelpCircle className="w-6 h-6 text-gold-primary" />
             Dúvidas? <span className="text-gold-primary">Confira aqui</span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400">
-            Ficou com alguma dúvida sobre a dinâmica do workshop presencial? Veja as respostas abaixo:
-          </p>
+          <EditableStatic
+            k="faq_subtitle"
+            value="Ficou com alguma dúvida sobre a dinâmica do workshop presencial? Veja as respostas abaixo:"
+            as="p"
+            className="text-xs sm:text-sm text-slate-400"
+          />
         </div>
 
         <div className="space-y-4">
@@ -376,9 +428,13 @@ export default function ImersaoOMAPPA() {
                   onClick={() => toggleFaq(index)}
                   className="w-full px-6 py-4 flex items-center justify-between text-left text-white hover:text-gold-primary transition-colors focus:outline-none"
                 >
-                  <span className="font-display font-semibold text-sm sm:text-base pr-4">
-                    {faq.question}
-                  </span>
+                  <EditableText
+                    as="span"
+                    sectionKey="imersao-omappa_faqs"
+                    path={['metadata', 'faqs', index, 'question']}
+                    value={faq.question}
+                    className="font-display font-semibold text-sm sm:text-base pr-4"
+                  />
                   <ChevronDown
                     className={`w-4 h-4 text-gold-primary flex-shrink-0 transition-transform duration-300 ${
                       isOpen ? 'rotate-180' : 'rotate-0'
@@ -386,9 +442,13 @@ export default function ImersaoOMAPPA() {
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-slate-400 text-xs sm:text-sm leading-relaxed border-t border-white/5">
-                    {faq.answer}
-                  </div>
+                  <EditableText
+                    as="div"
+                    sectionKey="imersao-omappa_faqs"
+                    path={['metadata', 'faqs', index, 'answer']}
+                    value={faq.answer}
+                    className="px-6 pb-6 pt-1 text-slate-400 text-xs sm:text-sm leading-relaxed border-t border-white/5"
+                  />
                 )}
               </div>
             )
@@ -404,12 +464,18 @@ export default function ImersaoOMAPPA() {
             <div className="inline-flex items-center gap-2 bg-[#091120] px-4 py-3 rounded-2xl border border-gold-primary/30 shadow-lg">
               <ShieldCheck className="w-8 h-8 text-gold-primary" />
               <div className="text-left">
-                <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">
-                  Inscrição Protegida
-                </span>
-                <span className="block text-xs font-bold text-white mt-1">
-                  Compra Segura & Selo Comprovado
-                </span>
+                <EditableStatic
+                  k="badge_line_1"
+                  value="Inscrição Protegida"
+                  as="span"
+                  className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none"
+                />
+                <EditableStatic
+                  k="badge_line_2"
+                  value="Compra Segura & Selo Comprovado"
+                  as="span"
+                  className="block text-xs font-bold text-white mt-1"
+                />
               </div>
             </div>
           </div>
@@ -418,9 +484,12 @@ export default function ImersaoOMAPPA() {
             <h2 className="text-3xl sm:text-4xl font-display font-black text-white uppercase">
               Transforme a trajetória do seu <span className="text-gold-primary">Negócio</span>
             </h2>
-            <p className="text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
-              Junte-se a dezenas de outros empresários e garanta sua vaga agora mesmo na próxima edição da Imersão OMAPPA.
-            </p>
+            <EditableStatic
+              k="bottom_cta_subtitle"
+              value="Junte-se a dezenas de outros empresários e garanta sua vaga agora mesmo na próxima edição da Imersão OMAPPA."
+              as="p"
+              className="text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed"
+            />
           </div>
 
           <div className="pt-2">
@@ -430,15 +499,19 @@ export default function ImersaoOMAPPA() {
               rel="noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 font-bold text-base uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg shadow-lg hover:scale-102 transition-all gap-2"
             >
-              <span>Sim, quero minha vaga com 50% de Desconto!</span>
+              <EditableStatic k="bottom_cta_button" value="Sim, quero minha vaga com 50% de Desconto!" as="span" />
             </a>
           </div>
 
-          <div className="text-xs text-slate-500 pt-2">
-            *Ingressos geridos via plataforma Sympla. Ambientes criptografados e 100% seguros.
-          </div>
+          <EditableStatic
+            k="bottom_footnote"
+            value="*Ingressos geridos via plataforma Sympla. Ambientes criptografados e 100% seguros."
+            as="div"
+            className="text-xs text-slate-500 pt-2"
+          />
         </div>
       </section>
     </div>
+    </StaticContent>
   )
 }

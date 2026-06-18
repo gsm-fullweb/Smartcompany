@@ -2,6 +2,10 @@ import { useState } from 'react'
 import { BookOpen, Film, Search, Quote } from 'lucide-react'
 import { useDynamicContent } from '../hooks/useDynamicContent'
 import SEO from '../components/SEO'
+import EditableText from '../admin/inline/EditableText'
+import EditableImage from '../admin/inline/EditableImage'
+import { StaticContent } from '../admin/inline/StaticContent'
+import EditableStatic from '../admin/inline/EditableStatic'
 
 const defaultBooks = [
   {
@@ -236,8 +240,9 @@ export default function Recomendacoes() {
   )
 
   return (
+    <StaticContent pageKey="recomendacoes">
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
-      <SEO 
+      <SEO
         title="Livros e Filmes Recomendados para Empresários" 
         description="Confira uma curadoria exclusiva de obras de liderança, estratégia, vendas e negócios recomendadas por Antonio Geraldes." 
       />
@@ -245,15 +250,27 @@ export default function Recomendacoes() {
       <section className="relative bg-[#070F1E] py-20 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block">
-            {hero.badge}
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight uppercase">
-            {hero.title}
-          </h1>
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            {hero.content}
-          </p>
+          <EditableText
+            as="span"
+            sectionKey="recomendacoes_hero"
+            path={['metadata', 'badge']}
+            value={hero.badge}
+            className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block"
+          />
+          <EditableText
+            as="h1"
+            sectionKey="recomendacoes_hero"
+            field="title"
+            value={hero.title}
+            className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight uppercase"
+          />
+          <EditableText
+            as="p"
+            sectionKey="recomendacoes_hero"
+            field="content"
+            value={hero.content}
+            className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed"
+          />
         </div>
       </section>
 
@@ -269,7 +286,7 @@ export default function Recomendacoes() {
               }`}
             >
               <BookOpen className="w-4 h-4" />
-              <span>Livros Recomendados</span>
+              <EditableStatic k="tab_livros" value="Livros Recomendados" as="span" className="" />
             </button>
             <button
               onClick={() => { setActiveTab('filmes'); setSearchTerm(''); }}
@@ -278,7 +295,7 @@ export default function Recomendacoes() {
               }`}
             >
               <Film className="w-4 h-4" />
-              <span>Filmes Recomendados</span>
+              <EditableStatic k="tab_filmes" value="Filmes Recomendados" as="span" className="" />
             </button>
           </div>
 
@@ -298,11 +315,15 @@ export default function Recomendacoes() {
         {/* Content list */}
         {filteredItems.length === 0 ? (
           <div className="text-center py-20 bg-[#091120] rounded-xl border border-white/5">
-            <p className="text-slate-500 text-sm">Nenhum item corresponde à sua busca.</p>
+            <EditableStatic k="empty_busca" value="Nenhum item corresponde à sua busca." as="p" className="text-slate-500 text-sm" />
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredItems.map((item: any, idx: number) => (
+            {filteredItems.map((item: any, idx: number) => {
+              const sourceArr = activeTab === 'livros' ? books : movies
+              const realIdx = sourceArr.indexOf(item)
+              const itemsKey = activeTab === 'livros' ? 'books' : 'movies'
+              return (
               <div
                 key={item.title}
                 className="bg-[#091120] border border-white/5 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-gold-primary/20 transition-all duration-300 shadow-xl group"
@@ -311,8 +332,10 @@ export default function Recomendacoes() {
                 <div className="relative h-64 overflow-hidden bg-[#050b14] flex items-center justify-center p-6 border-b border-white/5">
                   {item.image ? (
                     <div className="relative w-32 h-48 shadow-[0_15px_30px_rgba(0,0,0,0.6)] rounded-md overflow-hidden transform group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-300">
-                      <img
-                        src={item.image}
+                      <EditableImage
+                        sectionKey="recomendacoes_items"
+                        path={['metadata', itemsKey, realIdx, 'image']}
+                        value={item.image}
                         alt={item.title}
                         className="w-full h-full object-cover"
                         loading="lazy"
@@ -337,34 +360,59 @@ export default function Recomendacoes() {
                 <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
                   <div className="space-y-3">
                     <div className="space-y-1">
-                      <h3 className="text-base font-display font-extrabold text-white group-hover:text-gold-primary transition-colors leading-tight line-clamp-2">
-                        {item.title}
-                      </h3>
+                      <EditableText
+                        as="h3"
+                        sectionKey="recomendacoes_items"
+                        path={['metadata', itemsKey, realIdx, 'title']}
+                        value={item.title}
+                        className="text-base font-display font-extrabold text-white group-hover:text-gold-primary transition-colors leading-tight line-clamp-2"
+                      />
                       {activeTab === 'livros' && (item as any).author && (
                         <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">
-                          De {(item as any).author}
+                          De{' '}
+                          <EditableText
+                            as="span"
+                            sectionKey="recomendacoes_items"
+                            path={['metadata', itemsKey, realIdx, 'author']}
+                            value={(item as any).author}
+                            className=""
+                          />
                         </p>
                       )}
                     </div>
-                    
+
                     <div className="relative pt-2 pb-2">
                       <Quote className="w-6 h-6 text-white/5 absolute -top-2.5 -left-1" />
                       <p className="text-xs sm:text-sm leading-relaxed text-slate-400 font-medium italic relative z-10 line-clamp-4 font-sans">
-                        &ldquo;{item.review}&rdquo;
+                        &ldquo;
+                        <EditableText
+                          as="span"
+                          sectionKey="recomendacoes_items"
+                          path={['metadata', itemsKey, realIdx, 'review']}
+                          value={item.review}
+                          className=""
+                        />
+                        &rdquo;
                       </p>
                     </div>
                   </div>
 
                   <div className="border-t border-white/5 pt-4 text-[10px] font-bold text-gold-primary uppercase tracking-widest flex items-center justify-between">
                     <span>Recomendação #{idx + 1}</span>
-                    <span className="text-slate-500 font-semibold">{activeTab === 'livros' ? 'Livro' : 'Filme'}</span>
+                    <span className="text-slate-500 font-semibold">{activeTab === 'livros' ? (
+                      <EditableStatic k="rotulo_livro" value="Livro" as="span" className="" />
+                    ) : (
+                      <EditableStatic k="rotulo_filme" value="Filme" as="span" className="" />
+                    )}</span>
                   </div>
                 </div>
               </div>
-            ))}
+              )
+            })}
           </div>
         )}
       </section>
     </div>
+    </StaticContent>
   )
 }

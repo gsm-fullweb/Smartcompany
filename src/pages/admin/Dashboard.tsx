@@ -30,6 +30,8 @@ import {
 } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
 import PageEditor from '../../admin/PageEditor'
+import PageBuilder from '../../admin/PageBuilder'
+import { useFeedback, ToastViewport, ConfirmDialog } from '../../components/admin/Feedback'
 
 type TabType = 'overview' | 'change_requests' | 'leads' | 'pages' | 'ai_assistant' | 'settings'
 
@@ -163,14 +165,16 @@ export default function Dashboard() {
   const [userEmail, setUserEmail] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [actionLoading, setActionLoading] = useState(false)
+  const [postSearch, setPostSearch] = useState('')
+  const { toasts, dismissToast, toast, confirm, confirmState, resolveConfirm } = useFeedback()
   const navigate = useNavigate()
   const { siteSlug } = useParams()
   const currentSlug = siteSlug || 'smartcompany'
 
   // Custom states for premium UX/UI
-  const [showPreview] = useState(true)
+  const [showPreview] = useState(false)
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
-  const [mySiteSubTab, setMySiteSubTab] = useState<'pages' | 'blog'>('pages')
+  const [mySiteSubTab, setMySiteSubTab] = useState<'pages' | 'blog' | 'custom'>('pages')
   const isPublishing = false
   const publishingStep = 0
   const setIsDirty = (_val: boolean) => {}
@@ -1237,6 +1241,16 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [chatMessages, aiLoading])
 
+  // Close post modal with the Escape key
+  useEffect(() => {
+    if (!isPostModalOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && !actionLoading) setIsPostModalOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [isPostModalOpen, actionLoading])
+
   // Data Fetching
   async function fetchData() {
     setLoading(true)
@@ -1421,19 +1435,25 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
         change_request_id: req.id
       }])
 
-      alert('Solicitação aprovada e executada com sucesso!')
+      toast('Solicitação aprovada e executada com sucesso!', 'success')
       fetchData()
       fetchSections()
     } catch (err: any) {
       console.error('Erro ao aprovar solicitação:', err)
-      alert(`Erro ao aprovar solicitação: ${err.message}`)
+      toast(`Erro ao aprovar solicitação: ${err.message}`, 'error')
     } finally {
       setActionLoading(false)
     }
   }
 
   const handleRejectRequest = async (req: any) => {
-    if (!window.confirm('Deseja realmente rejeitar esta solicitação?')) return
+    const ok = await confirm({
+      title: 'Rejeitar solicitação',
+      message: 'Deseja realmente rejeitar esta solicitação? Esta ação não poderá ser desfeita.',
+      confirmLabel: 'Rejeitar',
+      tone: 'danger',
+    })
+    if (!ok) return
     setActionLoading(true)
     try {
       const { error: reqError } = await supabase
@@ -1456,11 +1476,11 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
         change_request_id: req.id
       }])
 
-      alert('Solicitação rejeitada com sucesso!')
+      toast('Solicitação rejeitada com sucesso!', 'success')
       fetchData()
     } catch (err: any) {
       console.error('Erro ao rejeitar solicitação:', err)
-      alert(`Erro ao rejeitar solicitação: ${err.message}`)
+      toast(`Erro ao rejeitar solicitação: ${err.message}`, 'error')
     } finally {
       setActionLoading(false)
     }
@@ -1484,17 +1504,23 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
 
       if (error) throw error
       setNewPhone('')
-      alert('Telefone adicionado com sucesso!')
+      toast('Telefone adicionado com sucesso!', 'success')
       fetchData()
     } catch (err: any) {
-      alert(`Erro ao adicionar telefone: ${err.message}`)
+      toast(`Erro ao adicionar telefone: ${err.message}`, 'error')
     } finally {
       setActionLoading(false)
     }
   }
 
   const handleDeletePhone = async (phoneStr: string) => {
-    if (!window.confirm(`Deseja realmente remover o telefone ${phoneStr} da lista de autorizados?`)) return
+    const ok = await confirm({
+      title: 'Remover telefone',
+      message: `Deseja realmente remover o telefone ${phoneStr} da lista de autorizados?`,
+      confirmLabel: 'Remover',
+      tone: 'danger',
+    })
+    if (!ok) return
     setActionLoading(true)
     try {
       const { error } = await supabase
@@ -1504,10 +1530,10 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
         .eq('site_slug', currentSlug)
 
       if (error) throw error
-      alert('Telefone removido com sucesso!')
+      toast('Telefone removido com sucesso!', 'success')
       fetchData()
     } catch (err: any) {
-      alert(`Erro ao remover telefone: ${err.message}`)
+      toast(`Erro ao remover telefone: ${err.message}`, 'error')
     } finally {
       setActionLoading(false)
     }
@@ -1532,10 +1558,10 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
         }, { onConflict: 'slug' })
 
       if (error) throw error
-      alert('Configurações do site salvas com sucesso!')
+      toast('Configurações do site salvas com sucesso!', 'success')
       fetchData()
     } catch (err: any) {
-      alert(`Erro ao salvar configurações do site: ${err.message}`)
+      toast(`Erro ao salvar configurações do site: ${err.message}`, 'error')
     } finally {
       setActionLoading(false)
     }
@@ -1649,9 +1675,10 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
       }
 
       setIsPostModalOpen(false)
+      toast(editingPost ? 'Artigo atualizado com sucesso!' : 'Artigo criado com sucesso!', 'success')
       fetchData()
     } catch (err: any) {
-      alert(`Erro ao salvar artigo: ${err.message}`)
+      toast(`Erro ao salvar artigo: ${err.message}`, 'error')
     } finally {
       setActionLoading(false)
     }
@@ -1659,7 +1686,13 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
 
   // Delete Post handler
   const handleDeletePost = async (id: number) => {
-    if (!window.confirm('Tem certeza de que deseja excluir permanentemente este artigo?')) return
+    const ok = await confirm({
+      title: 'Excluir artigo',
+      message: 'Tem certeza de que deseja excluir permanentemente este artigo? Esta ação não poderá ser desfeita.',
+      confirmLabel: 'Excluir',
+      tone: 'danger',
+    })
+    if (!ok) return
 
     try {
       const { error } = await supabase
@@ -1668,15 +1701,22 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
         .eq('id', id)
 
       if (error) throw error
+      toast('Artigo excluído com sucesso.', 'success')
       fetchData()
     } catch (err: any) {
-      alert(`Erro ao deletar artigo: ${err.message}`)
+      toast(`Erro ao deletar artigo: ${err.message}`, 'error')
     }
   }
 
   // Delete Lead handler
   const handleDeleteLead = async (id: number) => {
-    if (!window.confirm('Tem certeza de que deseja excluir este contato?')) return
+    const ok = await confirm({
+      title: 'Excluir contato',
+      message: 'Tem certeza de que deseja excluir este contato? Esta ação não poderá ser desfeita.',
+      confirmLabel: 'Excluir',
+      tone: 'danger',
+    })
+    if (!ok) return
 
     try {
       const { error } = await supabase
@@ -1685,9 +1725,10 @@ const removeLiveListMetaItem = (section: 'values' | 'timeline' | 'reasons' | 'fa
         .eq('id', id)
 
       if (error) throw error
+      toast('Contato excluído com sucesso.', 'success')
       fetchData()
     } catch (err: any) {
-      alert(`Erro ao deletar lead: ${err.message}`)
+      toast(`Erro ao deletar lead: ${err.message}`, 'error')
     }
   }
 
@@ -2731,7 +2772,6 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                         <h3 className="text-sm font-display font-bold text-white uppercase tracking-wider flex items-center gap-2">
                           <FileText className="w-4 h-4 text-gold-primary" />
                           <span>Últimos Artigos</span>
-                          <span>Últimos Artigos</span>
                         </h3>
                         <button onClick={() => { setActiveTab('pages'); setMySiteSubTab('blog'); }} className="text-[10px] text-gold-primary hover:text-gold-light font-bold uppercase tracking-wider">Gerenciar</button>
                       </div>
@@ -2798,13 +2838,25 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                       <FileText className="w-4 h-4" />
                       <span>Artigos do Blog</span>
                     </button>
+                    <button
+                      type="button"
+                      onClick={() => setMySiteSubTab('custom')}
+                      className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 border ${
+                        mySiteSubTab === 'custom'
+                          ? 'bg-gold-primary text-primary-dark border-gold-primary/20 shadow-md shadow-gold-primary/5'
+                          : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                      }`}
+                    >
+                      <Plus className="w-4 h-4" />
+                      <span>Páginas Personalizadas</span>
+                    </button>
                   </div>
 
                   {mySiteSubTab === 'pages' ? (
                     <div className="flex-grow overflow-hidden flex flex-col xl:flex-row gap-6 items-stretch">
                       {/* Left Side: PageEditor */}
                       <div className={`flex-grow overflow-hidden transition-all duration-300 min-w-0 ${showPreview ? 'xl:w-[70%]' : 'w-full'}`}>
-                        <PageEditor selectedPageId={selectedPageId} onPageChange={(id) => setSelectedPageId(id as any)} />
+                        <PageEditor selectedPageId={selectedPageId} onPageChange={(id) => setSelectedPageId(id as any)} currentSlug={currentSlug} />
                       </div>
 
                       {/* Right Side: Preview Panel */}
@@ -2869,16 +2921,18 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                         </div>
                       )}
                     </div>
-                  ) : (
+                  ) : mySiteSubTab === 'blog' ? (
                     <div className="space-y-6 animate-in fade-in duration-200">
                       <div className="flex justify-between items-center gap-4 flex-wrap">
                         <div className="relative w-80 max-w-full">
                           <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
                           <input
                             type="text"
-                            placeholder="Pesquisar artigos..."
+                            value={postSearch}
+                            onChange={(e) => setPostSearch(e.target.value)}
+                            placeholder="Pesquisar artigos por título ou categoria..."
+                            aria-label="Pesquisar artigos"
                             className="w-full bg-[#070F1E] border border-white/10 rounded-lg py-2 pl-10 pr-4 text-slate-200 text-xs focus:outline-none focus:border-gold-primary transition-colors"
-                            disabled
                           />
                         </div>
 
@@ -2905,7 +2959,37 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                             </tr>
                           </thead>
                           <tbody className="divide-y divide-white/5 text-xs">
-                            {posts.map((post) => (
+                            {(() => {
+                              const term = postSearch.trim().toLowerCase()
+                              const filtered = term
+                                ? posts.filter(p =>
+                                    (p.title || '').toLowerCase().includes(term) ||
+                                    (p.category || '').toLowerCase().includes(term))
+                                : posts
+                              if (filtered.length === 0) {
+                                return (
+                                  <tr>
+                                    <td colSpan={6} className="px-6 py-12 text-center">
+                                      <div className="space-y-2">
+                                        <AlertCircle className="w-8 h-8 text-slate-600 mx-auto" />
+                                        <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">
+                                          {term ? 'Nenhum artigo encontrado para a busca' : 'Nenhum artigo cadastrado ainda'}
+                                        </p>
+                                        {!term && (
+                                          <button
+                                            type="button"
+                                            onClick={openCreateModal}
+                                            className="text-[10px] text-gold-primary hover:text-gold-light font-bold uppercase tracking-wider"
+                                          >
+                                            Criar o primeiro artigo
+                                          </button>
+                                        )}
+                                      </div>
+                                    </td>
+                                  </tr>
+                                )
+                              }
+                              return filtered.map((post) => (
                               <tr key={post.id} className="hover:bg-white/2 transition-colors">
                                 <td className="px-6 py-4 font-semibold text-white max-w-xs truncate">{post.title}</td>
                                 <td className="px-6 py-4 text-slate-400">{post.category}</td>
@@ -2926,6 +3010,8 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                                   <button
                                     type="button"
                                     onClick={() => openEditModal(post)}
+                                    aria-label={`Editar artigo ${post.title}`}
+                                    title="Editar artigo"
                                     className="inline-flex items-center justify-center p-1.5 text-slate-400 hover:text-gold-primary hover:bg-white/5 rounded-md transition-colors"
                                   >
                                     <Edit className="w-4 h-4" />
@@ -2933,16 +3019,23 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                                   <button
                                     type="button"
                                     onClick={() => handleDeletePost(post.id)}
+                                    aria-label={`Excluir artigo ${post.title}`}
+                                    title="Excluir artigo"
                                     className="inline-flex items-center justify-center p-1.5 text-slate-400 hover:text-accent-red hover:bg-white/5 rounded-md transition-colors"
                                   >
                                     <Trash2 className="w-4 h-4" />
                                   </button>
                                 </td>
                               </tr>
-                            ))}
+                              ))
+                            })()}
                           </tbody>
                         </table>
                       </div>
+                    </div>
+                  ) : (
+                    <div className="flex-grow overflow-y-auto">
+                      <PageBuilder currentSlug={currentSlug} />
                     </div>
                   )}
                 </div>
@@ -2963,6 +3056,18 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-white/5 text-xs">
+                      {leads.length === 0 && (
+                        <tr>
+                          <td colSpan={6} className="px-6 py-12 text-center">
+                            <div className="space-y-2">
+                              <Mail className="w-8 h-8 text-slate-600 mx-auto" />
+                              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">
+                                Nenhum contato recebido ainda
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                      )}
                       {leads.map((lead) => (
                         <tr key={lead.id} className="hover:bg-white/2 transition-colors">
                           <td className="px-6 py-4 font-semibold text-white">{lead.name}</td>
@@ -2980,6 +3085,8 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                             <button
                               type="button"
                               onClick={() => handleDeleteLead(lead.id)}
+                              aria-label={`Excluir contato de ${lead.name}`}
+                              title="Excluir contato"
                               className="inline-flex items-center justify-center p-1.5 text-slate-400 hover:text-accent-red hover:bg-white/5 rounded-md transition-colors"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -3360,6 +3467,8 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
                             </div>
                             <button
                               onClick={() => handleDeletePhone(ph.phone)}
+                              aria-label={`Remover telefone ${ph.phone}`}
+                              title="Remover telefone"
                               className="text-slate-500 hover:text-red-400 p-1 hover:bg-white/5 rounded transition-all"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
@@ -3430,8 +3539,17 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
 
       {/* CREATE / EDIT POST MODAL */}
       {isPostModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-          <div className="glass w-full max-w-4xl max-h-[90vh] rounded-2xl border border-white/10 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-200">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+          onClick={() => !actionLoading && setIsPostModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={editingPost ? 'Editar artigo' : 'Novo artigo'}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="glass w-full max-w-4xl max-h-[90vh] rounded-2xl border border-white/10 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-200"
+          >
             
             <div className="px-6 py-4 border-b border-white/5 flex items-center justify-between bg-secondary-dark/60">
               <h2 className="text-base font-display font-bold uppercase text-white tracking-wider">
@@ -3589,6 +3707,10 @@ const handleImproveField = async (fieldKey: string, currentValue: string, update
           </div>
         </div>
       )}
+
+      {/* Global feedback: toasts + confirm dialog */}
+      <ToastViewport toasts={toasts} onDismiss={dismissToast} />
+      <ConfirmDialog state={confirmState} onResolve={resolveConfirm} busy={actionLoading} />
 
     </div>
   )

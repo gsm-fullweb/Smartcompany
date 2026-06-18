@@ -2,6 +2,10 @@ import { useState } from 'react'
 import { BookOpen, Download, X, Mail, Phone, User, CheckCircle, ShieldCheck } from 'lucide-react'
 import { useDynamicContent } from '../hooks/useDynamicContent'
 import SEO from '../components/SEO'
+import EditableText from '../admin/inline/EditableText'
+import EditableImage from '../admin/inline/EditableImage'
+import { StaticContent } from '../admin/inline/StaticContent'
+import EditableStatic from '../admin/inline/EditableStatic'
 
 interface EBook {
   id: string
@@ -142,6 +146,7 @@ export default function Materiais() {
   }
 
   return (
+    <StaticContent pageKey="materiais">
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
       <SEO 
         title="Materiais Educativos e E-books de Gestão Gratuitos" 
@@ -151,35 +156,53 @@ export default function Materiais() {
       <section className="relative bg-[#070F1E] py-20 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block">
-            {hero.badge}
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight uppercase">
-            {hero.title}
-          </h1>
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            {hero.content}
-          </p>
+          <EditableText
+            as="span"
+            sectionKey="materiais_hero"
+            path={['metadata', 'badge']}
+            value={hero.badge}
+            className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block"
+          />
+          <EditableText
+            as="h1"
+            sectionKey="materiais_hero"
+            field="title"
+            value={hero.title}
+            className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight uppercase"
+          />
+          <EditableText
+            as="p"
+            sectionKey="materiais_hero"
+            field="content"
+            value={hero.content}
+            className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed"
+          />
         </div>
       </section>
 
       {/* Grid of Materials */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {ebooks.map((book: any) => (
+          {ebooks.map((book: any, idx: number) => (
             <div
               key={book.id}
               className="bg-[#091120] border border-white/5 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-gold-primary/20 transition-all duration-300 shadow-xl group"
             >
               {/* Cover Showcase Container */}
               <div className="relative h-72 overflow-hidden bg-[#050b14] flex items-center justify-center p-6 border-b border-white/5">
-                <div className="absolute top-4 right-4 bg-primary-dark/85 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[10px] font-bold text-gold-primary uppercase tracking-wider z-10 shadow-lg">
-                  {book.price}
-                </div>
+                <EditableText
+                  as="div"
+                  sectionKey="materiais_ebooks"
+                  path={['metadata', 'ebooks', idx, 'price']}
+                  value={book.price}
+                  className="absolute top-4 right-4 bg-primary-dark/85 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[10px] font-bold text-gold-primary uppercase tracking-wider z-10 shadow-lg"
+                />
                 {book.image ? (
                   <div className="relative w-40 h-56 shadow-[0_15px_30px_rgba(0,0,0,0.6)] rounded-md overflow-hidden transform group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-300">
-                    <img
-                      src={book.image}
+                    <EditableImage
+                      sectionKey="materiais_ebooks"
+                      path={['metadata', 'ebooks', idx, 'image']}
+                      value={book.image}
                       alt={book.title}
                       className="w-full h-full object-cover"
                     />
@@ -199,25 +222,43 @@ export default function Materiais() {
               <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
                 <div className="space-y-3">
                   <div className="space-y-1">
-                    <span className="text-[9px] text-gold-primary uppercase tracking-widest font-bold">
-                      E-book Corporativo
-                    </span>
-                    <h3 className="text-lg font-display font-extrabold text-white leading-tight group-hover:text-gold-primary transition-colors">
-                      {book.title}
-                    </h3>
-                    <p className="text-xs text-slate-400 font-medium italic">
-                      {book.subtitle}
-                    </p>
+                    <EditableStatic
+                      k="card_badge"
+                      value="E-book Corporativo"
+                      as="span"
+                      className="text-[9px] text-gold-primary uppercase tracking-widest font-bold"
+                    />
+                    <EditableText
+                      as="h3"
+                      sectionKey="materiais_ebooks"
+                      path={['metadata', 'ebooks', idx, 'title']}
+                      value={book.title}
+                      className="text-lg font-display font-extrabold text-white leading-tight group-hover:text-gold-primary transition-colors"
+                    />
+                    <EditableText
+                      as="p"
+                      sectionKey="materiais_ebooks"
+                      path={['metadata', 'ebooks', idx, 'subtitle']}
+                      value={book.subtitle}
+                      className="text-xs text-slate-400 font-medium italic"
+                    />
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed line-clamp-3">
-                    {book.description}
-                  </p>
+                  <EditableText
+                    as="p"
+                    sectionKey="materiais_ebooks"
+                    path={['metadata', 'ebooks', idx, 'description']}
+                    value={book.description}
+                    className="text-xs sm:text-sm text-slate-400 leading-relaxed line-clamp-3"
+                  />
                   
                   <div className="space-y-2 pt-2">
-                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest block">
-                      Tópicos Abordados
-                    </span>
+                    <EditableStatic
+                      k="card_topics_label"
+                      value="Tópicos Abordados"
+                      as="span"
+                      className="text-[10px] font-bold text-slate-500 uppercase tracking-widest block"
+                    />
                     <ul className="space-y-1 text-xs text-slate-400">
                       {book.bullets.slice(0, 2).map((b: string, idx: number) => (
                         <li key={idx} className="flex items-center gap-1.5">
@@ -236,14 +277,14 @@ export default function Materiais() {
                       className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-gold-primary hover:bg-gold-light text-primary-dark text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-gold-primary/10 transition-all"
                     >
                       <Download className="w-4 h-4" />
-                      <span>Baixar E-book Grátis</span>
+                      <EditableStatic k="card_btn_download_free" value="Baixar E-book Grátis" as="span" />
                     </button>
                   ) : (
                     <button
                       onClick={() => handleOpenModal(book)}
                       className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-emerald-600/10 transition-all"
                     >
-                      <span>Adquirir por {book.price}</span>
+                      <span><EditableStatic k="card_btn_buy_prefix" value="Adquirir por" as="span" /> {book.price}</span>
                     </button>
                   )}
                 </div>
@@ -262,7 +303,9 @@ export default function Materiais() {
               <div className="flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-gold-primary" />
                 <h3 className="font-display font-bold text-white text-sm sm:text-base">
-                  {selectedBook.isFree ? 'Solicitar E-book Gratuito' : 'Adquirir Material Exclusivo'}
+                  {selectedBook.isFree
+                    ? <EditableStatic k="modal_title_free" value="Solicitar E-book Gratuito" as="span" />
+                    : <EditableStatic k="modal_title_paid" value="Adquirir Material Exclusivo" as="span" />}
                 </h3>
               </div>
               <button
@@ -278,14 +321,14 @@ export default function Materiais() {
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="text-xs text-slate-400 bg-white/5 p-4 rounded-xl border border-white/5 mb-4">
-                    Você está solicitando o download de: <strong className="text-white">{selectedBook.title}</strong>.
-                    Preencha as informações básicas para receber o link de acesso.
+                    <EditableStatic k="modal_intro_prefix" value="Você está solicitando o download de:" as="span" /> <strong className="text-white">{selectedBook.title}</strong>.
+                    {' '}<EditableStatic k="modal_intro_suffix" value="Preencha as informações básicas para receber o link de acesso." as="span" />
                   </div>
 
                   {/* Name field */}
                   <div className="space-y-1.5">
                     <label htmlFor="modal-name" className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                      Seu Nome Completo *
+                      <EditableStatic k="modal_label_name" value="Seu Nome Completo *" as="span" />
                     </label>
                     <div className="relative">
                       <User className="absolute left-3 top-3 w-4 h-4 text-slate-500" />
@@ -304,7 +347,7 @@ export default function Materiais() {
                   {/* Email field */}
                   <div className="space-y-1.5">
                     <label htmlFor="modal-email" className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                      Seu E-mail Corporativo *
+                      <EditableStatic k="modal_label_email" value="Seu E-mail Corporativo *" as="span" />
                     </label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-3 w-4 h-4 text-slate-500" />
@@ -323,7 +366,7 @@ export default function Materiais() {
                   {/* WhatsApp field */}
                   <div className="space-y-1.5">
                     <label htmlFor="modal-whatsapp" className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                      Seu WhatsApp / Telefone *
+                      <EditableStatic k="modal_label_whatsapp" value="Seu WhatsApp / Telefone *" as="span" />
                     </label>
                     <div className="relative">
                       <Phone className="absolute left-3 top-3 w-4 h-4 text-slate-500" />
@@ -342,7 +385,7 @@ export default function Materiais() {
                   {/* Company name */}
                   <div className="space-y-1.5">
                     <label htmlFor="modal-company" className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                      Nome da sua Empresa (Opcional)
+                      <EditableStatic k="modal_label_company" value="Nome da sua Empresa (Opcional)" as="span" />
                     </label>
                     <input
                       type="text"
@@ -362,15 +405,15 @@ export default function Materiais() {
                       className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-gold-primary hover:bg-gold-light text-primary-dark text-xs font-bold uppercase tracking-wider shadow-md transition-all"
                     >
                       {loading ? (
-                        <span>Processando...</span>
+                        <EditableStatic k="modal_submit_loading" value="Processando..." as="span" />
                       ) : selectedBook.isFree ? (
                         <>
                           <Download className="w-4 h-4" />
-                          <span>Liberar Meu Download Grátis</span>
+                          <EditableStatic k="modal_submit_free" value="Liberar Meu Download Grátis" as="span" />
                         </>
                       ) : (
                         <>
-                          <span>Ir para Checkout ({selectedBook.price})</span>
+                          <span><EditableStatic k="modal_submit_checkout_prefix" value="Ir para Checkout" as="span" /> ({selectedBook.price})</span>
                         </>
                       )}
                     </button>
@@ -382,14 +425,17 @@ export default function Materiais() {
                     <CheckCircle className="w-10 h-10" />
                   </div>
                   <div className="space-y-2">
-                    <h4 className="text-lg font-display font-bold text-white uppercase">
-                      Solicitação Concluída!
-                    </h4>
+                    <EditableStatic
+                      k="success_title"
+                      value="Solicitação Concluída!"
+                      as="h4"
+                      className="text-lg font-display font-bold text-white uppercase"
+                    />
                     <p className="text-xs sm:text-sm text-slate-400 max-w-sm mx-auto leading-relaxed">
-                      Olá <strong className="text-white">{formData.name}</strong>, registramos seu e-mail corporativo. 
-                      {selectedBook.isFree 
-                        ? ' O link para baixar o eBook foi liberado abaixo:' 
-                        : ' Nosso consultor entrará em contato via WhatsApp para liberar o checkout do material.'}
+                      <EditableStatic k="success_greeting" value="Olá" as="span" /> <strong className="text-white">{formData.name}</strong><EditableStatic k="success_registered" value=", registramos seu e-mail corporativo." as="span" />{' '}
+                      {selectedBook.isFree
+                        ? <EditableStatic k="success_msg_free" value="O link para baixar o eBook foi liberado abaixo:" as="span" />
+                        : <EditableStatic k="success_msg_paid" value="Nosso consultor entrará em contato via WhatsApp para liberar o checkout do material." as="span" />}
                     </p>
                   </div>
                   
@@ -402,7 +448,7 @@ export default function Materiais() {
                         className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all"
                       >
                         <Download className="w-4 h-4" />
-                        <span>Baixar E-book Agora</span>
+                        <EditableStatic k="success_btn_download" value="Baixar E-book Agora" as="span" />
                       </a>
                     </div>
                   ) : (
@@ -413,14 +459,14 @@ export default function Materiais() {
                         rel="noreferrer"
                         className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all"
                       >
-                        <span>Finalizar pelo WhatsApp (R$ 9,90)</span>
+                        <EditableStatic k="success_btn_whatsapp" value="Finalizar pelo WhatsApp (R$ 9,90)" as="span" />
                       </a>
                     </div>
                   )}
 
                   <div className="flex items-center justify-center gap-1.5 text-[10px] text-slate-500 uppercase tracking-widest pt-2">
                     <ShieldCheck className="w-3.5 h-3.5 text-gold-primary" />
-                    <span>Seus dados estão protegidos</span>
+                    <EditableStatic k="success_privacy_note" value="Seus dados estão protegidos" as="span" />
                   </div>
                 </div>
               )}
@@ -429,5 +475,6 @@ export default function Materiais() {
         </div>
       )}
     </div>
+    </StaticContent>
   )
 }

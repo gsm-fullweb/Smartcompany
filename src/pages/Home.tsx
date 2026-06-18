@@ -4,6 +4,12 @@ import AssessmentQuiz from '../components/AssessmentQuiz'
 import { blogPosts } from '../data/posts'
 import { useDynamicContent } from '../hooks/useDynamicContent'
 import SEO from '../components/SEO'
+import EditableText from '../admin/inline/EditableText'
+import EditableImage from '../admin/inline/EditableImage'
+import EditableStaticImage from '../admin/inline/EditableStaticImage'
+import EditableParagraphs from '../admin/inline/EditableParagraphs'
+import { StaticContent } from '../admin/inline/StaticContent'
+import EditableStatic from '../admin/inline/EditableStatic'
 
 export default function Home() {
   const defaultJourneys = [
@@ -203,8 +209,9 @@ export default function Home() {
   }
 
   return (
+    <StaticContent pageKey="home">
     <div className="bg-primary-dark pt-16 min-h-screen text-slate-300 font-sans">
-      <SEO 
+      <SEO
         title="Consultoria e Gestão de Excelência para Empresas" 
         description="Consultoria e gestão personalizadas para donos de empresas e gestores que buscam reestruturação financeira, aumento de vendas, valuation e auto gestão empresarial." 
       />
@@ -218,36 +225,49 @@ export default function Home() {
           <div className="text-center max-w-4xl mx-auto space-y-6">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-gold-primary bg-gold-primary/10 border border-gold-primary/20">
               <Award className="w-3.5 h-3.5" />
-              <span>{hero.badge}</span>
+              <EditableText
+                as="span"
+                sectionKey="home_hero"
+                path={['metadata', 'badge']}
+                value={hero.badge}
+              />
             </span>
 
-            <h1 className="text-3xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight">
-              {hero.title}
-            </h1>
+            <EditableText
+              as="h1"
+              sectionKey="home_hero"
+              field="title"
+              value={hero.title}
+              className="text-3xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight"
+            />
 
-            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
-              {hero.content}
-            </p>
+            <EditableText
+              as="p"
+              sectionKey="home_hero"
+              field="content"
+              value={hero.content}
+              className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto"
+            />
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="#diagnostico"
                 className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-wider text-primary-dark bg-gold-primary hover:bg-gold-light rounded-lg shadow-xl shadow-gold-primary/10 transition-all duration-200"
               >
-                <span>Fazer Auto Diagnóstico Gratuito</span>
+                <EditableStatic k="hero_cta_diagnostico" value="Fazer Auto Diagnóstico Gratuito" as="span" />
                 <ArrowRight className="ml-2 w-4 h-4" />
               </a>
               <Link
                 to="/como-transformamos-empresas"
                 className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-wider text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg transition-all"
               >
-                <span>Conhecer Consultoria</span>
+                <EditableStatic k="hero_cta_consultoria" value="Conhecer Consultoria" as="span" />
               </Link>
             </div>
 
             <div className="flex items-center justify-center gap-2 pt-6 text-xs text-slate-500">
               <ShieldCheck className="w-4 h-4 text-gold-primary" />
-              <span>Metodologia taylor-made testada em mais de 100 empresas</span>
+              <EditableStatic k="hero_trust_line" value="Metodologia taylor-made testada em mais de 100 empresas" as="span" />
             </div>
           </div>
         </div>
@@ -256,22 +276,23 @@ export default function Home() {
       {/* ── 4 Jornadas ───────────────────────────────────── */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-3 mb-16">
-          <h2 className="text-3xl font-display font-bold text-white uppercase tracking-wider">
-            Nossa Expertise nas Suas Mãos
-          </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-sm">
-            Temos expertise comprovada nestas 4 jornadas, clique na solução que você precisa neste momento:
-          </p>
+          <EditableStatic k="jornadas_title" value="Nossa Expertise nas Suas Mãos" as="h2" className="text-3xl font-display font-bold text-white uppercase tracking-wider" />
+          <EditableStatic k="jornadas_subtitle" value="Temos expertise comprovada nestas 4 jornadas, clique na solução que você precisa neste momento:" as="p" className="text-slate-400 max-w-2xl mx-auto text-sm" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
-          {journeys.map((j: any) => (
+          {journeys.map((j: any, idx: number) => (
             <Link
               key={j.title}
               to={j.link}
               className="flex items-center justify-center text-center px-6 py-8 bg-gold-primary hover:bg-gold-light text-primary-dark font-display font-black text-sm uppercase tracking-wider rounded-lg shadow-lg hover:shadow-gold-primary/20 hover:-translate-y-1 transition-all duration-300 min-h-[110px]"
             >
-              <span>{j.title}</span>
+              <EditableText
+                as="span"
+                sectionKey="home_journeys"
+                path={['metadata', 'journeys', idx, 'title']}
+                value={j.title}
+              />
             </Link>
           ))}
         </div>
@@ -281,48 +302,62 @@ export default function Home() {
       <section className="py-20 bg-secondary-dark/40 border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-3 mb-12">
-            <h2 className="text-3xl font-display font-bold text-white uppercase tracking-wider">
-              DOMINE SUA EMPRESA, POTENCIALIZE SEU TIME E ATINJA O SUCESSO.
-            </h2>
-            <p className="text-slate-400 max-w-3xl mx-auto text-sm leading-relaxed">
-              ACELERE COM NOSSA CONSULTORIA OU FAÇA AGORA NOSSOS CURSOS DE AUTO GESTÃO EMPRESARIAL.
-            </p>
+            <EditableStatic k="pilares_title" value="DOMINE SUA EMPRESA, POTENCIALIZE SEU TIME E ATINJA O SUCESSO." as="h2" className="text-3xl font-display font-bold text-white uppercase tracking-wider" />
+            <EditableStatic k="pilares_subtitle" value="ACELERE COM NOSSA CONSULTORIA OU FAÇA AGORA NOSSOS CURSOS DE AUTO GESTÃO EMPRESARIAL." as="p" className="text-slate-400 max-w-3xl mx-auto text-sm leading-relaxed" />
           </div>
 
           <div className="max-w-3xl mx-auto glass rounded-xl p-8 border border-white/5 mb-16 space-y-6">
-            <h3 className="text-base font-display font-bold text-white text-center leading-relaxed">
-              A nossa consultoria e gestão são personalizadas para você e para a sua empresa, trazendo soluções de Auto Gestão Empresarial que você vai aprender a:
-            </h3>
+            <EditableStatic k="pilares_checklist_heading" value="A nossa consultoria e gestão são personalizadas para você e para a sua empresa, trazendo soluções de Auto Gestão Empresarial que você vai aprender a:" as="h3" className="text-base font-display font-bold text-white text-center leading-relaxed" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
-              {auto_gestao_checklist.slice(0, 6).map((item: string) => (
+              {auto_gestao_checklist.slice(0, 6).map((item: string, idx: number) => (
                 <div key={item} className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-gold-primary" />
-                  <span>{item}</span>
+                  <EditableText
+                    as="span"
+                    sectionKey="home_auto_gestao_checklist"
+                    path={['metadata', 'auto_gestao_checklist', idx]}
+                    value={item}
+                  />
                 </div>
               ))}
               {auto_gestao_checklist[6] && (
                 <div className="flex items-center gap-2 md:col-span-2 justify-center">
                   <Check className="w-4 h-4 text-gold-primary" />
-                  <span>{auto_gestao_checklist[6]}</span>
+                  <EditableText
+                    as="span"
+                    sectionKey="home_auto_gestao_checklist"
+                    path={['metadata', 'auto_gestao_checklist', 6]}
+                    value={auto_gestao_checklist[6]}
+                  />
                 </div>
               )}
             </div>
           </div>
 
           <div className="text-center space-y-3 mb-10">
-            <h3 className="text-xl font-display font-bold text-white uppercase tracking-wider">
-              CONSULTORIA E GESTÃO COM REESTRUTURAÇÃO DE EMPRESAS
-            </h3>
+            <EditableStatic k="pilares_reestruturacao_title" value="CONSULTORIA E GESTÃO COM REESTRUTURAÇÃO DE EMPRESAS" as="h3" className="text-xl font-display font-bold text-white uppercase tracking-wider" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {pillars.map((p: any) => (
+            {pillars.map((p: any, idx: number) => (
               <div key={p.title} className="bg-[#091120] rounded-xl p-8 border border-white/5 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gold-primary/10 flex items-center justify-center mb-6">
                   {getPillarIcon(p.title)}
                 </div>
-                <h3 className="text-lg font-display font-bold text-white mb-3">{p.title}</h3>
-                <p className="text-xs sm:text-sm leading-relaxed text-slate-400">{p.desc}</p>
+                <EditableText
+                  as="h3"
+                  sectionKey="home_pillars"
+                  path={['metadata', 'pillars', idx, 'title']}
+                  value={p.title}
+                  className="text-lg font-display font-bold text-white mb-3"
+                />
+                <EditableText
+                  as="p"
+                  sectionKey="home_pillars"
+                  path={['metadata', 'pillars', idx, 'desc']}
+                  value={p.desc}
+                  className="text-xs sm:text-sm leading-relaxed text-slate-400"
+                />
               </div>
             ))}
           </div>
@@ -332,7 +367,7 @@ export default function Home() {
               to="/como-transformamos-empresas"
               className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-wider text-primary-dark bg-gold-primary hover:bg-gold-light rounded-lg shadow-xl shadow-gold-primary/10 transition-all duration-200"
             >
-              <span>PRECISO SOLUÇÕES DE CONSULTORIA</span>
+              <EditableStatic k="pilares_cta" value="PRECISO SOLUÇÕES DE CONSULTORIA" as="span" />
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </div>
@@ -342,12 +377,8 @@ export default function Home() {
       {/* ── Quiz Auto Diagnóstico ─────────────────────────── */}
       <section id="diagnostico" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="text-center space-y-3 mb-8">
-          <h2 className="text-3xl font-display font-bold text-white uppercase tracking-wider">
-            Faça seu Auto Diagnóstico Gratuito
-          </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm">
-            Responda as questões abaixo elaboradas por nossos consultores e veja o seu laudo orientativo de performance em tempo real.
-          </p>
+          <EditableStatic k="quiz_title" value="Faça seu Auto Diagnóstico Gratuito" as="h2" className="text-3xl font-display font-bold text-white uppercase tracking-wider" />
+          <EditableStatic k="quiz_subtitle" value="Responda as questões abaixo elaboradas por nossos consultores e veja o seu laudo orientativo de performance em tempo real." as="p" className="text-slate-400 max-w-xl mx-auto text-sm" />
         </div>
         <AssessmentQuiz />
       </section>
@@ -357,26 +388,48 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-gold-primary/20 to-transparent rounded-2xl -m-2 -z-10 blur-sm"></div>
-              <img
-                src={mentor.imageUrl}
+              <EditableImage
+                sectionKey="home_mentor"
+                path={['metadata', 'imageUrl']}
+                value={mentor.imageUrl}
                 alt={`${mentor.name} - Mentor Smart Company`}
                 className="w-full max-w-md mx-auto rounded-2xl border border-white/10 shadow-2xl hover:scale-[1.01] transition-transform duration-300"
               />
               <div className="absolute bottom-6 left-6 right-6 glass p-4 rounded-xl border border-white/10 text-center sm:text-left">
-                <p className="text-white font-display font-bold text-base leading-none">{mentor.name}</p>
-                <p className="text-gold-primary text-xs font-semibold mt-1">{mentor.title}</p>
+                <EditableText
+                  as="p"
+                  sectionKey="home_mentor"
+                  path={['metadata', 'name']}
+                  value={mentor.name}
+                  className="text-white font-display font-bold text-base leading-none"
+                />
+                <EditableText
+                  as="p"
+                  sectionKey="home_mentor"
+                  path={['metadata', 'title']}
+                  value={mentor.title}
+                  className="text-gold-primary text-xs font-semibold mt-1"
+                />
               </div>
             </div>
 
             <div className="space-y-6">
-              <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest">Seu Mentor {mentor.name}</span>
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-white uppercase tracking-tight">
-                {mentor.heading}
-              </h2>
+              <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest">
+                <EditableStatic k="mentor_eyebrow_prefix" value="Seu Mentor" as="span" /> {mentor.name}
+              </span>
+              <EditableText
+                as="h2"
+                sectionKey="home_mentor"
+                path={['metadata', 'heading']}
+                value={mentor.heading}
+                className="text-3xl sm:text-4xl font-display font-bold text-white uppercase tracking-tight"
+              />
               <div className="space-y-4 text-sm sm:text-base leading-relaxed text-slate-400">
-                {mentor.bio.split('\n\n').map((para: string, idx: number) => (
-                  <p key={idx}>{para}</p>
-                ))}
+                <EditableParagraphs
+                  sectionKey="home_mentor"
+                  path={['metadata', 'bio']}
+                  value={mentor.bio}
+                />
               </div>
             </div>
           </div>
@@ -388,20 +441,28 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
             <div className="space-y-4">
-              <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest">Compromisso</span>
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight leading-tight uppercase">
-                Por que os empresários escolhem a Smart Company?
-              </h2>
-              <p className="text-sm text-slate-400 leading-relaxed pr-4">
-                Nosso formato de atendimento e metodologia são construídos sob medida (Taylor Made) para atuar na raiz das dificuldades empresariais.
-              </p>
+              <EditableStatic k="porque_badge" value="Compromisso" as="span" className="text-[10px] font-bold text-gold-primary uppercase tracking-widest" />
+              <EditableStatic k="porque_title" value="Por que os empresários escolhem a Smart Company?" as="h2" className="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight leading-tight uppercase" />
+              <EditableStatic k="porque_subtitle" value="Nosso formato de atendimento e metodologia são construídos sob medida (Taylor Made) para atuar na raiz das dificuldades empresariais." as="p" className="text-sm text-slate-400 leading-relaxed pr-4" />
             </div>
             <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
               {reasonsList.map((r: any, i: number) => (
                 <div key={r.title} className="p-6 bg-primary-dark/80 rounded-xl border border-white/5 space-y-3">
                   <div className="text-2xl font-display font-black text-gold-primary">0{i + 1}</div>
-                  <h3 className="text-lg font-display font-bold text-white">{r.title}</h3>
-                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">{r.desc}</p>
+                  <EditableText
+                    as="h3"
+                    sectionKey="home_reasons"
+                    path={['metadata', 'reasons', i, 'title']}
+                    value={r.title}
+                    className="text-lg font-display font-bold text-white"
+                  />
+                  <EditableText
+                    as="p"
+                    sectionKey="home_reasons"
+                    path={['metadata', 'reasons', i, 'desc']}
+                    value={r.desc}
+                    className="text-xs sm:text-sm text-slate-400 leading-relaxed"
+                  />
                 </div>
               ))}
             </div>
@@ -412,12 +473,8 @@ export default function Home() {
       {/* ── Cursos Online ────────────────────────────────── */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-3 mb-16">
-          <h2 className="text-3xl font-display font-bold text-white uppercase tracking-wider">
-            NOSSAS FORMAÇÕES ON LINE
-          </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm">
-            Treinamentos práticos com as mesmas táticas aplicadas em nossas consultorias corporativas.
-          </p>
+          <EditableStatic k="cursos_title" value="NOSSAS FORMAÇÕES ON LINE" as="h2" className="text-3xl font-display font-bold text-white uppercase tracking-wider" />
+          <EditableStatic k="cursos_subtitle" value="Treinamentos práticos com as mesmas táticas aplicadas em nossas consultorias corporativas." as="p" className="text-slate-400 max-w-xl mx-auto text-sm" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -425,18 +482,45 @@ export default function Home() {
             <div key={idx} className="glass rounded-2xl border border-white/10 p-8 flex flex-col justify-between relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold-primary/5 rounded-full blur-2xl"></div>
               <div>
-                <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest">{curso.tag}</span>
-                <h3 className="text-2xl font-display font-extrabold text-white mt-3 mb-4">{curso.title}</h3>
-                <p className="text-xs font-semibold text-gold-primary mb-4 uppercase tracking-wider">{curso.subtitle}</p>
-                <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                  {curso.desc}
-                </p>
+                <EditableText
+                  as="span"
+                  sectionKey="home_cursos"
+                  path={['metadata', 'cursos', idx, 'tag']}
+                  value={curso.tag}
+                  className="text-[10px] font-bold text-gold-primary uppercase tracking-widest"
+                />
+                <EditableText
+                  as="h3"
+                  sectionKey="home_cursos"
+                  path={['metadata', 'cursos', idx, 'title']}
+                  value={curso.title}
+                  className="text-2xl font-display font-extrabold text-white mt-3 mb-4"
+                />
+                <EditableText
+                  as="p"
+                  sectionKey="home_cursos"
+                  path={['metadata', 'cursos', idx, 'subtitle']}
+                  value={curso.subtitle}
+                  className="text-xs font-semibold text-gold-primary mb-4 uppercase tracking-wider"
+                />
+                <EditableText
+                  as="p"
+                  sectionKey="home_cursos"
+                  path={['metadata', 'cursos', idx, 'desc']}
+                  value={curso.desc}
+                  className="text-sm text-slate-400 leading-relaxed mb-6"
+                />
               </div>
               <Link
                 to={curso.link}
                 className="w-full inline-flex items-center justify-center px-6 py-3 text-xs font-bold uppercase tracking-wider text-primary-dark bg-gold-primary hover:bg-gold-light rounded-lg transition-colors"
               >
-                <span>{curso.ctaText}</span>
+                <EditableText
+                  as="span"
+                  sectionKey="home_cursos"
+                  path={['metadata', 'cursos', idx, 'ctaText']}
+                  value={curso.ctaText}
+                />
                 <ArrowRight className="ml-1.5 w-4 h-4" />
               </Link>
             </div>
@@ -449,37 +533,57 @@ export default function Home() {
       <section className="py-20 bg-[#091120] border-y border-white/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <h2 className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-wider">
-            &ldquo;{agir_vs_reagir.quote}&rdquo;
+            &ldquo;<EditableText
+              as="span"
+              sectionKey="home_agir_vs_reagir"
+              path={['metadata', 'quote']}
+              value={agir_vs_reagir.quote}
+            />&rdquo;
           </h2>
-          <p className="text-gold-primary font-display font-extrabold text-lg uppercase tracking-wider">
-            AGIR É BEM DIFERENTE DE REAGIR.
-          </p>
+          <EditableStatic k="agir_subtitle" value="AGIR É BEM DIFERENTE DE REAGIR." as="p" className="text-gold-primary font-display font-extrabold text-lg uppercase tracking-wider" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-2 text-left">
             <div className="p-6 bg-primary-dark/80 rounded-xl border border-gold-primary/20 space-y-2">
-              <h3 className="text-gold-primary font-display font-extrabold text-lg uppercase tracking-wide">AGIR</h3>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                {agir_vs_reagir.agir}
-              </p>
+              <EditableStatic k="agir_label" value="AGIR" as="h3" className="text-gold-primary font-display font-extrabold text-lg uppercase tracking-wide" />
+              <EditableText
+                as="p"
+                sectionKey="home_agir_vs_reagir"
+                path={['metadata', 'agir']}
+                value={agir_vs_reagir.agir}
+                className="text-xs sm:text-sm text-slate-400 leading-relaxed"
+              />
             </div>
             <div className="p-6 bg-primary-dark/80 rounded-xl border border-white/5 space-y-2">
-              <h3 className="text-slate-500 font-display font-extrabold text-lg uppercase tracking-wide">REAGIR</h3>
-              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                {agir_vs_reagir.reagir}
-              </p>
+              <EditableStatic k="reagir_label" value="REAGIR" as="h3" className="text-slate-500 font-display font-extrabold text-lg uppercase tracking-wide" />
+              <EditableText
+                as="p"
+                sectionKey="home_agir_vs_reagir"
+                path={['metadata', 'reagir']}
+                value={agir_vs_reagir.reagir}
+                className="text-xs sm:text-sm text-slate-500 leading-relaxed"
+              />
             </div>
           </div>
 
-          <p className="text-sm sm:text-base leading-relaxed text-slate-400 max-w-3xl mx-auto pt-4">
-            {agir_vs_reagir.body}
-          </p>
+          <EditableText
+            as="p"
+            sectionKey="home_agir_vs_reagir"
+            path={['metadata', 'body']}
+            value={agir_vs_reagir.body}
+            className="text-sm sm:text-base leading-relaxed text-slate-400 max-w-3xl mx-auto pt-4"
+          />
 
           <div className="pt-2">
             <Link
               to="/auto-gestao-empresarial-para-donos-de-empresas"
               className="inline-flex items-center justify-center px-6 py-3 text-xs font-bold uppercase tracking-wider text-white bg-gold-primary/10 border border-gold-primary/30 hover:bg-gold-primary/20 rounded-lg transition-colors"
             >
-              <span>{agir_vs_reagir.cta}</span>
+              <EditableText
+                as="span"
+                sectionKey="home_agir_vs_reagir"
+                path={['metadata', 'cta']}
+                value={agir_vs_reagir.cta}
+              />
               <ArrowRight className="ml-1.5 w-4 h-4 text-gold-primary" />
             </Link>
           </div>
@@ -498,9 +602,13 @@ export default function Home() {
               </span>
             ))}
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            {coragem.paragraph}
-          </p>
+          <EditableText
+            as="p"
+            sectionKey="home_coragem"
+            path={['metadata', 'paragraph']}
+            value={coragem.paragraph}
+            className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed"
+          />
         </div>
 
         {/* Auto Gestão blurbs */}
@@ -510,10 +618,20 @@ export default function Home() {
               <div className="w-14 h-14 rounded-xl bg-gold-primary/10 flex items-center justify-center">
                 {idx === 0 ? <Zap className="w-7 h-7 text-gold-primary" /> : <Award className="w-7 h-7 text-gold-primary" />}
               </div>
-              <h3 className="text-xl font-display font-bold text-white">{item.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                {item.desc}
-              </p>
+              <EditableText
+                as="h3"
+                sectionKey="home_coragem"
+                path={['metadata', 'auto_gestao', idx, 'title']}
+                value={item.title}
+                className="text-xl font-display font-bold text-white"
+              />
+              <EditableText
+                as="p"
+                sectionKey="home_coragem"
+                path={['metadata', 'auto_gestao', idx, 'desc']}
+                value={item.desc}
+                className="text-sm text-slate-400 leading-relaxed"
+              />
             </div>
           ))}
         </div>
@@ -522,15 +640,19 @@ export default function Home() {
         <div className="relative bg-gradient-to-r from-gold-primary/10 via-gold-primary/5 to-transparent rounded-2xl border border-gold-primary/20 p-8 sm:p-10 text-center overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-gold-primary/10 rounded-full blur-3xl -z-10"></div>
           <Flame className="w-8 h-8 text-gold-primary mx-auto mb-4" />
-          <p className="text-lg sm:text-xl font-display font-bold text-gold-primary leading-snug max-w-3xl mx-auto">
-            {coragem.urgency}
-          </p>
-          <p className="text-sm text-slate-400 mt-3 mb-6">Tome uma atitude agora!</p>
+          <EditableText
+            as="p"
+            sectionKey="home_coragem"
+            path={['metadata', 'urgency']}
+            value={coragem.urgency}
+            className="text-lg sm:text-xl font-display font-bold text-gold-primary leading-snug max-w-3xl mx-auto"
+          />
+          <EditableStatic k="coragem_urgency_cta_text" value="Tome uma atitude agora!" as="p" className="text-sm text-slate-400 mt-3 mb-6" />
           <Link
             to="/auto-gestao-empresarial-para-donos-de-empresas"
             className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold uppercase tracking-wider text-primary-dark bg-gold-primary hover:bg-gold-light rounded-lg transition-colors shadow-lg shadow-gold-primary/20"
           >
-            <span>Quero me tornar um expert em gestão</span>
+            <EditableStatic k="coragem_cta" value="Quero me tornar um expert em gestão" as="span" />
             <ArrowRight className="ml-2 w-4 h-4" />
           </Link>
         </div>
@@ -540,56 +662,94 @@ export default function Home() {
       <section className="py-20 bg-secondary-dark/40 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <div className="text-center space-y-3">
-            <h2 className="text-3xl font-display font-bold text-white uppercase tracking-wider">
-              Smart Company — Transformação!
-            </h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-sm leading-relaxed">
-              {transformacao.intro}
-            </p>
+            <EditableStatic k="transformacao_title" value="Smart Company — Transformação!" as="h2" className="text-3xl font-display font-bold text-white uppercase tracking-wider" />
+            <EditableText
+              as="p"
+              sectionKey="home_transformacao"
+              path={['metadata', 'intro']}
+              value={transformacao.intro}
+              className="text-slate-400 max-w-2xl mx-auto text-sm leading-relaxed"
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="glass rounded-xl p-8 border border-white/5 space-y-4">
-              <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest">Dono Estrategista</span>
-              <h3 className="text-xl font-display font-bold text-white">{transformacao.foco_dono.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                {transformacao.foco_dono.desc}
-              </p>
-              <span className="text-[10px] text-slate-500 block pt-2">Consultoria e gestão - Smart Company - Imagem ilustrativa</span>
+              <EditableStatic k="transformacao_dono_badge" value="Dono Estrategista" as="span" className="text-[10px] font-bold text-gold-primary uppercase tracking-widest" />
+              <EditableText
+                as="h3"
+                sectionKey="home_transformacao"
+                path={['metadata', 'foco_dono', 'title']}
+                value={transformacao.foco_dono.title}
+                className="text-xl font-display font-bold text-white"
+              />
+              <EditableText
+                as="p"
+                sectionKey="home_transformacao"
+                path={['metadata', 'foco_dono', 'desc']}
+                value={transformacao.foco_dono.desc}
+                className="text-sm text-slate-400 leading-relaxed"
+              />
+              <EditableStatic k="transformacao_dono_legenda" value="Consultoria e gestão - Smart Company - Imagem ilustrativa" as="span" className="text-[10px] text-slate-500 block pt-2" />
             </div>
 
             <div className="glass rounded-xl p-8 border border-white/5 space-y-4">
-              <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest">Time Autogerenciável</span>
-              <h3 className="text-xl font-display font-bold text-white">{transformacao.foco_equipe.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                {transformacao.foco_equipe.desc}
-              </p>
-              <span className="text-[10px] text-slate-500 block pt-2">Consultoria e gestão - Smart Company - Imagem ilustrativa</span>
+              <EditableStatic k="transformacao_equipe_badge" value="Time Autogerenciável" as="span" className="text-[10px] font-bold text-gold-primary uppercase tracking-widest" />
+              <EditableText
+                as="h3"
+                sectionKey="home_transformacao"
+                path={['metadata', 'foco_equipe', 'title']}
+                value={transformacao.foco_equipe.title}
+                className="text-xl font-display font-bold text-white"
+              />
+              <EditableText
+                as="p"
+                sectionKey="home_transformacao"
+                path={['metadata', 'foco_equipe', 'desc']}
+                value={transformacao.foco_equipe.desc}
+                className="text-sm text-slate-400 leading-relaxed"
+              />
+              <EditableStatic k="transformacao_equipe_legenda" value="Consultoria e gestão - Smart Company - Imagem ilustrativa" as="span" className="text-[10px] text-slate-500 block pt-2" />
             </div>
           </div>
 
           {/* Livro AG Expert sub-section */}
           <div className="border-t border-white/5 pt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest">Alavancagem Empresarial</span>
-              <h3 className="text-2xl sm:text-3xl font-display font-bold text-white uppercase leading-tight">
-                {transformacao.livro.title}
-              </h3>
-              <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
-                {transformacao.livro.desc}
-              </p>
-              <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-semibold border-l-2 border-gold-primary pl-4">
-                {transformacao.livro.quote}
-              </p>
-              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                {transformacao.livro.footnote}
-              </p>
+              <EditableStatic k="transformacao_livro_badge" value="Alavancagem Empresarial" as="span" className="text-[10px] font-bold text-gold-primary uppercase tracking-widest" />
+              <EditableText
+                as="h3"
+                sectionKey="home_transformacao"
+                path={['metadata', 'livro', 'title']}
+                value={transformacao.livro.title}
+                className="text-2xl sm:text-3xl font-display font-bold text-white uppercase leading-tight"
+              />
+              <EditableText
+                as="p"
+                sectionKey="home_transformacao"
+                path={['metadata', 'livro', 'desc']}
+                value={transformacao.livro.desc}
+                className="text-sm sm:text-base text-slate-400 leading-relaxed"
+              />
+              <EditableText
+                as="p"
+                sectionKey="home_transformacao"
+                path={['metadata', 'livro', 'quote']}
+                value={transformacao.livro.quote}
+                className="text-sm sm:text-base text-slate-400 leading-relaxed font-semibold border-l-2 border-gold-primary pl-4"
+              />
+              <EditableText
+                as="p"
+                sectionKey="home_transformacao"
+                path={['metadata', 'livro', 'footnote']}
+                value={transformacao.livro.footnote}
+                className="text-xs sm:text-sm text-slate-500 leading-relaxed"
+              />
               <div className="pt-2">
                 <Link
                   to="/auto-gestao-empresarial-para-donos-de-empresas"
                   className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-wider text-primary-dark bg-gold-primary hover:bg-gold-light rounded-lg shadow-xl shadow-gold-primary/10 transition-all duration-200"
                 >
-                  <span>Quero me tornar um expert em gestão</span>
+                  <EditableStatic k="transformacao_livro_cta" value="Quero me tornar um expert em gestão" as="span" />
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>
@@ -597,12 +757,13 @@ export default function Home() {
 
             <div className="relative flex flex-col items-center justify-center">
               <div className="absolute inset-0 bg-gradient-to-tr from-gold-primary/20 to-transparent rounded-2xl -m-4 -z-10 blur-xl"></div>
-              <img
-                src="/assets/Livro-AG.png"
+              <EditableStaticImage
+                k="livro_ag_image"
+                value="/assets/Livro-AG.png"
                 alt="Livro Auto Gestão Expert"
                 className="w-full max-w-sm rounded-xl border border-white/10 shadow-2xl hover:scale-[1.03] transition-transform duration-300"
               />
-              <span className="text-[10px] text-slate-500 mt-4 block">Consultoria e gestão - Smart Company - Ebook AG Expert</span>
+              <EditableStatic k="transformacao_livro_legenda" value="Consultoria e gestão - Smart Company - Ebook AG Expert" as="span" className="text-[10px] text-slate-500 mt-4 block" />
             </div>
           </div>
         </div>
@@ -613,14 +774,10 @@ export default function Home() {
         <div className="text-center space-y-3 mb-14">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-gold-primary bg-gold-primary/10 border border-gold-primary/20">
             <BookOpen className="w-3.5 h-3.5" />
-            <span>100% Gratuito</span>
+            <EditableStatic k="cortesia_badge" value="100% Gratuito" as="span" />
           </span>
-          <h2 className="text-3xl font-display font-bold text-white uppercase tracking-wider">
-            Conteúdos Cortesia
-          </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm">
-            Temos e-books gratuitos para ajudar você a comandar a sua empresa e melhorar seu rendimento como empresário.
-          </p>
+          <EditableStatic k="cortesia_title" value="Conteúdos Cortesia" as="h2" className="text-3xl font-display font-bold text-white uppercase tracking-wider" />
+          <EditableStatic k="cortesia_subtitle" value="Temos e-books gratuitos para ajudar você a comandar a sua empresa e melhorar seu rendimento como empresário." as="p" className="text-slate-400 max-w-xl mx-auto text-sm" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
@@ -634,10 +791,13 @@ export default function Home() {
             >
               <div className="w-32 h-44 flex-shrink-0 relative flex flex-col items-center">
                 <div className="absolute inset-0 bg-gradient-to-tr from-gold-primary/10 to-transparent rounded-lg -m-1 -z-10 blur-sm"></div>
-                <img
-                  src={book.image}
+                <EditableImage
+                  sectionKey="home_ebooks"
+                  path={['metadata', 'ebooks', idx, 'image']}
+                  value={book.image}
                   alt={book.title}
                   className="w-full h-full object-cover rounded-lg border border-white/10 shadow-lg group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
                 <span className="text-[8px] text-slate-500 mt-2 text-center leading-none">
                   {idx === 0 ? "Smart Company - imagem (conteúdo cortesia)" : "Smart Company - Ebook (cortesia)"}
@@ -647,19 +807,39 @@ export default function Home() {
               <div className="flex-1 flex flex-col justify-between h-full space-y-4">
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1 px-3 rounded-full border border-gold-primary/15">
-                      {book.badge}
-                    </span>
+                    <EditableText
+                      as="span"
+                      sectionKey="home_ebooks"
+                      path={['metadata', 'ebooks', idx, 'badge']}
+                      value={book.badge}
+                      className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1 px-3 rounded-full border border-gold-primary/15"
+                    />
                     <BookOpen className="w-5 h-5 text-gold-primary opacity-60 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <h3 className="text-lg font-display font-bold text-white group-hover:text-gold-primary transition-colors mb-1">
-                    {book.title}
-                  </h3>
-                  <p className="text-[10px] font-semibold text-gold-primary mb-2 uppercase tracking-wider">{book.subtitle}</p>
-                  <p className="text-xs text-slate-400 leading-relaxed line-clamp-3">{book.desc}</p>
+                  <EditableText
+                    as="h3"
+                    sectionKey="home_ebooks"
+                    path={['metadata', 'ebooks', idx, 'title']}
+                    value={book.title}
+                    className="text-lg font-display font-bold text-white group-hover:text-gold-primary transition-colors mb-1"
+                  />
+                  <EditableText
+                    as="p"
+                    sectionKey="home_ebooks"
+                    path={['metadata', 'ebooks', idx, 'subtitle']}
+                    value={book.subtitle}
+                    className="text-[10px] font-semibold text-gold-primary mb-2 uppercase tracking-wider"
+                  />
+                  <EditableText
+                    as="p"
+                    sectionKey="home_ebooks"
+                    path={['metadata', 'ebooks', idx, 'desc']}
+                    value={book.desc}
+                    className="text-xs text-slate-400 leading-relaxed line-clamp-3"
+                  />
                 </div>
                 <div className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-white group-hover:text-gold-primary transition-colors">
-                  <span>Baixar E-book</span>
+                  <EditableStatic k="cortesia_baixar_ebook" value="Baixar E-book" as="span" />
                   <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -672,7 +852,7 @@ export default function Home() {
             to="/materiais"
             className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold uppercase tracking-wider text-white bg-white/5 border border-white/10 hover:bg-white/10 hover:border-gold-primary/20 rounded-lg transition-all"
           >
-            <span>Baixe nossos E-books</span>
+            <EditableStatic k="cortesia_cta" value="Baixe nossos E-books" as="span" />
             <ChevronRight className="ml-1.5 w-4 h-4" />
           </Link>
         </div>
@@ -684,14 +864,10 @@ export default function Home() {
           <div className="text-center space-y-3 mb-14">
             <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-gold-primary uppercase tracking-widest">
               <Newspaper className="w-3.5 h-3.5" />
-              Blog
+              <EditableStatic k="blog_badge" value="Blog" as="span" />
             </span>
-            <h2 className="text-3xl font-display font-bold text-white uppercase tracking-wider">
-              Notícias
-            </h2>
-            <p className="text-slate-400 max-w-xl mx-auto text-sm">
-              Dicas práticas de estratégia, finanças corporativas, vendas e liderança empresarial.
-            </p>
+            <EditableStatic k="blog_title" value="Notícias" as="h2" className="text-3xl font-display font-bold text-white uppercase tracking-wider" />
+            <EditableStatic k="blog_subtitle" value="Dicas práticas de estratégia, finanças corporativas, vendas e liderança empresarial." as="p" className="text-slate-400 max-w-xl mx-auto text-sm" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
@@ -727,7 +903,7 @@ export default function Home() {
               to="/blog"
               className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold uppercase tracking-wider text-white bg-white/5 border border-white/10 hover:bg-white/10 hover:border-gold-primary/20 rounded-lg transition-all"
             >
-              <span>Acesse mais notícias</span>
+              <EditableStatic k="blog_cta" value="Acesse mais notícias" as="span" />
               <ChevronRight className="ml-1.5 w-4 h-4" />
             </Link>
           </div>
@@ -735,5 +911,6 @@ export default function Home() {
       </section>
 
     </div>
+    </StaticContent>
   )
 }

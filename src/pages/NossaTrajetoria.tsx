@@ -3,7 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Milestone, ZoomIn, X, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
 import { useDynamicContent } from '../hooks/useDynamicContent'
 import SEO from '../components/SEO'
-import { Link } from 'react-router-dom'
+import EditableText from '../admin/inline/EditableText'
+import EditableImage from '../admin/inline/EditableImage'
+import EditableButton from '../admin/inline/EditableButton'
+import { StaticContent } from '../admin/inline/StaticContent'
+import EditableStatic from '../admin/inline/EditableStatic'
 
 export default function NossaTrajetoria() {
   const defaultHero = {
@@ -133,15 +137,22 @@ export default function NossaTrajetoria() {
     }
   ]
 
+  const defaultCta = {
+    label: 'Conheça Nossos Serviços',
+    link: '/como-transformamos-empresas'
+  }
+
   // Fetch dynamic content from CMS (site_slug='smartcompany', section_key prefix='trajetoria_')
   const {
     hero,
     timeline: timelineEvents,
-    gallery: galleryItems
+    gallery: galleryItems,
+    cta
   } = useDynamicContent('trajetoria', {
     hero: defaultHero,
     timeline: defaultTimeline,
-    gallery: defaultGallery
+    gallery: defaultGallery,
+    cta: defaultCta
   })
 
   // Lightbox State
@@ -170,6 +181,7 @@ export default function NossaTrajetoria() {
   }
 
   return (
+    <StaticContent pageKey="trajetoria">
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
       <SEO 
         title="Nossa Trajetória | Smart Company" 
@@ -182,15 +194,27 @@ export default function NossaTrajetoria() {
         <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-900/10 rounded-full blur-3xl -z-10"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block">
-            {hero.badge}
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight uppercase">
-            {hero.title}
-          </h1>
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            {hero.content}
-          </p>
+          <EditableText
+            as="span"
+            sectionKey="trajetoria_hero"
+            path={['metadata', 'badge']}
+            value={hero.badge}
+            className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block"
+          />
+          <EditableText
+            as="h1"
+            sectionKey="trajetoria_hero"
+            field="title"
+            value={hero.title}
+            className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight uppercase"
+          />
+          <EditableText
+            as="p"
+            sectionKey="trajetoria_hero"
+            field="content"
+            value={hero.content}
+            className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed"
+          />
         </div>
       </section>
 
@@ -198,12 +222,18 @@ export default function NossaTrajetoria() {
       <section className="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-3 mb-16">
           <Milestone className="w-8 h-8 text-gold-primary mx-auto" />
-          <h2 className="text-3xl font-display font-bold text-white uppercase tracking-wider">
-            Nossa Linha do Tempo
-          </h2>
-          <p className="text-slate-400 text-sm max-w-md mx-auto">
-            Acompanhe a trajetória de marcos históricos e conquistas da Smart Company.
-          </p>
+          <EditableStatic
+            k="timeline_heading"
+            value="Nossa Linha do Tempo"
+            as="h2"
+            className="text-3xl font-display font-bold text-white uppercase tracking-wider"
+          />
+          <EditableStatic
+            k="timeline_subtitle"
+            value="Acompanhe a trajetória de marcos históricos e conquistas da Smart Company."
+            as="p"
+            className="text-slate-400 text-sm max-w-md mx-auto"
+          />
         </div>
 
         <div className="relative border-l border-white/10 pl-6 sm:pl-10 space-y-12 ml-4">
@@ -223,9 +253,27 @@ export default function NossaTrajetoria() {
 
               {/* Event Content card */}
               <div className="bg-[#091120] p-6 rounded-xl border border-white/5 hover:border-gold-primary/15 transition-all duration-300 space-y-2 group-hover:shadow-lg group-hover:shadow-black/20">
-                <span className="text-sm font-display font-black text-gold-primary">{event.year}</span>
-                <h3 className="text-base font-display font-bold text-white uppercase">{event.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">{event.desc}</p>
+                <EditableText
+                  as="span"
+                  sectionKey="trajetoria_timeline"
+                  path={['metadata', 'events', idx, 'year']}
+                  value={event.year}
+                  className="text-sm font-display font-black text-gold-primary"
+                />
+                <EditableText
+                  as="h3"
+                  sectionKey="trajetoria_timeline"
+                  path={['metadata', 'events', idx, 'title']}
+                  value={event.title}
+                  className="text-base font-display font-bold text-white uppercase"
+                />
+                <EditableText
+                  as="p"
+                  sectionKey="trajetoria_timeline"
+                  path={['metadata', 'events', idx, 'desc']}
+                  value={event.desc}
+                  className="text-xs sm:text-sm text-slate-400 leading-relaxed"
+                />
               </div>
             </motion.div>
           ))}
@@ -237,13 +285,24 @@ export default function NossaTrajetoria() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#050B14] opacity-50 -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4 mb-16">
-            <span className="text-xs font-bold text-gold-primary uppercase tracking-widest">A Origem em 2001</span>
-            <h2 className="text-3xl sm:text-4xl font-display font-black text-white uppercase tracking-tight">
-              Como a Smart Company Começou
-            </h2>
-            <p className="text-slate-400 text-sm max-w-xl mx-auto leading-relaxed">
-              Veja o registro fotográfico histórico dos primeiros passos da Smart Company, de startup fabricante de cubas residenciais de alta qualidade a empresa de mentoria estratégica.
-            </p>
+            <EditableStatic
+              k="gallery_badge"
+              value="A Origem em 2001"
+              as="span"
+              className="text-xs font-bold text-gold-primary uppercase tracking-widest"
+            />
+            <EditableStatic
+              k="gallery_heading"
+              value="Como a Smart Company Começou"
+              as="h2"
+              className="text-3xl sm:text-4xl font-display font-black text-white uppercase tracking-tight"
+            />
+            <EditableStatic
+              k="gallery_subtitle"
+              value="Veja o registro fotográfico histórico dos primeiros passos da Smart Company, de startup fabricante de cubas residenciais de alta qualidade a empresa de mentoria estratégica."
+              as="p"
+              className="text-slate-400 text-sm max-w-xl mx-auto leading-relaxed"
+            />
           </div>
 
           {/* Grid of 12 images */}
@@ -260,8 +319,10 @@ export default function NossaTrajetoria() {
               >
                 {/* Image Wrapper */}
                 <div className="relative overflow-hidden aspect-[4/3] bg-black/40">
-                  <img
-                    src={item.image_url}
+                  <EditableImage
+                    sectionKey="trajetoria_gallery"
+                    path={['metadata', 'gallery', idx, 'image_url']}
+                    value={item.image_url}
                     alt={item.title}
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
@@ -276,12 +337,20 @@ export default function NossaTrajetoria() {
                 {/* Content info */}
                 <div className="p-6 flex flex-col flex-grow space-y-2 border-t border-white/5 bg-primary-dark/20">
                   <span className="text-[10px] font-bold text-gold-primary uppercase tracking-wider">Passo {idx + 1}</span>
-                  <h3 className="text-white font-display font-bold text-base group-hover:text-gold-primary transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed line-clamp-3">
-                    {item.desc}
-                  </p>
+                  <EditableText
+                    as="h3"
+                    sectionKey="trajetoria_gallery"
+                    path={['metadata', 'gallery', idx, 'title']}
+                    value={item.title}
+                    className="text-white font-display font-bold text-base group-hover:text-gold-primary transition-colors"
+                  />
+                  <EditableText
+                    as="p"
+                    sectionKey="trajetoria_gallery"
+                    path={['metadata', 'gallery', idx, 'desc']}
+                    value={item.desc}
+                    className="text-xs sm:text-sm text-slate-400 leading-relaxed line-clamp-3"
+                  />
                 </div>
               </motion.div>
             ))}
@@ -289,20 +358,28 @@ export default function NossaTrajetoria() {
 
           {/* Concluding block text */}
           <div className="mt-16 max-w-3xl mx-auto bg-primary-dark/40 border border-white/5 rounded-2xl p-8 relative">
-            <div className="absolute -top-3 left-6 bg-gold-primary/10 border border-gold-primary/20 px-3 py-1 rounded text-[10px] font-bold text-gold-primary uppercase tracking-wide">
-              Nota Histórica
-            </div>
+            <EditableStatic
+              k="historical_note_badge"
+              value="Nota Histórica"
+              as="div"
+              className="absolute -top-3 left-6 bg-gold-primary/10 border border-gold-primary/20 px-3 py-1 rounded text-[10px] font-bold text-gold-primary uppercase tracking-wide"
+            />
             <p className="italic text-slate-300 leading-relaxed text-sm text-center">
-              &ldquo;Apesar da matéria (surpresa) na revista ter gerado um ânimo muito grande, já tínhamos decidido que a fabricação ficaria em stand by e já tínhamos iniciado a Consultoria em Gestão e Business Plan. Quem sabe, um dia reativaremos o projeto inicial...&rdquo;
+              &ldquo;<EditableStatic
+                k="historical_note_text"
+                value="Apesar da matéria (surpresa) na revista ter gerado um ânimo muito grande, já tínhamos decidido que a fabricação ficaria em stand by e já tínhamos iniciado a Consultoria em Gestão e Business Plan. Quem sabe, um dia reativaremos o projeto inicial..."
+                as="span"
+              />&rdquo;
             </p>
             <div className="flex justify-center mt-6">
-              <Link
-                to="/como-transformamos-empresas"
+              <EditableButton
+                sectionKey="trajetoria_cta"
+                label={cta.label}
+                link={cta.link}
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold-primary hover:bg-gold-light text-primary-dark font-bold text-xs uppercase tracking-wider rounded-lg transition-all shadow-lg shadow-gold-primary/5"
               >
-                <span>Conheça Nossos Serviços</span>
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </EditableButton>
             </div>
           </div>
         </div>
@@ -392,5 +469,6 @@ export default function NossaTrajetoria() {
         )}
       </AnimatePresence>
     </div>
+    </StaticContent>
   )
 }

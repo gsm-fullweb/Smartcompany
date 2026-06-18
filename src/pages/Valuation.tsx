@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { Check, ArrowRight, DollarSign, Landmark } from 'lucide-react'
 import { useDynamicContent } from '../hooks/useDynamicContent'
 import SEO from '../components/SEO'
+import EditableText from '../admin/inline/EditableText'
+import { StaticContent } from '../admin/inline/StaticContent'
+import EditableStatic from '../admin/inline/EditableStatic'
 
 interface Phase {
   name: string
@@ -94,8 +97,9 @@ export default function Valuation() {
 
 
   return (
+    <StaticContent pageKey="valuation">
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
-      <SEO 
+      <SEO
         title="Valuation, Compra e Venda de Empresas | M&A" 
         description="Avaliação de empresas e preparação para processos de fusão e aquisição (M&A) com total sigilo e profissionalismo." 
       />
@@ -104,15 +108,27 @@ export default function Valuation() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block">
-              {hero.badge}
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight uppercase">
-              {hero.title}
-            </h1>
-            <p className="text-base sm:text-lg text-slate-300">
-              {hero.content}
-            </p>
+            <EditableText
+              as="span"
+              sectionKey="valuation_hero"
+              path={['metadata', 'badge']}
+              value={hero.badge}
+              className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block"
+            />
+            <EditableText
+              as="h1"
+              sectionKey="valuation_hero"
+              field="title"
+              value={hero.title}
+              className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight uppercase"
+            />
+            <EditableText
+              as="p"
+              sectionKey="valuation_hero"
+              field="content"
+              value={hero.content}
+              className="text-base sm:text-lg text-slate-300"
+            />
           </div>
         </div>
       </section>
@@ -121,24 +137,30 @@ export default function Valuation() {
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-tight">
-              M&A com Sigilo e Profissionalismo Absoluto
-            </h2>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              Intermediamos a compra e venda de ativos com total sigilo. Nós qualificamos potenciais investidores para filtrar curiosos e especuladores, e prestamos assessoria total em Due Diligence para formalização da transação.
-            </p>
+            <EditableStatic
+              k="overview_title"
+              value="M&A com Sigilo e Profissionalismo Absoluto"
+              as="h2"
+              className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-tight"
+            />
+            <EditableStatic
+              k="overview_desc"
+              value="Intermediamos a compra e venda de ativos com total sigilo. Nós qualificamos potenciais investidores para filtrar curiosos e especuladores, e prestamos assessoria total em Due Diligence para formalização da transação."
+              as="p"
+              className="text-sm text-slate-400 leading-relaxed"
+            />
             <div className="space-y-3 font-display font-bold text-sm">
               <div className="flex items-center text-slate-200">
                 <Check className="w-5 h-5 text-gold-primary mr-2.5 flex-shrink-0" />
-                <span>Conclusão técnica do valor justo da empresa</span>
+                <EditableStatic k="overview_check_1" value="Conclusão técnica do valor justo da empresa" as="span" />
               </div>
               <div className="flex items-center text-slate-200">
                 <Check className="w-5 h-5 text-gold-primary mr-2.5 flex-shrink-0" />
-                <span>Identificação de oportunidades qualificadas</span>
+                <EditableStatic k="overview_check_2" value="Identificação de oportunidades qualificadas" as="span" />
               </div>
               <div className="flex items-center text-slate-200">
                 <Check className="w-5 h-5 text-gold-primary mr-2.5 flex-shrink-0" />
-                <span>Fomento de propostas para efetivação do M&A</span>
+                <EditableStatic k="overview_check_3" value="Fomento de propostas para efetivação do M&A" as="span" />
               </div>
             </div>
           </div>
@@ -146,13 +168,13 @@ export default function Valuation() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-5 bg-white/5 rounded-xl border border-white/5 space-y-2">
               <DollarSign className="w-8 h-8 text-gold-primary" />
-              <h3 className="text-white font-bold text-base">Valuation Técnico</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">Análise de balanços, goodwill, fluxo de caixa livre e taxas de desconto reais de mercado.</p>
+              <EditableStatic k="card_valuation_title" value="Valuation Técnico" as="h3" className="text-white font-bold text-base" />
+              <EditableStatic k="card_valuation_desc" value="Análise de balanços, goodwill, fluxo de caixa livre e taxas de desconto reais de mercado." as="p" className="text-xs text-slate-400 leading-relaxed" />
             </div>
             <div className="p-5 bg-white/5 rounded-xl border border-white/5 space-y-2">
               <Landmark className="w-8 h-8 text-gold-primary" />
-              <h3 className="text-white font-bold text-base">NDA Rigoroso</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">Garantia legal de sigilo sobre marcas, faturamento, processos e funcionários.</p>
+              <EditableStatic k="card_nda_title" value="NDA Rigoroso" as="h3" className="text-white font-bold text-base" />
+              <EditableStatic k="card_nda_desc" value="Garantia legal de sigilo sobre marcas, faturamento, processos e funcionários." as="p" className="text-xs text-slate-400 leading-relaxed" />
             </div>
           </div>
         </div>
@@ -162,19 +184,34 @@ export default function Valuation() {
       <section className="py-20 bg-[#091120] border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-3 mb-16">
-            <span className="text-xs font-bold text-gold-primary uppercase tracking-widest">Etapas Técnicas</span>
-            <h2 className="text-3xl font-display font-bold text-white uppercase tracking-wider">Como estruturamos a venda</h2>
-            <p className="text-slate-400 max-w-xl mx-auto text-sm">
-              Conheça as 8 fases cruciais executadas por nossa assessoria para compra e venda segura.
-            </p>
+            <EditableStatic k="phases_eyebrow" value="Etapas Técnicas" as="span" className="text-xs font-bold text-gold-primary uppercase tracking-widest" />
+            <EditableStatic k="phases_title" value="Como estruturamos a venda" as="h2" className="text-3xl font-display font-bold text-white uppercase tracking-wider" />
+            <EditableStatic
+              k="phases_desc"
+              value="Conheça as 8 fases cruciais executadas por nossa assessoria para compra e venda segura."
+              as="p"
+              className="text-slate-400 max-w-xl mx-auto text-sm"
+            />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {phases.map((phase: Phase, idx: number) => (
               <div key={phase.name} className="p-6 bg-[#070F1E] rounded-xl border border-white/5 space-y-3 hover:border-gold-primary/10 transition-colors">
                 <div className="text-xs text-gold-primary font-bold">Fase 0{idx+1}</div>
-                <h3 className="text-base font-display font-bold text-white uppercase">{phase.name}</h3>
-                <p className="text-xs text-slate-400 leading-relaxed">{phase.desc}</p>
+                <EditableText
+                  as="h3"
+                  sectionKey="valuation_phases"
+                  path={['metadata', 'phases', idx, 'name']}
+                  value={phase.name}
+                  className="text-base font-display font-bold text-white uppercase"
+                />
+                <EditableText
+                  as="p"
+                  sectionKey="valuation_phases"
+                  path={['metadata', 'phases', idx, 'desc']}
+                  value={phase.desc}
+                  className="text-xs text-slate-400 leading-relaxed"
+                />
               </div>
             ))}
           </div>
@@ -184,32 +221,62 @@ export default function Valuation() {
       {/* Opportunities Marketplace */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-3 mb-16">
-          <span className="text-xs font-bold text-gold-primary uppercase tracking-widest">Marketplace Corporativo</span>
-          <h2 className="text-3xl font-display font-bold text-white uppercase tracking-wider">Oportunidades de Aquisição</h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm">
-            Empresas pré-avaliadas, ativas e disponíveis para fusão ou aquisição imediata.
-          </p>
+          <EditableStatic k="marketplace_eyebrow" value="Marketplace Corporativo" as="span" className="text-xs font-bold text-gold-primary uppercase tracking-widest" />
+          <EditableStatic k="marketplace_title" value="Oportunidades de Aquisição" as="h2" className="text-3xl font-display font-bold text-white uppercase tracking-wider" />
+          <EditableStatic
+            k="marketplace_desc"
+            value="Empresas pré-avaliadas, ativas e disponíveis para fusão ou aquisição imediata."
+            as="p"
+            className="text-slate-400 max-w-xl mx-auto text-sm"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {opportunities.map((opp: Opportunity) => (
+          {opportunities.map((opp: Opportunity, idx: number) => (
             <div key={opp.title} className="glass rounded-xl p-6 border border-white/5 hover:border-gold-primary/10 transition-all flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-[10px] font-bold text-gold-primary uppercase tracking-wider bg-gold-primary/10 py-1 px-3 rounded-full">
-                    {opp.tag}
-                  </span>
-                  <span className="text-xs text-slate-500 font-semibold">{opp.location}</span>
+                  <EditableText
+                    as="span"
+                    sectionKey="valuation_opportunities"
+                    path={['metadata', 'opportunities', idx, 'tag']}
+                    value={opp.tag}
+                    className="text-[10px] font-bold text-gold-primary uppercase tracking-wider bg-gold-primary/10 py-1 px-3 rounded-full"
+                  />
+                  <EditableText
+                    as="span"
+                    sectionKey="valuation_opportunities"
+                    path={['metadata', 'opportunities', idx, 'location']}
+                    value={opp.location}
+                    className="text-xs text-slate-500 font-semibold"
+                  />
                 </div>
-                <h3 className="text-lg font-display font-bold text-white mb-3">{opp.title}</h3>
-                <p className="text-xs sm:text-sm leading-relaxed text-slate-400 mb-6">{opp.desc}</p>
+                <EditableText
+                  as="h3"
+                  sectionKey="valuation_opportunities"
+                  path={['metadata', 'opportunities', idx, 'title']}
+                  value={opp.title}
+                  className="text-lg font-display font-bold text-white mb-3"
+                />
+                <EditableText
+                  as="p"
+                  sectionKey="valuation_opportunities"
+                  path={['metadata', 'opportunities', idx, 'desc']}
+                  value={opp.desc}
+                  className="text-xs sm:text-sm leading-relaxed text-slate-400 mb-6"
+                />
               </div>
               <div>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {opp.features.map((f: string) => (
-                    <span key={f} className="text-[9px] font-bold text-slate-400 bg-white/5 py-1 px-2.5 rounded">
-                      {f}
-                    </span>
+                  {opp.features.map((f: string, fIdx: number) => (
+                    <EditableText
+                      key={f}
+                      as="span"
+                      sectionKey="valuation_opportunities"
+                      path={['metadata', 'opportunities', idx, 'features', fIdx]}
+                      value={f}
+                      className="text-[9px] font-bold text-slate-400 bg-white/5 py-1 px-2.5 rounded"
+                    />
                   ))}
                 </div>
                 <button
@@ -220,7 +287,7 @@ export default function Valuation() {
                   }}
                   className="w-full inline-flex items-center justify-center py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg transition-all"
                 >
-                  <span>Solicitar Informações</span>
+                  <EditableStatic k="opp_cta_button" value="Solicitar Informações" as="span" />
                   <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                 </button>
               </div>
@@ -233,11 +300,11 @@ export default function Valuation() {
       <section className="py-16 bg-[#091120] border-t border-white/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <p className="text-slate-300 italic text-base leading-relaxed">
-            &ldquo;A iniciativa de contratar a Smart Company se mostrou acertadíssima. Mergulharam nos números da empresa, gerando um extenso e detalhado relatório. Sempre se mostraram solícitos e disponíveis durante o trabalho. Hoje posso dizer que conheço minha empresa muito melhor e sei exatamente como e onde interferir na busca de melhores resultados.&rdquo;
+            &ldquo;<EditableStatic k="testimonial_quote" value="A iniciativa de contratar a Smart Company se mostrou acertadíssima. Mergulharam nos números da empresa, gerando um extenso e detalhado relatório. Sempre se mostraram solícitos e disponíveis durante o trabalho. Hoje posso dizer que conheço minha empresa muito melhor e sei exatamente como e onde interferir na busca de melhores resultados." as="span" />&rdquo;
           </p>
           <div>
-            <h4 className="text-white font-display font-bold text-sm">Sergio Fonseca</h4>
-            <p className="text-gold-primary text-xs mt-1">Diretor - Unidade Franqueada de Fast Food</p>
+            <EditableStatic k="testimonial_author" value="Sergio Fonseca" as="h4" className="text-white font-display font-bold text-sm" />
+            <EditableStatic k="testimonial_role" value="Diretor - Unidade Franqueada de Fast Food" as="p" className="text-gold-primary text-xs mt-1" />
           </div>
         </div>
       </section>
@@ -246,10 +313,13 @@ export default function Valuation() {
       <section id="ma-leads" className="py-20 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="text-center space-y-3 mb-10">
           <Landmark className="w-8 h-8 text-gold-primary mx-auto" />
-          <h2 className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-wider">Fale com Nossos Especialistas</h2>
-          <p className="text-slate-400 text-sm">
-            Seja para avaliar e vender sua empresa com sigilo ou cadastrar seu perfil de compra, nosso time está à disposição.
-          </p>
+          <EditableStatic k="form_title" value="Fale com Nossos Especialistas" as="h2" className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-wider" />
+          <EditableStatic
+            k="form_subtitle"
+            value="Seja para avaliar e vender sua empresa com sigilo ou cadastrar seu perfil de compra, nosso time está à disposição."
+            as="p"
+            className="text-slate-400 text-sm"
+          />
         </div>
 
         {/* Tab buttons */}
@@ -260,7 +330,7 @@ export default function Valuation() {
               activeTab === 'vender' ? 'text-gold-primary border-gold-primary bg-gold-primary/5' : 'text-slate-400 border-transparent hover:text-white'
             }`}
           >
-            Quero Vender Minha Empresa
+            <EditableStatic k="tab_sell_label" value="Quero Vender Minha Empresa" as="span" />
           </button>
           <button
             onClick={() => { setActiveTab('comprar'); setSubmitted(false); }}
@@ -268,7 +338,7 @@ export default function Valuation() {
               activeTab === 'comprar' ? 'text-gold-primary border-gold-primary bg-gold-primary/5' : 'text-slate-400 border-transparent hover:text-white'
             }`}
           >
-            Quero Comprar Um Negócio
+            <EditableStatic k="tab_buy_label" value="Quero Comprar Um Negócio" as="span" />
           </button>
         </div>
 
@@ -471,5 +541,6 @@ export default function Valuation() {
         )}
       </section>
     </div>
+    </StaticContent>
   )
 }

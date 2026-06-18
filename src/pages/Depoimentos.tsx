@@ -1,6 +1,9 @@
 import { MessageSquare, Quote, Award } from 'lucide-react'
 import { useDynamicContent } from '../hooks/useDynamicContent'
 import SEO from '../components/SEO'
+import EditableText from '../admin/inline/EditableText'
+import { StaticContent } from '../admin/inline/StaticContent'
+import EditableStatic from '../admin/inline/EditableStatic'
 
 export default function Depoimentos() {
   const defaultHero = {
@@ -80,6 +83,7 @@ export default function Depoimentos() {
   })
 
   return (
+    <StaticContent pageKey="depoimentos">
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
       <SEO 
         title="Depoimentos de Sucesso e Casos Reais" 
@@ -90,19 +94,27 @@ export default function Depoimentos() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <MessageSquare className="w-8 h-8 text-gold-primary mx-auto" />
-          <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight uppercase">
-            {hero.title}
-          </h1>
-          <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed">
-            {hero.content}
-          </p>
+          <EditableText
+            as="h1"
+            sectionKey="depoimentos_hero"
+            field="title"
+            value={hero.title}
+            className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight uppercase"
+          />
+          <EditableText
+            as="p"
+            sectionKey="depoimentos_hero"
+            field="content"
+            value={hero.content}
+            className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed"
+          />
         </div>
       </section>
 
       {/* Grid of Testimonials */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {items.map((t: any) => (
+          {items.map((t: any, idx: number) => (
             <div
               key={t.name}
               className="glass p-8 rounded-xl border border-white/5 flex flex-col justify-between relative hover:border-gold-primary/15 transition-all duration-300 group"
@@ -111,10 +123,15 @@ export default function Depoimentos() {
               <div className="absolute top-4 right-4 text-white/5 group-hover:text-gold-primary/5 transition-colors">
                 <Quote className="w-12 h-12" />
               </div>
-              
+
               <div className="space-y-4">
                 <p className="text-sm leading-relaxed text-slate-400 font-medium italic relative z-10">
-                  &ldquo;{t.text}&rdquo;
+                  &ldquo;<EditableText
+                    as="span"
+                    sectionKey="depoimentos_items"
+                    path={['metadata', 'items', idx, 'text']}
+                    value={t.text}
+                  />&rdquo;
                 </p>
               </div>
 
@@ -124,9 +141,26 @@ export default function Depoimentos() {
                   {t.initial || t.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-white font-display font-bold text-sm leading-none">{t.name}</h4>
+                  <EditableText
+                    as="h4"
+                    sectionKey="depoimentos_items"
+                    path={['metadata', 'items', idx, 'name']}
+                    value={t.name}
+                    className="text-white font-display font-bold text-sm leading-none"
+                  />
                   <p className="text-slate-500 text-xs mt-1.5 leading-none">
-                    {t.role} &bull; <span className="text-gold-primary font-semibold">{t.company}</span>
+                    <EditableText
+                      as="span"
+                      sectionKey="depoimentos_items"
+                      path={['metadata', 'items', idx, 'role']}
+                      value={t.role}
+                    /> &bull; <EditableText
+                      as="span"
+                      sectionKey="depoimentos_items"
+                      path={['metadata', 'items', idx, 'company']}
+                      value={t.company}
+                      className="text-gold-primary font-semibold"
+                    />
                   </p>
                 </div>
               </div>
@@ -139,12 +173,21 @@ export default function Depoimentos() {
       <section className="py-16 bg-[#091120] border-t border-white/5 text-center">
         <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <Award className="w-10 h-10 text-gold-primary mx-auto" />
-          <h3 className="text-xl font-display font-bold text-white uppercase tracking-wider">Compromisso com o Sucesso</h3>
-          <p className="text-sm text-slate-400 leading-relaxed">
-            Mais de 100 empresas reestruturadas presencialmente. Nossos índices de satisfação refletem a qualidade das entregas e o esmero com os dados de cada cliente.
-          </p>
+          <EditableStatic
+            k="trust_title"
+            value="Compromisso com o Sucesso"
+            as="h3"
+            className="text-xl font-display font-bold text-white uppercase tracking-wider"
+          />
+          <EditableStatic
+            k="trust_description"
+            value="Mais de 100 empresas reestruturadas presencialmente. Nossos índices de satisfação refletem a qualidade das entregas e o esmero com os dados de cada cliente."
+            as="p"
+            className="text-sm text-slate-400 leading-relaxed"
+          />
         </div>
       </section>
     </div>
+    </StaticContent>
   )
 }

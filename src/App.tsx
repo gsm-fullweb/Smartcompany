@@ -20,6 +20,9 @@ import Materiais from './pages/Materiais'
 import NossaTrajetoria from './pages/NossaTrajetoria'
 import Login from './pages/admin/Login'
 import Dashboard from './pages/admin/Dashboard'
+import { InlineEditProvider } from './admin/inline/InlineEditContext'
+import InlineEditToolbar from './admin/inline/InlineEditToolbar'
+import DynamicPage from './pages/DynamicPage'
 
 // ScrollToTop helper: scrolls page back to top on route change
 function ScrollToTop() {
@@ -63,8 +66,9 @@ function Layout({ children }: { children: React.ReactNode }) {
 function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
+      <InlineEditProvider>
+        <Layout>
+          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/smart-company" element={<Home />} />
             
@@ -129,10 +133,15 @@ function App() {
             <Route path="/admin/login" element={<Login />} />
             <Route path="/admin/:siteSlug/login" element={<Login />} />
 
+            {/* Custom dynamic pages (page builder) — single segment slugs */}
+            <Route path="/:slug" element={<DynamicPage />} />
+
             {/* Fallback Catch-All */}
             <Route path="*" element={<Home />} />
           </Routes>
-      </Layout>
+        </Layout>
+        <InlineEditToolbar />
+      </InlineEditProvider>
     </Router>
   )
 }

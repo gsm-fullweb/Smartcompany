@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, ArrowRight, ArrowLeft, RefreshCw, BarChart2, ShieldAlert, Award, FileText } from 'lucide-react'
+import EditableStatic from '../admin/inline/EditableStatic'
 
 interface Question {
   id: number
@@ -249,19 +250,30 @@ export default function AssessmentQuiz() {
             <BarChart2 className="w-8 h-8" />
           </div>
           
-          <h2 className="text-3xl md:text-4xl font-display font-extrabold text-white mb-4">
-            Termômetro de Auto Gestão Empresarial
-          </h2>
-          
-          <p className="text-slate-300 max-w-xl mx-auto mb-8 leading-relaxed">
-            Descubra o estado real da gestão do seu negócio em menos de 3 minutos. Avalie os 5 Pilares de crescimento e receba um laudo orientativo exclusivo com o seu termômetro.
-          </p>
+          <EditableStatic
+            as="h2"
+            k="quiz_intro_title"
+            value="Termômetro de Auto Gestão Empresarial"
+            className="text-3xl md:text-4xl font-display font-extrabold text-white mb-4"
+          />
+
+          <EditableStatic
+            as="p"
+            k="quiz_intro_desc"
+            value="Descubra o estado real da gestão do seu negócio em menos de 3 minutos. Avalie os 5 Pilares de crescimento e receba um laudo orientativo exclusivo com o seu termômetro."
+            className="text-slate-300 max-w-xl mx-auto mb-8 leading-relaxed"
+          />
 
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-8 text-left">
             {['Estratégia', 'Financeiro', 'Comercial', 'Estrutura', 'Operações'].map((p, i) => (
               <div key={p} className="p-3 bg-secondary-dark/60 rounded-lg border border-white/5 flex flex-col justify-between">
                 <span className="text-[10px] text-gold-primary font-bold uppercase tracking-wider">Pilar 0{i+1}</span>
-                <span className="text-sm font-semibold text-white mt-1">{p}</span>
+                <EditableStatic
+                  as="span"
+                  k={`quiz_intro_pilar_${i + 1}`}
+                  value={p}
+                  className="text-sm font-semibold text-white mt-1"
+                />
               </div>
             ))}
           </div>
@@ -270,7 +282,7 @@ export default function AssessmentQuiz() {
             onClick={() => setStarted(true)}
             className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-wider text-primary-dark bg-gold-primary hover:bg-gold-light rounded-lg shadow-xl shadow-gold-primary/20 transition-all duration-200"
           >
-            <span>Iniciar Auto Diagnóstico Gratuito</span>
+            <EditableStatic as="span" k="quiz_intro_start_btn" value="Iniciar Auto Diagnóstico Gratuito" />
             <ArrowRight className="ml-2 w-4 h-4" />
           </button>
 

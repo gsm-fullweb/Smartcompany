@@ -28,3 +28,6 @@ dist-ssr
 .env.local
 .supabase/
 scratch/
+
+# Backups locais de seções (rollback)
+scripts/site_sections_*.json

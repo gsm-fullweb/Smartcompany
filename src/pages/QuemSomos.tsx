@@ -2,6 +2,11 @@ import { motion } from 'framer-motion'
 import { Eye, Award, Compass, UserCheck, Milestone, Check } from 'lucide-react'
 import { useDynamicContent } from '../hooks/useDynamicContent'
 import SEO from '../components/SEO'
+import EditableText from '../admin/inline/EditableText'
+import EditableImage from '../admin/inline/EditableImage'
+import EditableParagraphs from '../admin/inline/EditableParagraphs'
+import { StaticContent } from '../admin/inline/StaticContent'
+import EditableStatic from '../admin/inline/EditableStatic'
 
 export default function QuemSomos() {
   // 1. Initial/Static Content definitions for fallbacks
@@ -157,8 +162,9 @@ export default function QuemSomos() {
   })
 
   return (
+    <StaticContent pageKey="quemsomos">
     <div className="bg-primary-dark pt-24 min-h-screen text-slate-300 font-sans">
-      <SEO 
+      <SEO
         title="Quem Somos | Trajetória e Mentoria de Antonio Geraldes" 
         description="Mais de 20 anos de atuação dedicados a entregar lucro, organização operacional e tranquilidade de tempo para empresários de todo o Brasil." 
       />
@@ -166,15 +172,27 @@ export default function QuemSomos() {
       <section className="relative bg-[#070F1E] py-20 border-b border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block">
-            {hero.badge}
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight uppercase">
-            {hero.title}
-          </h1>
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            {hero.content}
-          </p>
+          <EditableText
+            as="span"
+            sectionKey="quemsomos_hero"
+            path={['metadata', 'badge']}
+            value={hero.badge}
+            className="text-[10px] font-bold text-gold-primary uppercase tracking-widest bg-gold-primary/10 py-1.5 px-4 rounded-full border border-gold-primary/20 inline-block"
+          />
+          <EditableText
+            as="h1"
+            sectionKey="quemsomos_hero"
+            field="title"
+            value={hero.title}
+            className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight uppercase"
+          />
+          <EditableText
+            as="p"
+            sectionKey="quemsomos_hero"
+            field="content"
+            value={hero.content}
+            className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed"
+          />
         </div>
       </section>
 
@@ -186,10 +204,14 @@ export default function QuemSomos() {
             <div className="w-12 h-12 rounded-lg bg-gold-primary/10 flex items-center justify-center">
               <Compass className="w-6 h-6 text-gold-primary" />
             </div>
-            <h3 className="text-xl font-display font-bold text-white uppercase tracking-wide">Missão</h3>
-            <p className="text-sm leading-relaxed text-slate-400">
-              {mvv.mission}
-            </p>
+            <EditableStatic k="mvv_mission_heading" value="Missão" as="h3" className="text-xl font-display font-bold text-white uppercase tracking-wide" />
+            <EditableText
+              as="p"
+              sectionKey="quemsomos_mvv"
+              path={['metadata', 'mission']}
+              value={mvv.mission}
+              className="text-sm leading-relaxed text-slate-400"
+            />
           </div>
 
           {/* Visão */}
@@ -197,10 +219,14 @@ export default function QuemSomos() {
             <div className="w-12 h-12 rounded-lg bg-gold-primary/10 flex items-center justify-center">
               <Eye className="w-6 h-6 text-gold-primary" />
             </div>
-            <h3 className="text-xl font-display font-bold text-white uppercase tracking-wide">Visão</h3>
-            <p className="text-sm leading-relaxed text-slate-400">
-              {mvv.vision}
-            </p>
+            <EditableStatic k="mvv_vision_heading" value="Visão" as="h3" className="text-xl font-display font-bold text-white uppercase tracking-wide" />
+            <EditableText
+              as="p"
+              sectionKey="quemsomos_mvv"
+              path={['metadata', 'vision']}
+              value={mvv.vision}
+              className="text-sm leading-relaxed text-slate-400"
+            />
           </div>
 
           {/* O que, Como, Por que */}
@@ -208,11 +234,11 @@ export default function QuemSomos() {
             <div className="w-12 h-12 rounded-lg bg-gold-primary/10 flex items-center justify-center">
               <Award className="w-6 h-6 text-gold-primary" />
             </div>
-            <h3 className="text-xl font-display font-bold text-white uppercase tracking-wide">Propósito Real</h3>
+            <EditableStatic k="mvv_purpose_heading" value="Propósito Real" as="h3" className="text-xl font-display font-bold text-white uppercase tracking-wide" />
             <div className="text-xs space-y-2 text-slate-400">
-              <p><strong>O quê?</strong> {mvv.purpose_o_que}</p>
-              <p><strong>Como?</strong> {mvv.purpose_como}</p>
-              <p><strong>Por quê?</strong> {mvv.purpose_por_que}</p>
+              <p><strong>O quê?</strong> <EditableText as="span" sectionKey="quemsomos_mvv" path={['metadata', 'purpose_o_que']} value={mvv.purpose_o_que} /></p>
+              <p><strong>Como?</strong> <EditableText as="span" sectionKey="quemsomos_mvv" path={['metadata', 'purpose_como']} value={mvv.purpose_como} /></p>
+              <p><strong>Por quê?</strong> <EditableText as="span" sectionKey="quemsomos_mvv" path={['metadata', 'purpose_por_que']} value={mvv.purpose_por_que} /></p>
             </div>
           </div>
         </div>
@@ -220,22 +246,40 @@ export default function QuemSomos() {
         {/* Valores Grid */}
         <div className="space-y-12">
           <div className="text-center space-y-3">
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-wider">
-              Nossos Valores Inegociáveis
-            </h2>
-            <p className="text-slate-400 text-sm max-w-xl mx-auto">
-              Nossa conduta diária é ditada por princípios que priorizam a segurança corporativa do cliente.
-            </p>
+            <EditableStatic
+              k="values_section_title"
+              value="Nossos Valores Inegociáveis"
+              as="h2"
+              className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-wider"
+            />
+            <EditableStatic
+              k="values_section_desc"
+              value="Nossa conduta diária é ditada por princípios que priorizam a segurança corporativa do cliente."
+              as="p"
+              className="text-slate-400 text-sm max-w-xl mx-auto"
+            />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {valuesList.map((v: any) => (
+            {valuesList.map((v: any, idx: number) => (
               <div key={v.title} className="p-6 bg-white/5 rounded-xl border border-white/5 space-y-3">
                 <div className="w-8 h-8 rounded-full bg-gold-primary/15 flex items-center justify-center text-gold-primary">
                   <Check className="w-4 h-4" />
                 </div>
-                <h4 className="text-white font-display font-bold text-sm uppercase">{v.title}</h4>
-                <p className="text-xs leading-relaxed text-slate-400">{v.desc}</p>
+                <EditableText
+                  as="h4"
+                  sectionKey="quemsomos_values"
+                  path={['metadata', 'values', idx, 'title']}
+                  value={v.title}
+                  className="text-white font-display font-bold text-sm uppercase"
+                />
+                <EditableText
+                  as="p"
+                  sectionKey="quemsomos_values"
+                  path={['metadata', 'values', idx, 'desc']}
+                  value={v.desc}
+                  className="text-xs leading-relaxed text-slate-400"
+                />
               </div>
             ))}
           </div>
@@ -250,41 +294,64 @@ export default function QuemSomos() {
             <div className="lg:col-span-5 relative space-y-6">
               <div className="relative max-w-sm mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-tr from-gold-primary/20 to-transparent rounded-2xl -m-2 -z-10 blur-sm"></div>
-                <img
-                  src={founder.image_url}
+                <EditableImage
+                  sectionKey="quemsomos_founder"
+                  path={['metadata', 'image_url']}
+                  value={founder.image_url}
                   alt={`${founder.founder_name} - Mentor & Fundador`}
                   className="w-full rounded-2xl border border-white/10 shadow-2xl hover:scale-[1.01] transition-transform duration-300"
                 />
                 <div className="absolute bottom-4 left-4 right-4 glass p-3.5 rounded-xl border border-white/10 text-center sm:text-left">
-                  <p className="text-white font-display font-bold text-base leading-none">{founder.founder_name}</p>
-                  <p className="text-gold-primary text-xs font-semibold mt-1">{founder.founder_title}</p>
+                  <EditableText
+                    as="p"
+                    sectionKey="quemsomos_founder"
+                    path={['metadata', 'founder_name']}
+                    value={founder.founder_name}
+                    className="text-white font-display font-bold text-base leading-none"
+                  />
+                  <EditableText
+                    as="p"
+                    sectionKey="quemsomos_founder"
+                    path={['metadata', 'founder_title']}
+                    value={founder.founder_title}
+                    className="text-gold-primary text-xs font-semibold mt-1"
+                  />
                 </div>
               </div>
               
               <div className="bg-primary-dark/80 p-6 rounded-xl border border-white/5 space-y-3 text-center sm:text-left">
                 <div className="flex items-center gap-2 justify-center sm:justify-start">
                   <UserCheck className="w-5 h-5 text-gold-primary" />
-                  <span className="text-white font-display font-bold text-sm uppercase">Experiência Setorial</span>
+                  <EditableStatic k="founder_experience_label" value="Experiência Setorial" as="span" className="text-white font-display font-bold text-sm uppercase" />
                 </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  {founder.experience_summary}
-                </p>
+                <EditableText
+                  as="p"
+                  sectionKey="quemsomos_founder"
+                  path={['metadata', 'experience_summary']}
+                  value={founder.experience_summary}
+                  className="text-xs text-slate-400 leading-relaxed"
+                />
               </div>
             </div>
 
             {/* Biography Detailed Text */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-[10px] font-bold text-gold-primary uppercase tracking-widest">A Trajetória do Fundador</span>
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-white uppercase tracking-tight">
-                Empreendedorismo na Prática desde 1989
-              </h2>
+              <EditableStatic k="founder_journey_badge" value="A Trajetória do Fundador" as="span" className="text-[10px] font-bold text-gold-primary uppercase tracking-widest" />
+              <EditableStatic
+                k="founder_journey_title"
+                value="Empreendedorismo na Prática desde 1989"
+                as="h2"
+                className="text-3xl sm:text-4xl font-display font-bold text-white uppercase tracking-tight"
+              />
               
               <div className="space-y-4 text-xs sm:text-sm text-slate-400 leading-relaxed text-justify">
-                {founder.biography.split('\n\n').map((para: string, index: number) => (
-                  <p key={index}>{para}</p>
-                ))}
+                <EditableParagraphs
+                  sectionKey="quemsomos_founder"
+                  field="content"
+                  value={founder.biography}
+                />
                 <p className="italic text-slate-200 border-l-2 border-gold-primary pl-4 py-1">
-                  &ldquo;{founder.quote}&rdquo;
+                  &ldquo;<EditableText as="span" sectionKey="quemsomos_founder" path={['metadata', 'quote']} value={founder.quote} />&rdquo;
                 </p>
               </div>
             </div>
@@ -296,12 +363,18 @@ export default function QuemSomos() {
       <section className="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-3 mb-16">
           <Milestone className="w-8 h-8 text-gold-primary mx-auto" />
-          <h2 className="text-3xl font-display font-bold text-white uppercase tracking-wider">
-            Nossa Linha do Tempo
-          </h2>
-          <p className="text-slate-400 text-sm max-w-md mx-auto">
-            Acompanhe a trajetória de marcos históricos e conquistas da Smart Company.
-          </p>
+          <EditableStatic
+            k="timeline_section_title"
+            value="Nossa Linha do Tempo"
+            as="h2"
+            className="text-3xl font-display font-bold text-white uppercase tracking-wider"
+          />
+          <EditableStatic
+            k="timeline_section_desc"
+            value="Acompanhe a trajetória de marcos históricos e conquistas da Smart Company."
+            as="p"
+            className="text-slate-400 text-sm max-w-md mx-auto"
+          />
         </div>
 
         <div className="relative border-l border-white/10 pl-6 sm:pl-10 space-y-12 ml-4">
@@ -321,9 +394,27 @@ export default function QuemSomos() {
 
               {/* Event Content card */}
               <div className="bg-[#091120] p-6 rounded-xl border border-white/5 hover:border-gold-primary/10 transition-colors space-y-2">
-                <span className="text-sm font-display font-black text-gold-primary">{event.year}</span>
-                <h3 className="text-base font-display font-bold text-white uppercase">{event.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">{event.desc}</p>
+                <EditableText
+                  as="span"
+                  sectionKey="quemsomos_timeline"
+                  path={['metadata', 'events', idx, 'year']}
+                  value={event.year}
+                  className="text-sm font-display font-black text-gold-primary"
+                />
+                <EditableText
+                  as="h3"
+                  sectionKey="quemsomos_timeline"
+                  path={['metadata', 'events', idx, 'title']}
+                  value={event.title}
+                  className="text-base font-display font-bold text-white uppercase"
+                />
+                <EditableText
+                  as="p"
+                  sectionKey="quemsomos_timeline"
+                  path={['metadata', 'events', idx, 'desc']}
+                  value={event.desc}
+                  className="text-xs sm:text-sm text-slate-400 leading-relaxed"
+                />
               </div>
             </motion.div>
           ))}
@@ -334,15 +425,26 @@ export default function QuemSomos() {
       <section className="py-20 bg-[#091120] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-3 mb-16">
-            <span className="text-xs font-bold text-gold-primary uppercase tracking-widest">
-              Nossos Clientes
-            </span>
-            <h2 className="text-3xl font-display font-bold text-white uppercase tracking-wider">
-              {clientsTitle}
-            </h2>
-            <p className="text-slate-400 text-sm max-w-xl mx-auto leading-relaxed">
-              {clientsDesc}
-            </p>
+            <EditableStatic
+              k="clients_badge"
+              value="Nossos Clientes"
+              as="span"
+              className="text-xs font-bold text-gold-primary uppercase tracking-widest"
+            />
+            <EditableText
+              as="h2"
+              sectionKey="quemsomos_clients"
+              field="title"
+              value={clientsTitle}
+              className="text-3xl font-display font-bold text-white uppercase tracking-wider"
+            />
+            <EditableText
+              as="p"
+              sectionKey="quemsomos_clients"
+              field="content"
+              value={clientsDesc}
+              className="text-slate-400 text-sm max-w-xl mx-auto leading-relaxed"
+            />
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -351,17 +453,26 @@ export default function QuemSomos() {
                 key={`${client.name}-${idx}`}
                 className="p-4 bg-primary-dark rounded-lg border border-white/5 hover:border-gold-primary/10 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <h4 className="text-white font-display font-extrabold text-xs tracking-wide uppercase">
-                  {client.name}
-                </h4>
-                <p className="text-[10px] text-slate-500 font-semibold mt-1">
-                  {client.sector}
-                </p>
+                <EditableText
+                  as="h4"
+                  sectionKey="quemsomos_clients"
+                  path={['metadata', 'clients', idx, 'name']}
+                  value={client.name}
+                  className="text-white font-display font-extrabold text-xs tracking-wide uppercase"
+                />
+                <EditableText
+                  as="p"
+                  sectionKey="quemsomos_clients"
+                  path={['metadata', 'clients', idx, 'sector']}
+                  value={client.sector}
+                  className="text-[10px] text-slate-500 font-semibold mt-1"
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
     </div>
+    </StaticContent>
   )
 }

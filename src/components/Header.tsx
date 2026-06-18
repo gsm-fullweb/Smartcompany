@@ -1,11 +1,34 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ArrowRight, ShieldCheck, ChevronDown } from 'lucide-react'
+import { supabase } from '../lib/supabase'
+
+interface CustomNavItem { name: string; href: string }
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [customPages, setCustomPages] = useState<CustomNavItem[]>([])
   const location = useLocation()
+
+  // Carrega páginas personalizadas publicadas marcadas para o menu
+  useEffect(() => {
+    let active = true
+    supabase
+      .from('site_sections')
+      .select('section_key, title, metadata')
+      .eq('site_slug', 'smartcompany')
+      .like('section_key', 'cpage_%')
+      .then(({ data }) => {
+        if (!active || !data) return
+        const items = data
+          .filter((r: any) => r.metadata?.status === 'published' && r.metadata?.show_in_menu)
+          .sort((a: any, b: any) => (a.metadata?.menu_order ?? 100) - (b.metadata?.menu_order ?? 100))
+          .map((r: any) => ({ name: r.title || 'Página', href: `/${r.section_key.slice('cpage_'.length)}` }))
+        setCustomPages(items)
+      })
+    return () => { active = false }
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -213,6 +236,21 @@ export default function Header() {
             >
               Contato
             </Link>
+
+            {/* Páginas personalizadas (construtor de páginas) */}
+            {customPages.map((item) => (
+              <Link
+                key={item.href}
+                to={item.href}
+                className={`px-3 py-2 rounded-md text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                  isActive(item.href)
+                    ? 'text-gold-primary bg-gold-primary/10 border-b-2 border-gold-primary'
+                    : 'text-slate-300 hover:text-white hover:bg-white/5 border-b-2 border-transparent'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
           </nav>
 
           {/* CTA Button */}
@@ -338,6 +376,18 @@ export default function Header() {
           >
             Contato
           </Link>
+
+          {customPages.map((item) => (
+            <Link
+              key={item.href}
+              to={item.href}
+              className={`block px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-wide transition-all mt-1 ${
+                isActive(item.href) ? 'text-gold-primary bg-gold-primary/5' : 'text-slate-300 hover:text-white'
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
 
           <div className="pt-4 border-t border-white/10 mt-4 px-4">
             <Link
