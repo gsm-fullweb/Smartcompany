@@ -1,0 +1,4473 @@
+{
+  "version": "0.4",
+  "title": "Home",
+  "type": "page",
+  "page_settings": {
+    "template": "elementor_canvas",
+    "background_background": "classic",
+    "background_color": "#070F1E"
+  },
+  "content": [
+    {
+      "id": "sc00008",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "unit": "px",
+          "size": 20
+        },
+        "_title": "Hero",
+        "flex_direction_mobile": "column",
+        "background_background": "classic",
+        "background_color": "#070F1E",
+        "padding": {
+          "unit": "px",
+          "top": "140",
+          "right": "20",
+          "bottom": "100",
+          "left": "20",
+          "isLinked": false
+        },
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.05)",
+        "width": {
+          "unit": "px",
+          "size": 1000
+        }
+      },
+      "elements": [
+        {
+          "id": "sc00001",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "<i class=\"fas fa-award\" style=\"margin-right:6px;\"></i> Liderança, Lucratividade e Autonomia",
+            "header_size": "span",
+            "align": "center",
+            "typography_typography": "custom",
+            "title_color": "#DFB758",
+            "_title": "Rótulo",
+            "typography_font_family": "Inter",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 10
+            },
+            "typography_font_weight": "700",
+            "typography_text_transform": "uppercase",
+            "typography_letter_spacing": {
+              "unit": "px",
+              "size": 2
+            },
+            "_background_background": "classic",
+            "_background_color": "rgba(223, 183, 88, 0.1)",
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "_border_color": "rgba(223, 183, 88, 0.2)",
+            "_border_radius": {
+              "unit": "px",
+              "top": "99",
+              "right": "99",
+              "bottom": "99",
+              "left": "99",
+              "isLinked": true
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "6",
+              "right": "16",
+              "bottom": "6",
+              "left": "16",
+              "isLinked": false
+            },
+            "_element_width": "auto"
+          }
+        },
+        {
+          "id": "sc00002",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "TRANSFORME JÁ SEU LUCRO, VENDAS, PRODUTIVIDADE E EQUIPE.",
+            "header_size": "h1",
+            "align": "center",
+            "typography_typography": "custom",
+            "title_color": "#FFFFFF",
+            "_title": "Título H1",
+            "typography_font_family": "Outfit",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 48
+            },
+            "typography_font_weight": "900",
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.1
+            }
+          }
+        },
+        {
+          "id": "sc00003",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Consultoria e gestão personalizadas, gerando resultados excepcionais para Empresários e Gestores que buscam crescimento sólido e liberdade de tempo.</p>",
+            "align": "center",
+            "typography_typography": "custom",
+            "text_color": "#CBD5E1",
+            "_title": "Texto",
+            "_element_custom_width": {
+              "unit": "px",
+              "size": 760
+            },
+            "typography_font_family": "Inter",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 18
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.6
+            }
+          }
+        },
+        {
+          "id": "sc00004",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "flex_align_items": "stretch",
+            "flex_gap": {
+              "unit": "px",
+              "size": 24
+            },
+            "flex_wrap": "wrap",
+            "flex_direction_mobile": "column",
+            "_title": "Botões",
+            "width": {
+              "unit": "px",
+              "size": 780
+            }
+          },
+          "elements": [
+            {
+              "id": "sc00005",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Fazer Auto Diagnóstico Gratuito",
+                "link": {
+                  "url": "#diagnostico"
+                },
+                "typography_typography": "globals/typography?id=accent",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "8",
+                  "right": "8",
+                  "bottom": "8",
+                  "left": "8",
+                  "isLinked": true
+                },
+                "text_padding": {
+                  "unit": "px",
+                  "top": "16",
+                  "right": "32",
+                  "bottom": "16",
+                  "left": "32",
+                  "isLinked": false
+                },
+                "_title": "Botão Dourado",
+                "button_text_color": "#070F1E",
+                "background_color": "globals/colors?id=sc_gold",
+                "button_box_shadow_box_shadow_type": "yes",
+                "button_box_shadow_box_shadow": {
+                  "horizontal": 0,
+                  "vertical": 6,
+                  "blur": 24,
+                  "spread": 0,
+                  "color": "rgba(223,183,88,0.35)"
+                },
+                "selected_icon": {
+                  "value": "fas fa-arrow-right",
+                  "library": "fa-solid"
+                },
+                "icon_align": "right"
+              }
+            },
+            {
+              "id": "sc00006",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Conhecer Consultoria",
+                "link": {
+                  "url": "/como-transformamos-empresas"
+                },
+                "typography_typography": "globals/typography?id=accent",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "8",
+                  "right": "8",
+                  "bottom": "8",
+                  "left": "8",
+                  "isLinked": true
+                },
+                "text_padding": {
+                  "unit": "px",
+                  "top": "16",
+                  "right": "32",
+                  "bottom": "16",
+                  "left": "32",
+                  "isLinked": false
+                },
+                "_title": "Botão Outline",
+                "button_text_color": "globals/colors?id=sc_title",
+                "background_background": "classic",
+                "background_color": "rgba(255,255,255,0.05)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.2)",
+                "selected_icon": {
+                  "value": "",
+                  "library": ""
+                },
+                "icon_align": "right"
+              }
+            }
+          ]
+        },
+        {
+          "id": "sc00007",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p><i class=\"fas fa-shield-halved\" style=\"margin-right:6px;color:#DFB758;\"></i>Metodologia taylor-made testada em mais de 100 empresas</p>",
+            "align": "center",
+            "text_color": "globals/colors?id=sc_muted",
+            "_title": "Selo Confiança",
+            "typography_typography": "custom",
+            "typography_font_family": "Inter",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 12
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "sc00020",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "unit": "px",
+          "size": 20
+        },
+        "_title": "Nossa Expertise nas Suas Mãos",
+        "flex_direction_mobile": "column",
+        "background_background": "classic",
+        "background_color": "#070F1E",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "20",
+          "bottom": "100",
+          "left": "20",
+          "isLinked": false
+        },
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.05)"
+      },
+      "elements": [
+        {
+          "id": "sc00009",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Nossa Expertise nas Suas Mãos",
+            "header_size": "h2",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_h2",
+            "title_color": "globals/colors?id=sc_title",
+            "_title": "Título"
+          }
+        },
+        {
+          "id": "sc00010",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Temos expertise comprovada nestas 4 jornadas, clique na solução que você precisa neste momento:</p>",
+            "align": "center",
+            "typography_typography": "globals/typography?id=text",
+            "text_color": "globals/colors?id=sc_muted",
+            "_title": "Texto",
+            "_element_custom_width": {
+              "unit": "px",
+              "size": 680
+            }
+          }
+        },
+        {
+          "id": "sc00019",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "flex_align_items": "stretch",
+            "flex_gap": {
+              "unit": "px",
+              "size": 24
+            },
+            "flex_wrap": "wrap",
+            "flex_direction_mobile": "column",
+            "_title": "Jornadas"
+          },
+          "elements": [
+            {
+              "id": "sc00011",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 25
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "flex_justify_content": "center",
+                "_title": "Jornada"
+              },
+              "elements": [
+                {
+                  "id": "sc00012",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "DIAGNÓSTICO COMPLETO + IMPLANTAÇÕES",
+                    "link": {
+                      "url": "/como-transformamos-empresas"
+                    },
+                    "align": "justify",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Outfit",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14
+                    },
+                    "typography_font_weight": "900",
+                    "typography_text_transform": "uppercase",
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": 1
+                    },
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "8",
+                      "right": "8",
+                      "bottom": "8",
+                      "left": "8",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "28",
+                      "right": "20",
+                      "bottom": "28",
+                      "left": "20",
+                      "isLinked": false
+                    },
+                    "_title": "Jornada",
+                    "button_text_color": "#070F1E",
+                    "background_color": "globals/colors?id=sc_gold"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00013",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 25
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "flex_justify_content": "center",
+                "_title": "Jornada"
+              },
+              "elements": [
+                {
+                  "id": "sc00014",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "PLANOS DE NEGÓCIOS | PRÉ-FRANQUIAS",
+                    "link": {
+                      "url": "/como-transformamos-empresas"
+                    },
+                    "align": "justify",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Outfit",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14
+                    },
+                    "typography_font_weight": "900",
+                    "typography_text_transform": "uppercase",
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": 1
+                    },
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "8",
+                      "right": "8",
+                      "bottom": "8",
+                      "left": "8",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "28",
+                      "right": "20",
+                      "bottom": "28",
+                      "left": "20",
+                      "isLinked": false
+                    },
+                    "_title": "Jornada",
+                    "button_text_color": "#070F1E",
+                    "background_color": "globals/colors?id=sc_gold"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00015",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 25
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "flex_justify_content": "center",
+                "_title": "Jornada"
+              },
+              "elements": [
+                {
+                  "id": "sc00016",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "VALUATION & COMPRA E VENDA DE EMPRESAS",
+                    "link": {
+                      "url": "/valuation-avaliacao-compra-e-venda-de-empresas"
+                    },
+                    "align": "justify",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Outfit",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14
+                    },
+                    "typography_font_weight": "900",
+                    "typography_text_transform": "uppercase",
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": 1
+                    },
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "8",
+                      "right": "8",
+                      "bottom": "8",
+                      "left": "8",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "28",
+                      "right": "20",
+                      "bottom": "28",
+                      "left": "20",
+                      "isLinked": false
+                    },
+                    "_title": "Jornada",
+                    "button_text_color": "#070F1E",
+                    "background_color": "globals/colors?id=sc_gold"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00017",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 25
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "flex_justify_content": "center",
+                "_title": "Jornada"
+              },
+              "elements": [
+                {
+                  "id": "sc00018",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "FORMAÇÃO DE SÓCIOS, SUCESSORES E GESTORES",
+                    "link": {
+                      "url": "/auto-gestao-empresarial-para-donos-de-empresas"
+                    },
+                    "align": "justify",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Outfit",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14
+                    },
+                    "typography_font_weight": "900",
+                    "typography_text_transform": "uppercase",
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": 1
+                    },
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "8",
+                      "right": "8",
+                      "bottom": "8",
+                      "left": "8",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "28",
+                      "right": "20",
+                      "bottom": "28",
+                      "left": "20",
+                      "isLinked": false
+                    },
+                    "_title": "Jornada",
+                    "button_text_color": "#070F1E",
+                    "background_color": "globals/colors?id=sc_gold"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sc00042",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "unit": "px",
+          "size": 20
+        },
+        "_title": "Domine sua Empresa",
+        "flex_direction_mobile": "column",
+        "background_background": "classic",
+        "background_color": "#091120",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "20",
+          "bottom": "100",
+          "left": "20",
+          "isLinked": false
+        },
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.05)"
+      },
+      "elements": [
+        {
+          "id": "sc00028",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "DOMINE SUA EMPRESA, POTENCIALIZE SEU TIME E ATINJA O SUCESSO.",
+            "header_size": "h2",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_h2",
+            "title_color": "globals/colors?id=sc_title",
+            "_title": "Título"
+          }
+        },
+        {
+          "id": "sc00029",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>ACELERE COM NOSSA CONSULTORIA OU FAÇA AGORA NOSSOS CURSOS DE AUTO GESTÃO EMPRESARIAL.</p>",
+            "align": "center",
+            "typography_typography": "globals/typography?id=text",
+            "text_color": "globals/colors?id=sc_muted",
+            "_title": "Texto",
+            "_element_custom_width": {
+              "unit": "px",
+              "size": 760
+            }
+          }
+        },
+        {
+          "id": "sc00032",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "flex_direction": "column",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 70
+            },
+            "width_mobile": {
+              "unit": "%",
+              "size": 100
+            },
+            "background_background": "classic",
+            "background_color": "rgba(11,21,40,0.6)",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "border_color": "rgba(255,255,255,0.05)",
+            "border_radius": {
+              "unit": "px",
+              "top": "12",
+              "right": "12",
+              "bottom": "12",
+              "left": "12",
+              "isLinked": true
+            },
+            "padding": {
+              "unit": "px",
+              "top": "32",
+              "right": "28",
+              "bottom": "32",
+              "left": "28",
+              "isLinked": false
+            },
+            "flex_gap": {
+              "unit": "px",
+              "size": 10
+            },
+            "_title": "Card"
+          },
+          "elements": [
+            {
+              "id": "sc00030",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "A nossa consultoria e gestão é personalizada para você e para a sua empresa, trazendo soluções de Auto Gestão Empresarial que você vai aprender a:",
+                "header_size": "h3",
+                "align": "center",
+                "title_color": "globals/colors?id=sc_title",
+                "_title": "Subtítulo"
+              }
+            },
+            {
+              "id": "sc00031",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "icon_list": [
+                  {
+                    "text": "Ter segurança financeira",
+                    "selected_icon": {
+                      "value": "fas fa-check",
+                      "library": "fa-solid"
+                    },
+                    "_id": "00021"
+                  },
+                  {
+                    "text": "Montar um time Capacitado e Motivado",
+                    "selected_icon": {
+                      "value": "fas fa-check",
+                      "library": "fa-solid"
+                    },
+                    "_id": "00022"
+                  },
+                  {
+                    "text": "Diminuir o stress e ter mais tranquilidade",
+                    "selected_icon": {
+                      "value": "fas fa-check",
+                      "library": "fa-solid"
+                    },
+                    "_id": "00023"
+                  },
+                  {
+                    "text": "Aumentar seu Pro-labore sem sangrar o caixa",
+                    "selected_icon": {
+                      "value": "fas fa-check",
+                      "library": "fa-solid"
+                    },
+                    "_id": "00024"
+                  },
+                  {
+                    "text": "Concretizar seus sonhos",
+                    "selected_icon": {
+                      "value": "fas fa-check",
+                      "library": "fa-solid"
+                    },
+                    "_id": "00025"
+                  },
+                  {
+                    "text": "Impulsionar a empresa ao crescimento",
+                    "selected_icon": {
+                      "value": "fas fa-check",
+                      "library": "fa-solid"
+                    },
+                    "_id": "00026"
+                  },
+                  {
+                    "text": "Liderar com inteligência",
+                    "selected_icon": {
+                      "value": "fas fa-check",
+                      "library": "fa-solid"
+                    },
+                    "_id": "00027"
+                  }
+                ],
+                "icon_color": "#DFB758",
+                "text_color": "globals/colors?id=sc_text",
+                "icon_typography_typography": "globals/typography?id=text",
+                "text_indent": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Checklist"
+              }
+            }
+          ]
+        },
+        {
+          "id": "sc00033",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "CONSULTORIA E GESTÃO COM REESTRUTURAÇÃO DE EMPRESAS",
+            "header_size": "h3",
+            "align": "center",
+            "title_color": "globals/colors?id=sc_title",
+            "_title": "Subtítulo"
+          }
+        },
+        {
+          "id": "sc00040",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "flex_align_items": "stretch",
+            "flex_gap": {
+              "unit": "px",
+              "size": 24
+            },
+            "flex_wrap": "wrap",
+            "flex_direction_mobile": "column",
+            "_title": "Áreas"
+          },
+          "elements": [
+            {
+              "id": "sc00035",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 33.33
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00034",
+                  "elType": "widget",
+                  "widgetType": "icon-box",
+                  "settings": {
+                    "title_text": "Comercial",
+                    "description_text": "A implantação de Área Comercial completa e “ativa” com a criação de Política Comercial, campanha de incentivos, recrutamento, seleção e treinamento de canais de vendas potencializa os resultados de vendas. Além disso, certamente, essa estratégia contribui para o crescimento e a eficiência do negócio.",
+                    "selected_icon": {
+                      "value": "fas fa-arrow-trend-up",
+                      "library": "fa-solid"
+                    },
+                    "position": "top",
+                    "primary_color": "globals/colors?id=sc_gold",
+                    "title_color": "globals/colors?id=sc_title",
+                    "description_color": "globals/colors?id=sc_muted",
+                    "title_typography_typography": "globals/typography?id=secondary",
+                    "description_typography_typography": "globals/typography?id=text",
+                    "text_align": "center",
+                    "_title": "Icon Box"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00037",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 33.33
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00036",
+                  "elType": "widget",
+                  "widgetType": "icon-box",
+                  "settings": {
+                    "title_text": "Financeiro",
+                    "description_text": "Reengenharia financeira visa através de ferramentas para redução de custo e gestão. Assim, inclui a elaboração de DRE, composição de custo e formação do preço de venda, bem como análise dos centros de custo. Por conseguinte, busca-se a criação de KPIs financeiros com foco em rentabilidade.",
+                    "selected_icon": {
+                      "value": "fas fa-dollar-sign",
+                      "library": "fa-solid"
+                    },
+                    "position": "top",
+                    "primary_color": "globals/colors?id=sc_gold",
+                    "title_color": "globals/colors?id=sc_title",
+                    "description_color": "globals/colors?id=sc_muted",
+                    "title_typography_typography": "globals/typography?id=secondary",
+                    "description_typography_typography": "globals/typography?id=text",
+                    "text_align": "center",
+                    "_title": "Icon Box"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00039",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 33.33
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00038",
+                  "elType": "widget",
+                  "widgetType": "icon-box",
+                  "settings": {
+                    "title_text": "Industrial / Operacional",
+                    "description_text": "Portanto, é essencial realizar o mapeamento dos processos e elaborar fluxogramas. Como resultado, podemos identificar gargalos e perdas. Assim, consequentemente, podemos implantar controles por etapas da produção. Ou seja, mesmo em empresas onde não há fabricação direta, existe um setor produtivo onde as operações ocorrem. Esclarecer que esses procedimentos podem ser aprimorados através do método PDCA é fundamental.",
+                    "selected_icon": {
+                      "value": "fas fa-bullseye",
+                      "library": "fa-solid"
+                    },
+                    "position": "top",
+                    "primary_color": "globals/colors?id=sc_gold",
+                    "title_color": "globals/colors?id=sc_title",
+                    "description_color": "globals/colors?id=sc_muted",
+                    "title_typography_typography": "globals/typography?id=secondary",
+                    "description_typography_typography": "globals/typography?id=text",
+                    "text_align": "center",
+                    "_title": "Icon Box"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sc00041",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "PRECISO SOLUÇÕES DE CONSULTORIA",
+            "link": {
+              "url": "/como-transformamos-empresas"
+            },
+            "typography_typography": "globals/typography?id=accent",
+            "border_radius": {
+              "unit": "px",
+              "top": "8",
+              "right": "8",
+              "bottom": "8",
+              "left": "8",
+              "isLinked": true
+            },
+            "text_padding": {
+              "unit": "px",
+              "top": "16",
+              "right": "32",
+              "bottom": "16",
+              "left": "32",
+              "isLinked": false
+            },
+            "_title": "Botão Dourado",
+            "button_text_color": "#070F1E",
+            "background_color": "globals/colors?id=sc_gold",
+            "button_box_shadow_box_shadow_type": "yes",
+            "button_box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 6,
+              "blur": 24,
+              "spread": 0,
+              "color": "rgba(223,183,88,0.35)"
+            },
+            "selected_icon": {
+              "value": "fas fa-arrow-right",
+              "library": "fa-solid"
+            },
+            "icon_align": "right"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sc00067",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "unit": "px",
+          "size": 20
+        },
+        "_title": "Auto Diagnóstico",
+        "flex_direction_mobile": "column",
+        "background_background": "classic",
+        "background_color": "#070F1E",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "20",
+          "bottom": "100",
+          "left": "20",
+          "isLinked": false
+        },
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.05)"
+      },
+      "elements": [
+        {
+          "id": "sc00043",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Faça seu Auto Diagnóstico Gratuito",
+            "header_size": "h2",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_h2",
+            "title_color": "globals/colors?id=sc_title",
+            "_title": "Título"
+          }
+        },
+        {
+          "id": "sc00044",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Responda as questões abaixo elaboradas por nossos consultores e veja o seu laudo orientativo de performance em tempo real.</p>",
+            "align": "center",
+            "typography_typography": "globals/typography?id=text",
+            "text_color": "globals/colors?id=sc_muted",
+            "_title": "Texto",
+            "_element_custom_width": {
+              "unit": "px",
+              "size": 680
+            }
+          }
+        },
+        {
+          "id": "sc00066",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "flex_direction": "column",
+            "content_width": "full",
+            "width": {
+              "unit": "px",
+              "size": 900
+            },
+            "width_mobile": {
+              "unit": "%",
+              "size": 100
+            },
+            "background_background": "classic",
+            "background_color": "rgba(223,183,88,0.06)",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "border_color": "rgba(223,183,88,0.2)",
+            "border_radius": {
+              "unit": "px",
+              "top": "12",
+              "right": "12",
+              "bottom": "12",
+              "left": "12",
+              "isLinked": true
+            },
+            "padding": {
+              "unit": "px",
+              "top": "32",
+              "right": "28",
+              "bottom": "32",
+              "left": "28",
+              "isLinked": false
+            },
+            "flex_gap": {
+              "unit": "px",
+              "size": 10
+            },
+            "_title": "Card",
+            "flex_align_items": "center"
+          },
+          "elements": [
+            {
+              "id": "sc00045",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Termômetro de Auto Gestão Empresarial",
+                "header_size": "span",
+                "align": "center",
+                "typography_typography": "globals/typography?id=sc_label",
+                "title_color": "globals/colors?id=sc_gold",
+                "_title": "Rótulo"
+              }
+            },
+            {
+              "id": "sc00046",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Termômetro de Auto Gestão Empresarial",
+                "header_size": "h2",
+                "align": "center",
+                "typography_typography": "globals/typography?id=sc_h2",
+                "title_color": "globals/colors?id=sc_title",
+                "_title": "Título"
+              }
+            },
+            {
+              "id": "sc00047",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Descubra o estado real da gestão do seu negócio em menos de 3 minutos. Avalie os 5 Pilares de crescimento e receba um laudo orientativo exclusivo com o seu termômetro.</p>",
+                "align": "center",
+                "typography_typography": "globals/typography?id=text",
+                "text_color": "globals/colors?id=sc_text",
+                "_title": "Texto",
+                "_element_custom_width": {
+                  "unit": "px",
+                  "size": 640
+                }
+              }
+            },
+            {
+              "id": "sc00063",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "row",
+                "flex_justify_content": "center",
+                "flex_align_items": "stretch",
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 24
+                },
+                "flex_wrap": "wrap",
+                "flex_direction_mobile": "column",
+                "_title": "Pilares"
+              },
+              "elements": [
+                {
+                  "id": "sc00050",
+                  "elType": "container",
+                  "isInner": true,
+                  "settings": {
+                    "flex_direction": "column",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 20
+                    },
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100
+                    },
+                    "background_background": "classic",
+                    "background_color": "rgba(11,21,40,0.6)",
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "border_color": "rgba(255,255,255,0.05)",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "12",
+                      "right": "12",
+                      "bottom": "12",
+                      "left": "12",
+                      "isLinked": true
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "16",
+                      "right": "12",
+                      "bottom": "16",
+                      "left": "12",
+                      "isLinked": false
+                    },
+                    "flex_gap": {
+                      "unit": "px",
+                      "size": 10
+                    },
+                    "_title": "Card"
+                  },
+                  "elements": [
+                    {
+                      "id": "sc00048",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Pilar 01",
+                        "header_size": "span",
+                        "align": "center",
+                        "typography_typography": "globals/typography?id=sc_label",
+                        "title_color": "globals/colors?id=sc_gold",
+                        "_title": "Rótulo"
+                      }
+                    },
+                    {
+                      "id": "sc00049",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Estratégia",
+                        "header_size": "h4",
+                        "align": "center",
+                        "title_color": "globals/colors?id=sc_title",
+                        "_title": "Pilar"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "sc00053",
+                  "elType": "container",
+                  "isInner": true,
+                  "settings": {
+                    "flex_direction": "column",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 20
+                    },
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100
+                    },
+                    "background_background": "classic",
+                    "background_color": "rgba(11,21,40,0.6)",
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "border_color": "rgba(255,255,255,0.05)",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "12",
+                      "right": "12",
+                      "bottom": "12",
+                      "left": "12",
+                      "isLinked": true
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "16",
+                      "right": "12",
+                      "bottom": "16",
+                      "left": "12",
+                      "isLinked": false
+                    },
+                    "flex_gap": {
+                      "unit": "px",
+                      "size": 10
+                    },
+                    "_title": "Card"
+                  },
+                  "elements": [
+                    {
+                      "id": "sc00051",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Pilar 02",
+                        "header_size": "span",
+                        "align": "center",
+                        "typography_typography": "globals/typography?id=sc_label",
+                        "title_color": "globals/colors?id=sc_gold",
+                        "_title": "Rótulo"
+                      }
+                    },
+                    {
+                      "id": "sc00052",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Financeiro",
+                        "header_size": "h4",
+                        "align": "center",
+                        "title_color": "globals/colors?id=sc_title",
+                        "_title": "Pilar"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "sc00056",
+                  "elType": "container",
+                  "isInner": true,
+                  "settings": {
+                    "flex_direction": "column",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 20
+                    },
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100
+                    },
+                    "background_background": "classic",
+                    "background_color": "rgba(11,21,40,0.6)",
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "border_color": "rgba(255,255,255,0.05)",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "12",
+                      "right": "12",
+                      "bottom": "12",
+                      "left": "12",
+                      "isLinked": true
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "16",
+                      "right": "12",
+                      "bottom": "16",
+                      "left": "12",
+                      "isLinked": false
+                    },
+                    "flex_gap": {
+                      "unit": "px",
+                      "size": 10
+                    },
+                    "_title": "Card"
+                  },
+                  "elements": [
+                    {
+                      "id": "sc00054",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Pilar 03",
+                        "header_size": "span",
+                        "align": "center",
+                        "typography_typography": "globals/typography?id=sc_label",
+                        "title_color": "globals/colors?id=sc_gold",
+                        "_title": "Rótulo"
+                      }
+                    },
+                    {
+                      "id": "sc00055",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Comercial",
+                        "header_size": "h4",
+                        "align": "center",
+                        "title_color": "globals/colors?id=sc_title",
+                        "_title": "Pilar"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "sc00059",
+                  "elType": "container",
+                  "isInner": true,
+                  "settings": {
+                    "flex_direction": "column",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 20
+                    },
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100
+                    },
+                    "background_background": "classic",
+                    "background_color": "rgba(11,21,40,0.6)",
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "border_color": "rgba(255,255,255,0.05)",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "12",
+                      "right": "12",
+                      "bottom": "12",
+                      "left": "12",
+                      "isLinked": true
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "16",
+                      "right": "12",
+                      "bottom": "16",
+                      "left": "12",
+                      "isLinked": false
+                    },
+                    "flex_gap": {
+                      "unit": "px",
+                      "size": 10
+                    },
+                    "_title": "Card"
+                  },
+                  "elements": [
+                    {
+                      "id": "sc00057",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Pilar 04",
+                        "header_size": "span",
+                        "align": "center",
+                        "typography_typography": "globals/typography?id=sc_label",
+                        "title_color": "globals/colors?id=sc_gold",
+                        "_title": "Rótulo"
+                      }
+                    },
+                    {
+                      "id": "sc00058",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Estrutura",
+                        "header_size": "h4",
+                        "align": "center",
+                        "title_color": "globals/colors?id=sc_title",
+                        "_title": "Pilar"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "sc00062",
+                  "elType": "container",
+                  "isInner": true,
+                  "settings": {
+                    "flex_direction": "column",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 20
+                    },
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100
+                    },
+                    "background_background": "classic",
+                    "background_color": "rgba(11,21,40,0.6)",
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "border_color": "rgba(255,255,255,0.05)",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "12",
+                      "right": "12",
+                      "bottom": "12",
+                      "left": "12",
+                      "isLinked": true
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "16",
+                      "right": "12",
+                      "bottom": "16",
+                      "left": "12",
+                      "isLinked": false
+                    },
+                    "flex_gap": {
+                      "unit": "px",
+                      "size": 10
+                    },
+                    "_title": "Card"
+                  },
+                  "elements": [
+                    {
+                      "id": "sc00060",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Pilar 05",
+                        "header_size": "span",
+                        "align": "center",
+                        "typography_typography": "globals/typography?id=sc_label",
+                        "title_color": "globals/colors?id=sc_gold",
+                        "_title": "Rótulo"
+                      }
+                    },
+                    {
+                      "id": "sc00061",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Operações",
+                        "header_size": "h4",
+                        "align": "center",
+                        "title_color": "globals/colors?id=sc_title",
+                        "_title": "Pilar"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "sc00064",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Iniciar Auto Diagnóstico Gratuito",
+                "link": {
+                  "url": "#diagnostico"
+                },
+                "typography_typography": "globals/typography?id=accent",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "8",
+                  "right": "8",
+                  "bottom": "8",
+                  "left": "8",
+                  "isLinked": true
+                },
+                "text_padding": {
+                  "unit": "px",
+                  "top": "16",
+                  "right": "32",
+                  "bottom": "16",
+                  "left": "32",
+                  "isLinked": false
+                },
+                "_title": "Botão Dourado",
+                "button_text_color": "#070F1E",
+                "background_color": "globals/colors?id=sc_gold",
+                "button_box_shadow_box_shadow_type": "yes",
+                "button_box_shadow_box_shadow": {
+                  "horizontal": 0,
+                  "vertical": 6,
+                  "blur": 24,
+                  "spread": 0,
+                  "color": "rgba(223,183,88,0.35)"
+                },
+                "selected_icon": {
+                  "value": "fas fa-arrow-right",
+                  "library": "fa-solid"
+                },
+                "icon_align": "right"
+              }
+            },
+            {
+              "id": "sc00065",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>*Não coletamos dados sigilosos da sua conta bancária ou faturamento real.</p>",
+                "align": "center",
+                "typography_typography": "globals/typography?id=text",
+                "text_color": "globals/colors?id=sc_muted",
+                "_title": "Texto",
+                "_element_custom_width": {
+                  "unit": "px",
+                  "size": 640
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sc00077",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "unit": "px",
+          "size": 20
+        },
+        "_title": "Mentor",
+        "flex_direction_mobile": "column",
+        "background_background": "classic",
+        "background_color": "#091120",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "20",
+          "bottom": "100",
+          "left": "20",
+          "isLinked": false
+        },
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.05)"
+      },
+      "elements": [
+        {
+          "id": "sc00068",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "space-between",
+            "flex_align_items": "center",
+            "flex_gap": {
+              "unit": "px",
+              "size": 40
+            },
+            "flex_wrap": "wrap",
+            "flex_direction_mobile": "column",
+            "_title": "Mentor",
+            "width": {
+              "unit": "px",
+              "size": 1100
+            }
+          },
+          "elements": [
+            {
+              "id": "sc00069",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 42
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 8
+                },
+                "_title": "Foto"
+              },
+              "elements": [
+                {
+                  "id": "sc00070",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "image": {
+                      "url": "https://novo.smartcompany.com.br/wp-content/uploads/Ola-sou-Antonio-Geraldes-copia-scaled.jpg",
+                      "alt": "Antonio Geraldes - Mentor Smart Company"
+                    },
+                    "image_size": "full",
+                    "_title": "Imagem",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "12",
+                      "right": "12",
+                      "bottom": "12",
+                      "left": "12",
+                      "isLinked": true
+                    }
+                  }
+                },
+                {
+                  "id": "sc00071",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Antonio Geraldes",
+                    "header_size": "h4",
+                    "align": "center",
+                    "title_color": "globals/colors?id=sc_title",
+                    "_title": "Nome"
+                  }
+                },
+                {
+                  "id": "sc00072",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Consultoria e gestão - Smart Company - Antonio Geraldes Gestor</p>",
+                    "align": "center",
+                    "text_color": "globals/colors?id=sc_gold",
+                    "_title": "Legenda",
+                    "typography_typography": "globals/typography?id=sc_label"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00076",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 50
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00073",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Seu Mentor Antonio Geraldes",
+                    "header_size": "span",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_label",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Rótulo"
+                  }
+                },
+                {
+                  "id": "sc00074",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "30 Anos de Experiência e Mais de 100 Consultorias",
+                    "header_size": "h2",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_h2",
+                    "title_color": "globals/colors?id=sc_title",
+                    "_title": "Título"
+                  }
+                },
+                {
+                  "id": "sc00075",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Empresário há mais de 30 anos, investidor e mentor empresarial. Entre as empresas que fundei, está a Smart Company – Estratégia, Gestão e Resultados e Criei o AG Expert – Auto Gestão Empresarial; C.I.A.: Comercial Inteligente e Ativo e outros Programas para Gestão. Portanto, prestei Consultoria presencialmente em mais de 100 empresas sempre motivado por gerar resultados positivos. Como resultado, realizei Diagnósticos, Planos de Ação e deixei um legado de equipes extraordinárias, contribuindo para o sucesso destas empresas.</p><p>O resultado da nossa metodologia é um formato de Gestão onde o Dono e os Gestores podem focar na Estratégia e no Crescimento do Negócio.</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_text",
+                    "_title": "Texto"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sc00094",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "unit": "px",
+          "size": 20
+        },
+        "_title": "Por Que Escolhem",
+        "flex_direction_mobile": "column",
+        "background_background": "classic",
+        "background_color": "#091120",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "20",
+          "bottom": "100",
+          "left": "20",
+          "isLinked": false
+        },
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.05)"
+      },
+      "elements": [
+        {
+          "id": "sc00078",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Compromisso",
+            "header_size": "span",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_label",
+            "title_color": "globals/colors?id=sc_gold",
+            "_title": "Rótulo"
+          }
+        },
+        {
+          "id": "sc00079",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Por que os empresários escolhem a Smart Company?",
+            "header_size": "h2",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_h2",
+            "title_color": "globals/colors?id=sc_title",
+            "_title": "Título"
+          }
+        },
+        {
+          "id": "sc00080",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Nosso formato de atendimento e metodologia são construídos sob medida (Taylor Made) para atuar na raiz das dificuldades empresariais.</p>",
+            "align": "center",
+            "typography_typography": "globals/typography?id=text",
+            "text_color": "globals/colors?id=sc_muted",
+            "_title": "Texto",
+            "_element_custom_width": {
+              "unit": "px",
+              "size": 640
+            }
+          }
+        },
+        {
+          "id": "sc00093",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "flex_align_items": "stretch",
+            "flex_gap": {
+              "unit": "px",
+              "size": 24
+            },
+            "flex_wrap": "wrap",
+            "flex_direction_mobile": "column",
+            "_title": "Cards"
+          },
+          "elements": [
+            {
+              "id": "sc00084",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 33.33
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00081",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "01",
+                    "header_size": "span",
+                    "typography_typography": "globals/typography?id=sc_h1",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Número"
+                  }
+                },
+                {
+                  "id": "sc00082",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Aumentamos as Vendas",
+                    "header_size": "h3",
+                    "align": "left",
+                    "title_color": "globals/colors?id=sc_title",
+                    "_title": "Card"
+                  }
+                },
+                {
+                  "id": "sc00083",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Nosso formato de Gestão Comercial, já testado e comprovado em diversos segmentos, garante aumentar as vendas da sua empresa. Portanto, com Gestão Diária, semanal e mensal, contribuindo para o atingimento das Metas. Assim, você terá resultados positivos.</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00088",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 33.33
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00085",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "02",
+                    "header_size": "span",
+                    "typography_typography": "globals/typography?id=sc_h1",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Número"
+                  }
+                },
+                {
+                  "id": "sc00086",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Geramos Caixa",
+                    "header_size": "h3",
+                    "align": "left",
+                    "title_color": "globals/colors?id=sc_title",
+                    "_title": "Card"
+                  }
+                },
+                {
+                  "id": "sc00087",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Usamos um conjunto de ferramentas para melhorar seu caixa; consequentemente, através da Gestão do estoque, Redução de custo, Alavancagem de vendas e Controle de despesas. Sobrar dinheiro na sua empresa é sempre um desafio que gostamos de enfrentar.</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00092",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 33.33
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00089",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "03",
+                    "header_size": "span",
+                    "typography_typography": "globals/typography?id=sc_h1",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Número"
+                  }
+                },
+                {
+                  "id": "sc00090",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Empresa Lucrativa com Gestão de forma simples e prática",
+                    "header_size": "h3",
+                    "align": "left",
+                    "title_color": "globals/colors?id=sc_title",
+                    "_title": "Card"
+                  }
+                },
+                {
+                  "id": "sc00091",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Nosso atendimento personalizado, portanto, com as melhores práticas de gestão, torna sua rotina mais fácil e permite que você entenda os dados da sua empresa para tomar decisões assertivas e lucrar mais!</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sc00110",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "unit": "px",
+          "size": 20
+        },
+        "_title": "Nossas Formações On Line",
+        "flex_direction_mobile": "column",
+        "background_background": "classic",
+        "background_color": "#070F1E",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "20",
+          "bottom": "100",
+          "left": "20",
+          "isLinked": false
+        },
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.05)"
+      },
+      "elements": [
+        {
+          "id": "sc00095",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "NOSSAS FORMAÇÕES ON LINE",
+            "header_size": "h2",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_h2",
+            "title_color": "globals/colors?id=sc_title",
+            "_title": "Título"
+          }
+        },
+        {
+          "id": "sc00096",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Treinamentos práticos com as mesmas táticas aplicadas em nossas consultorias corporativas.</p>",
+            "align": "center",
+            "typography_typography": "globals/typography?id=text",
+            "text_color": "globals/colors?id=sc_muted",
+            "_title": "Texto",
+            "_element_custom_width": {
+              "unit": "px",
+              "size": 680
+            }
+          }
+        },
+        {
+          "id": "sc00109",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "flex_align_items": "stretch",
+            "flex_gap": {
+              "unit": "px",
+              "size": 24
+            },
+            "flex_wrap": "wrap",
+            "flex_direction_mobile": "column",
+            "_title": "Formações"
+          },
+          "elements": [
+            {
+              "id": "sc00102",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 50
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00097",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "PARA EMPRESÁRIOS",
+                    "header_size": "span",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_label",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Rótulo"
+                  }
+                },
+                {
+                  "id": "sc00098",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Smart Company - AG Expert",
+                    "header_size": "h3",
+                    "align": "left",
+                    "title_color": "globals/colors?id=sc_title",
+                    "_title": "Título"
+                  }
+                },
+                {
+                  "id": "sc00099",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "APRENDA COMO FAZER SEU TIME MELHORAR TODOS OS RESULTADOS",
+                    "header_size": "span",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_label",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Rótulo"
+                  }
+                },
+                {
+                  "id": "sc00100",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>É muito mais que um Curso; portanto, vou te passar o método de Auto Gestão Empresarial para que sua empresa seja menos dependente de você, tendo mais tempo para estratégia. Assim, montando um time que vai entregar resultados em todos os setores através de planos de ação que funcionam de verdade. Definir metas e atingi-las fará parte da cultura do time; consequentemente, o resultado será aumento das vendas, lucro e produtividade. O Programa Empresarial que Alavanca e multiplica sua força de líder!</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                },
+                {
+                  "id": "sc00101",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "COMO MONTAR UM TIME AUTO GERENCIÁVEL",
+                    "link": {
+                      "url": "/auto-gestao-empresarial-para-donos-de-empresas"
+                    },
+                    "typography_typography": "globals/typography?id=accent",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "8",
+                      "right": "8",
+                      "bottom": "8",
+                      "left": "8",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "16",
+                      "right": "32",
+                      "bottom": "16",
+                      "left": "32",
+                      "isLinked": false
+                    },
+                    "_title": "Botão Dourado",
+                    "button_text_color": "#070F1E",
+                    "background_color": "globals/colors?id=sc_gold",
+                    "button_box_shadow_box_shadow_type": "yes",
+                    "button_box_shadow_box_shadow": {
+                      "horizontal": 0,
+                      "vertical": 6,
+                      "blur": 24,
+                      "spread": 0,
+                      "color": "rgba(223,183,88,0.35)"
+                    },
+                    "selected_icon": {
+                      "value": "fas fa-arrow-right",
+                      "library": "fa-solid"
+                    },
+                    "icon_align": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00108",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 50
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00103",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "PARA GESTORES E LIDERES COMERCIAIS",
+                    "header_size": "span",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_label",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Rótulo"
+                  }
+                },
+                {
+                  "id": "sc00104",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Smart Company - AG Expert",
+                    "header_size": "h3",
+                    "align": "left",
+                    "title_color": "globals/colors?id=sc_title",
+                    "_title": "Título"
+                  }
+                },
+                {
+                  "id": "sc00105",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "ESTRUTURAÇÃO DO COMERCIAL E ACELERADOR DE VENDAS",
+                    "header_size": "span",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_label",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Rótulo"
+                  }
+                },
+                {
+                  "id": "sc00106",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Você vai aumentar as vendas, de repente dobrar ou até triplicar, e fazer parte de um grupo seleto de pessoas que tem vendas crescentes! Portanto, o Comercial deve ser inteligente em criar as estratégias e ser ativo na busca de clientes. Usando nossas técnicas extraordinárias, simples e práticas, o método que vou te ensinar mudará a reality do seu comercial. Como resultado, sua empresa se destacará no mercado e alcançará um novo patamar de sucesso.</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                },
+                {
+                  "id": "sc00107",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "COMO ESTRUTURAR UM COMERCIAL COMPLETO",
+                    "link": {
+                      "url": "/curso-cia"
+                    },
+                    "typography_typography": "globals/typography?id=accent",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "8",
+                      "right": "8",
+                      "bottom": "8",
+                      "left": "8",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "16",
+                      "right": "32",
+                      "bottom": "16",
+                      "left": "32",
+                      "isLinked": false
+                    },
+                    "_title": "Botão Dourado",
+                    "button_text_color": "#070F1E",
+                    "background_color": "globals/colors?id=sc_gold",
+                    "button_box_shadow_box_shadow_type": "yes",
+                    "button_box_shadow_box_shadow": {
+                      "horizontal": 0,
+                      "vertical": 6,
+                      "blur": 24,
+                      "spread": 0,
+                      "color": "rgba(223,183,88,0.35)"
+                    },
+                    "selected_icon": {
+                      "value": "fas fa-arrow-right",
+                      "library": "fa-solid"
+                    },
+                    "icon_align": "right"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sc00122",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "unit": "px",
+          "size": 20
+        },
+        "_title": "Agir vs Reagir",
+        "flex_direction_mobile": "column",
+        "background_background": "classic",
+        "background_color": "#091120",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "20",
+          "bottom": "100",
+          "left": "20",
+          "isLinked": false
+        },
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.05)"
+      },
+      "elements": [
+        {
+          "id": "sc00111",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "“EMPRESÁRIO DEVE AGIR ANTES DE REAGIR”",
+            "header_size": "h2",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_h2",
+            "title_color": "globals/colors?id=sc_title",
+            "_title": "Título"
+          }
+        },
+        {
+          "id": "sc00112",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "AGIR É BEM DIFERENTE DE REAGIR.",
+            "header_size": "h3",
+            "align": "center",
+            "typography_typography": "globals/typography?id=secondary",
+            "title_color": "globals/colors?id=sc_gold",
+            "_title": "Destaque"
+          }
+        },
+        {
+          "id": "sc00119",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "flex_align_items": "stretch",
+            "flex_gap": {
+              "unit": "px",
+              "size": 24
+            },
+            "flex_wrap": "wrap",
+            "flex_direction_mobile": "column",
+            "_title": "Agir Reagir"
+          },
+          "elements": [
+            {
+              "id": "sc00115",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 50
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(223,183,88,0.2)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00113",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "AGIR",
+                    "header_size": "h3",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=secondary",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "AGIR"
+                  }
+                },
+                {
+                  "id": "sc00114",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>AGIR: É tomar providências, atuar, fazer, realizar, produzir;</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00118",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 50
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00116",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "REAGIR",
+                    "header_size": "h3",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=secondary",
+                    "title_color": "globals/colors?id=sc_muted",
+                    "_title": "REAGIR"
+                  }
+                },
+                {
+                  "id": "sc00117",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>REAGIR: É exercer reação contra. Opor a uma reação que lhe é contrária.</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sc00120",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Percebe que se trata de uma Atitude, que vem antes da reação? Isso quer dizer que agindo você está sempre um passo a frente. Um passo antes de os problemas ocorrerem (ou piorarem) ou um passo a frente do seu concorrente. Sabe aquele velha e boa frase, é melhor prevenir do que remediar, se aplica exatamente aqui, você toma atitude antes e de forma preventiva. Portanto, seguindo a Metodologia, você vai ganhar liberdade financeira e liberdade de tempo para cuidar do crescimento do seu negócio e terá tempo para sua família e viagens, porque afinal de contas, a verdade é que você não quer só dinheiro, quer as suas liberdades.</p>",
+            "align": "center",
+            "typography_typography": "globals/typography?id=text",
+            "text_color": "globals/colors?id=sc_muted",
+            "_title": "Texto",
+            "_element_custom_width": {
+              "unit": "px",
+              "size": 820
+            }
+          }
+        },
+        {
+          "id": "sc00121",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "Quero agir On Line com o Programa de Auto Gestão",
+            "link": {
+              "url": "/auto-gestao-empresarial-para-donos-de-empresas"
+            },
+            "typography_typography": "globals/typography?id=accent",
+            "border_radius": {
+              "unit": "px",
+              "top": "8",
+              "right": "8",
+              "bottom": "8",
+              "left": "8",
+              "isLinked": true
+            },
+            "text_padding": {
+              "unit": "px",
+              "top": "16",
+              "right": "32",
+              "bottom": "16",
+              "left": "32",
+              "isLinked": false
+            },
+            "_title": "Botão Outline",
+            "button_text_color": "globals/colors?id=sc_title",
+            "background_background": "classic",
+            "background_color": "rgba(255,255,255,0.05)",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "border_color": "rgba(255,255,255,0.2)",
+            "selected_icon": {
+              "value": "fas fa-arrow-right",
+              "library": "fa-solid"
+            },
+            "icon_align": "right"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sc00133",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "unit": "px",
+          "size": 20
+        },
+        "_title": "Expert em Auto Gestão",
+        "flex_direction_mobile": "column",
+        "background_background": "classic",
+        "background_color": "#070F1E",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "20",
+          "bottom": "100",
+          "left": "20",
+          "isLinked": false
+        },
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.05)"
+      },
+      "elements": [
+        {
+          "id": "sc00123",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "é preciso coragem para ser empresário,<br>mais que isso,<br>é preciso ser EXPERT EM AUTO GESTÃO.",
+            "header_size": "h2",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_h2",
+            "title_color": "globals/colors?id=sc_title",
+            "_title": "Título"
+          }
+        },
+        {
+          "id": "sc00124",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Você escolheu ser empresário por um motivo, porque o seu espírito empreendedor não se acomoda com qualquer situação. E com o AG Expert você não está mais sozinho na batalha, terá nossas técnicas e ferramentas de combate e tornará seu time + capacitado e comprometido.</p>",
+            "align": "center",
+            "typography_typography": "globals/typography?id=text",
+            "text_color": "globals/colors?id=sc_muted",
+            "_title": "Texto",
+            "_element_custom_width": {
+              "unit": "px",
+              "size": 720
+            }
+          }
+        },
+        {
+          "id": "sc00129",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "flex_align_items": "stretch",
+            "flex_gap": {
+              "unit": "px",
+              "size": 24
+            },
+            "flex_wrap": "wrap",
+            "flex_direction_mobile": "column",
+            "_title": "Diferenciais"
+          },
+          "elements": [
+            {
+              "id": "sc00126",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 50
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00125",
+                  "elType": "widget",
+                  "widgetType": "icon-box",
+                  "settings": {
+                    "title_text": "Auto Gestão",
+                    "description_text": "Aqui as coisas acontecem como deveriam, portanto, há um ciclo de monitoramento onde o seu time está capacitado para dar soluções. Como resultado, os setores vão se tornando menos dependentes de você, o que, consequentemente, esclarece que há uma autonomia maior sendo desenvolvida.",
+                    "selected_icon": {
+                      "value": "fas fa-bolt",
+                      "library": "fa-solid"
+                    },
+                    "position": "top",
+                    "primary_color": "globals/colors?id=sc_gold",
+                    "title_color": "globals/colors?id=sc_title",
+                    "description_color": "globals/colors?id=sc_muted",
+                    "title_typography_typography": "globals/typography?id=secondary",
+                    "description_typography_typography": "globals/typography?id=text",
+                    "text_align": "center",
+                    "_title": "Icon Box"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00128",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 50
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00127",
+                  "elType": "widget",
+                  "widgetType": "icon-box",
+                  "settings": {
+                    "title_text": "Inspirada em Resultados",
+                    "description_text": "A Cultura da Auto-Gestão faz com que as Metas fiquem claras, portanto, seu time absorve um formato de Gestão eficiente e se motiva a buscar resultados positivos tanto para eles quanto para sua empresa.",
+                    "selected_icon": {
+                      "value": "fas fa-award",
+                      "library": "fa-solid"
+                    },
+                    "position": "top",
+                    "primary_color": "globals/colors?id=sc_gold",
+                    "title_color": "globals/colors?id=sc_title",
+                    "description_color": "globals/colors?id=sc_muted",
+                    "title_typography_typography": "globals/typography?id=secondary",
+                    "description_typography_typography": "globals/typography?id=text",
+                    "text_align": "center",
+                    "_title": "Icon Box"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sc00132",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "flex_direction": "column",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 90
+            },
+            "width_mobile": {
+              "unit": "%",
+              "size": 100
+            },
+            "background_background": "classic",
+            "background_color": "rgba(223,183,88,0.08)",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "border_color": "rgba(223,183,88,0.2)",
+            "border_radius": {
+              "unit": "px",
+              "top": "12",
+              "right": "12",
+              "bottom": "12",
+              "left": "12",
+              "isLinked": true
+            },
+            "padding": {
+              "unit": "px",
+              "top": "32",
+              "right": "28",
+              "bottom": "32",
+              "left": "28",
+              "isLinked": false
+            },
+            "flex_gap": {
+              "unit": "px",
+              "size": 10
+            },
+            "_title": "Card",
+            "flex_align_items": "center"
+          },
+          "elements": [
+            {
+              "id": "sc00130",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "title_text": "Enquanto você apaga incêndio todos os dias, seu concorrente pode estar neste momento, conquistando a Auto-Gestão e fazendo a empresa dele crescer. Tome uma atitude agora!",
+                "description_text": "Tome uma atitude agora!",
+                "selected_icon": {
+                  "value": "fas fa-fire",
+                  "library": "fa-solid"
+                },
+                "position": "top",
+                "primary_color": "globals/colors?id=sc_gold",
+                "title_color": "globals/colors?id=sc_gold",
+                "description_color": "globals/colors?id=sc_muted",
+                "title_typography_typography": "globals/typography?id=secondary",
+                "description_typography_typography": "globals/typography?id=text",
+                "text_align": "center",
+                "_title": "Icon Box"
+              }
+            },
+            {
+              "id": "sc00131",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Quero me tornar um expert em gestão",
+                "link": {
+                  "url": "/auto-gestao-empresarial-para-donos-de-empresas"
+                },
+                "typography_typography": "globals/typography?id=accent",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "8",
+                  "right": "8",
+                  "bottom": "8",
+                  "left": "8",
+                  "isLinked": true
+                },
+                "text_padding": {
+                  "unit": "px",
+                  "top": "16",
+                  "right": "32",
+                  "bottom": "16",
+                  "left": "32",
+                  "isLinked": false
+                },
+                "_title": "Botão Dourado",
+                "button_text_color": "#070F1E",
+                "background_color": "globals/colors?id=sc_gold",
+                "button_box_shadow_box_shadow_type": "yes",
+                "button_box_shadow_box_shadow": {
+                  "horizontal": 0,
+                  "vertical": 6,
+                  "blur": 24,
+                  "spread": 0,
+                  "color": "rgba(223,183,88,0.35)"
+                },
+                "selected_icon": {
+                  "value": "fas fa-arrow-right",
+                  "library": "fa-solid"
+                },
+                "icon_align": "right"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sc00158",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "unit": "px",
+          "size": 20
+        },
+        "_title": "Transformação",
+        "flex_direction_mobile": "column",
+        "background_background": "classic",
+        "background_color": "#091120",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "20",
+          "bottom": "100",
+          "left": "20",
+          "isLinked": false
+        },
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.05)"
+      },
+      "elements": [
+        {
+          "id": "sc00134",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Smart Company — Transformação!",
+            "header_size": "h2",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_h2",
+            "title_color": "globals/colors?id=sc_title",
+            "_title": "Título"
+          }
+        },
+        {
+          "id": "sc00135",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>O AG EXPERT é um programa completo que orienta de forma objetiva e clara os passos essenciais para o empresário conduzir o negócio dele de forma mais assertiva, com mais clareza, tranquilidade e sempre envolvendo sua equipe na busca de melhoria dos resultados da empresa, sejam eles no aumento das vendas, lucro ou performance de entrega.</p>",
+            "align": "center",
+            "typography_typography": "globals/typography?id=text",
+            "text_color": "globals/colors?id=sc_muted",
+            "_title": "Texto",
+            "_element_custom_width": {
+              "unit": "px",
+              "size": 760
+            }
+          }
+        },
+        {
+          "id": "sc00146",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "flex_align_items": "stretch",
+            "flex_gap": {
+              "unit": "px",
+              "size": 24
+            },
+            "flex_wrap": "wrap",
+            "flex_direction_mobile": "column",
+            "_title": "Focos"
+          },
+          "elements": [
+            {
+              "id": "sc00140",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 50
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00136",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Dono Estrategista",
+                    "header_size": "span",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_label",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Rótulo"
+                  }
+                },
+                {
+                  "id": "sc00137",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "O Foco do Dono",
+                    "header_size": "h3",
+                    "align": "left",
+                    "title_color": "globals/colors?id=sc_title",
+                    "_title": "Título"
+                  }
+                },
+                {
+                  "id": "sc00138",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>A Smart Company foca no Crescimento Estratégico e geração de Lucro. Portanto, tem a tranquilidade de saber que seu time vai entregar os resultados, o que permite pensar na estratégia da empresa. Em primeiro lugar, a empresa prioriza a eficiência operacional, certamente, com a convicção de que isso impulsionará seu sucesso. Além disso, está sempre em busca de inovação e melhoria contínua. Em conclusão, a Smart Company é uma referência no mercado, resumindo, pela sua abordagem focada e eficaz.</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                },
+                {
+                  "id": "sc00139",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Consultoria e gestão - Smart Company - Imagem ilustrativa</p>",
+                    "align": "left",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Legenda",
+                    "typography_typography": "globals/typography?id=sc_label"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00145",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 50
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00141",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Time Autogerenciável",
+                    "header_size": "span",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_label",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Rótulo"
+                  }
+                },
+                {
+                  "id": "sc00142",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "O Foco da Equipe",
+                    "header_size": "h3",
+                    "align": "left",
+                    "title_color": "globals/colors?id=sc_title",
+                    "_title": "Título"
+                  }
+                },
+                {
+                  "id": "sc00143",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>A Smart é comprometida com os processos, organização e entregas. Assim, foca na solução dos problemas, liberando o empresário para pensar na estratégia da empresa. Consequentemente, permite que o gestor direcione seus esforços para áreas mais estratégicas. Além disso, alavancando estes processos, a Smart garante maior eficiência operacional. Enquanto isso, o empresário pode se dedicar a questões de maior importância.</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                },
+                {
+                  "id": "sc00144",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Consultoria e gestão - Smart Company - Imagem ilustrativa</p>",
+                    "align": "left",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Legenda",
+                    "typography_typography": "globals/typography?id=sc_label"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sc00147",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "space-between",
+            "flex_align_items": "center",
+            "flex_gap": {
+              "unit": "px",
+              "size": 40
+            },
+            "flex_wrap": "wrap",
+            "flex_direction_mobile": "column",
+            "_title": "Alavanca",
+            "width": {
+              "unit": "px",
+              "size": 1100
+            }
+          },
+          "elements": [
+            {
+              "id": "sc00148",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 55
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 14
+                },
+                "_title": "Texto Alavanca"
+              },
+              "elements": [
+                {
+                  "id": "sc00149",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Alavancagem Empresarial",
+                    "header_size": "span",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_label",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Rótulo"
+                  }
+                },
+                {
+                  "id": "sc00150",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "O curso de Auto Gestão Expert é como uma Alavanca e multiplica sua força",
+                    "header_size": "h3",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_h2",
+                    "title_color": "globals/colors?id=sc_title",
+                    "_title": "Título"
+                  }
+                },
+                {
+                  "id": "sc00151",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>O curso de Auto Gestão Expert é como uma Alavanca e multiplica sua força. Traz um pacote completo de soluções que orienta o empresário a envolver equipe na busca de melhoria dos resultados da empresa, sejam eles no aumento das vendas, lucro ou performance de entrega. A equipe passa a focar na solução dos problemas e o Dono na geração de Lucro. Com o tempo vai liberando o empresário para pensar na estratégia da empresa.</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                },
+                {
+                  "id": "sc00152",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>O AG EXPERT (AUTO GESTÃO EXPERT) da Smart Company é um programa completo que orienta de forma muito objetiva e clara os passos essenciais para o empresário conseguir conduzir o negócio dele de forma mais assertiva, com mais clareza, tranquilidade e sempre envolvendo sua equipe na busca de melhoria dos resultados da empresa, sejam eles no aumento das vendas, lucro ou performance de entrega.</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_text",
+                    "_title": "Texto"
+                  }
+                },
+                {
+                  "id": "sc00153",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>A proposta é que o Dono tenha a “Gestão na Mão” com ferramentas eficazes, montar um time capacitado e conduzir de forma motivadora, medindo o desempenho dela, para que atinja os objetivos do negócio.</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                },
+                {
+                  "id": "sc00154",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Quero me tornar um expert em gestão",
+                    "link": {
+                      "url": "/auto-gestao-empresarial-para-donos-de-empresas"
+                    },
+                    "typography_typography": "globals/typography?id=accent",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "8",
+                      "right": "8",
+                      "bottom": "8",
+                      "left": "8",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "16",
+                      "right": "32",
+                      "bottom": "16",
+                      "left": "32",
+                      "isLinked": false
+                    },
+                    "_title": "Botão Dourado",
+                    "button_text_color": "#070F1E",
+                    "background_color": "globals/colors?id=sc_gold",
+                    "button_box_shadow_box_shadow_type": "yes",
+                    "button_box_shadow_box_shadow": {
+                      "horizontal": 0,
+                      "vertical": 6,
+                      "blur": 24,
+                      "spread": 0,
+                      "color": "rgba(223,183,88,0.35)"
+                    },
+                    "selected_icon": {
+                      "value": "fas fa-arrow-right",
+                      "library": "fa-solid"
+                    },
+                    "icon_align": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00155",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 38
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "flex_align_items": "center",
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 8
+                },
+                "_title": "Livro"
+              },
+              "elements": [
+                {
+                  "id": "sc00156",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "image": {
+                      "url": "https://novo.smartcompany.com.br/wp-content/uploads/Livro-AG.png",
+                      "alt": "Livro Auto Gestão Expert"
+                    },
+                    "image_size": "full",
+                    "_title": "Imagem",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "12",
+                      "right": "12",
+                      "bottom": "12",
+                      "left": "12",
+                      "isLinked": true
+                    }
+                  }
+                },
+                {
+                  "id": "sc00157",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Consultoria e gestão - Smart Company - Ebook AG Expert</p>",
+                    "align": "center",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Legenda",
+                    "typography_typography": "globals/typography?id=sc_label"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sc00180",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "unit": "px",
+          "size": 20
+        },
+        "_title": "Conteúdos Cortesia",
+        "flex_direction_mobile": "column",
+        "background_background": "classic",
+        "background_color": "#070F1E",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "20",
+          "bottom": "100",
+          "left": "20",
+          "isLinked": false
+        },
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.05)"
+      },
+      "elements": [
+        {
+          "id": "sc00159",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "100% Gratuito",
+            "header_size": "span",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_label",
+            "title_color": "globals/colors?id=sc_gold",
+            "_title": "Rótulo"
+          }
+        },
+        {
+          "id": "sc00160",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Conteúdos Cortesia",
+            "header_size": "h2",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_h2",
+            "title_color": "globals/colors?id=sc_title",
+            "_title": "Título"
+          }
+        },
+        {
+          "id": "sc00161",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Temos e-books gratuitos para ajudar você a comandar a sua empresa e melhorar seu rendimento como empresário.</p>",
+            "align": "center",
+            "typography_typography": "globals/typography?id=text",
+            "text_color": "globals/colors?id=sc_muted",
+            "_title": "Texto",
+            "_element_custom_width": {
+              "unit": "px",
+              "size": 680
+            }
+          }
+        },
+        {
+          "id": "sc00178",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "flex_align_items": "stretch",
+            "flex_gap": {
+              "unit": "px",
+              "size": 24
+            },
+            "flex_wrap": "wrap",
+            "flex_direction_mobile": "column",
+            "_title": "E-books"
+          },
+          "elements": [
+            {
+              "id": "sc00169",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 50
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00162",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "image": {
+                      "url": "https://novo.smartcompany.com.br/wp-content/uploads/ebook-amazon.png",
+                      "alt": "A Regra da Amazon"
+                    },
+                    "image_size": "full",
+                    "_title": "Imagem",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "12",
+                      "right": "12",
+                      "bottom": "12",
+                      "left": "12",
+                      "isLinked": true
+                    }
+                  }
+                },
+                {
+                  "id": "sc00163",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Smart Company - imagem (conteúdo cortesia)</p>",
+                    "align": "center",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Legenda",
+                    "typography_typography": "globals/typography?id=sc_label"
+                  }
+                },
+                {
+                  "id": "sc00164",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Grátis",
+                    "header_size": "span",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_label",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Rótulo"
+                  }
+                },
+                {
+                  "id": "sc00165",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "A Regra da Amazon",
+                    "header_size": "h3",
+                    "align": "left",
+                    "title_color": "globals/colors?id=sc_title",
+                    "_title": "Título"
+                  }
+                },
+                {
+                  "id": "sc00166",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Jeff Bezos",
+                    "header_size": "span",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_label",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Rótulo"
+                  }
+                },
+                {
+                  "id": "sc00167",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Como a mentalidade do cliente em primeiro lugar transformou a maior empresa do mundo. Lições aplicáveis ao seu negócio.</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                },
+                {
+                  "id": "sc00168",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Baixar E-book",
+                    "link": {
+                      "url": "http://www-programaagir-com-br.rds.land/regra-amazon"
+                    },
+                    "typography_typography": "globals/typography?id=accent",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "8",
+                      "right": "8",
+                      "bottom": "8",
+                      "left": "8",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "16",
+                      "right": "32",
+                      "bottom": "16",
+                      "left": "32",
+                      "isLinked": false
+                    },
+                    "_title": "Botão Outline",
+                    "button_text_color": "globals/colors?id=sc_title",
+                    "background_background": "classic",
+                    "background_color": "rgba(255,255,255,0.05)",
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "border_color": "rgba(255,255,255,0.2)",
+                    "selected_icon": {
+                      "value": "fas fa-arrow-right",
+                      "library": "fa-solid"
+                    },
+                    "icon_align": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sc00177",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "flex_direction": "column",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 50
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100
+                },
+                "background_background": "classic",
+                "background_color": "rgba(11,21,40,0.6)",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "rgba(255,255,255,0.05)",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12",
+                  "isLinked": true
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "28",
+                  "bottom": "32",
+                  "left": "28",
+                  "isLinked": false
+                },
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 10
+                },
+                "_title": "Card"
+              },
+              "elements": [
+                {
+                  "id": "sc00170",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "image": {
+                      "url": "https://novo.smartcompany.com.br/wp-content/uploads/ebook-apple.png",
+                      "alt": "Os Segredos de Steve Jobs"
+                    },
+                    "image_size": "full",
+                    "_title": "Imagem",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "12",
+                      "right": "12",
+                      "bottom": "12",
+                      "left": "12",
+                      "isLinked": true
+                    }
+                  }
+                },
+                {
+                  "id": "sc00171",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Smart Company - Ebook (cortesia)</p>",
+                    "align": "center",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Legenda",
+                    "typography_typography": "globals/typography?id=sc_label"
+                  }
+                },
+                {
+                  "id": "sc00172",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Grátis",
+                    "header_size": "span",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_label",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Rótulo"
+                  }
+                },
+                {
+                  "id": "sc00173",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Os Segredos de Steve Jobs",
+                    "header_size": "h3",
+                    "align": "left",
+                    "title_color": "globals/colors?id=sc_title",
+                    "_title": "Título"
+                  }
+                },
+                {
+                  "id": "sc00174",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Apple & Inovação",
+                    "header_size": "span",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=sc_label",
+                    "title_color": "globals/colors?id=sc_gold",
+                    "_title": "Rótulo"
+                  }
+                },
+                {
+                  "id": "sc00175",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Os princípios de liderança, inovação e execução que tornaram a Apple a empresa mais valiosa do planeta.</p>",
+                    "align": "left",
+                    "typography_typography": "globals/typography?id=text",
+                    "text_color": "globals/colors?id=sc_muted",
+                    "_title": "Texto"
+                  }
+                },
+                {
+                  "id": "sc00176",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Baixar E-book",
+                    "link": {
+                      "url": "http://www-programaagir-com-br.rds.land/steve-jobs"
+                    },
+                    "typography_typography": "globals/typography?id=accent",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "8",
+                      "right": "8",
+                      "bottom": "8",
+                      "left": "8",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "16",
+                      "right": "32",
+                      "bottom": "16",
+                      "left": "32",
+                      "isLinked": false
+                    },
+                    "_title": "Botão Outline",
+                    "button_text_color": "globals/colors?id=sc_title",
+                    "background_background": "classic",
+                    "background_color": "rgba(255,255,255,0.05)",
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "border_color": "rgba(255,255,255,0.2)",
+                    "selected_icon": {
+                      "value": "fas fa-arrow-right",
+                      "library": "fa-solid"
+                    },
+                    "icon_align": "right"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sc00179",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "Baixe nossos E-books",
+            "link": {
+              "url": "/materiais"
+            },
+            "typography_typography": "globals/typography?id=accent",
+            "border_radius": {
+              "unit": "px",
+              "top": "8",
+              "right": "8",
+              "bottom": "8",
+              "left": "8",
+              "isLinked": true
+            },
+            "text_padding": {
+              "unit": "px",
+              "top": "16",
+              "right": "32",
+              "bottom": "16",
+              "left": "32",
+              "isLinked": false
+            },
+            "_title": "Botão Outline",
+            "button_text_color": "globals/colors?id=sc_title",
+            "background_background": "classic",
+            "background_color": "rgba(255,255,255,0.05)",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "border_color": "rgba(255,255,255,0.2)",
+            "selected_icon": {
+              "value": "fas fa-arrow-right",
+              "library": "fa-solid"
+            },
+            "icon_align": "right"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sc00186",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "unit": "px",
+          "size": 20
+        },
+        "_title": "Notícias",
+        "flex_direction_mobile": "column",
+        "background_background": "classic",
+        "background_color": "#091120",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "20",
+          "bottom": "100",
+          "left": "20",
+          "isLinked": false
+        },
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.05)"
+      },
+      "elements": [
+        {
+          "id": "sc00181",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Blog",
+            "header_size": "span",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_label",
+            "title_color": "globals/colors?id=sc_gold",
+            "_title": "Rótulo"
+          }
+        },
+        {
+          "id": "sc00182",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "Notícias",
+            "header_size": "h2",
+            "align": "center",
+            "typography_typography": "globals/typography?id=sc_h2",
+            "title_color": "globals/colors?id=sc_title",
+            "_title": "Título"
+          }
+        },
+        {
+          "id": "sc00183",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Dicas práticas de estratégia, finanças corporativas, vendas e liderança empresarial.</p>",
+            "align": "center",
+            "typography_typography": "globals/typography?id=text",
+            "text_color": "globals/colors?id=sc_muted",
+            "_title": "Texto",
+            "_element_custom_width": {
+              "unit": "px",
+              "size": 680
+            }
+          }
+        },
+        {
+          "id": "sc00184",
+          "elType": "widget",
+          "widgetType": "posts",
+          "settings": {
+            "posts_per_page": 3,
+            "columns": 3,
+            "_title": "Loop de Posts"
+          }
+        },
+        {
+          "id": "sc00185",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "Acesse mais notícias",
+            "link": {
+              "url": "/blog"
+            },
+            "typography_typography": "globals/typography?id=accent",
+            "border_radius": {
+              "unit": "px",
+              "top": "8",
+              "right": "8",
+              "bottom": "8",
+              "left": "8",
+              "isLinked": true
+            },
+            "text_padding": {
+              "unit": "px",
+              "top": "16",
+              "right": "32",
+              "bottom": "16",
+              "left": "32",
+              "isLinked": false
+            },
+            "_title": "Botão Outline",
+            "button_text_color": "globals/colors?id=sc_title",
+            "background_background": "classic",
+            "background_color": "rgba(255,255,255,0.05)",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "border_color": "rgba(255,255,255,0.2)",
+            "selected_icon": {
+              "value": "fas fa-arrow-right",
+              "library": "fa-solid"
+            },
+            "icon_align": "right"
+          }
+        }
+      ]
+    }
+  ]
+}
